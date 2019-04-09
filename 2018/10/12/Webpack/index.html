@@ -10,7 +10,7 @@
   <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
   
 
-  <title itemprop="name">修饰符 | 強い</title>
+  <title itemprop="name">Webpack | 強い</title>
   
   <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
   
@@ -413,23 +413,23 @@
 
 <div class="pattern-center single-center">
   <!-- 有配图默认渲染第一张 -->
-  <div class="pattern-attachment-img lazyload" style="background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&amp;fm=26&amp;gp=0.jpg);" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&amp;fm=26&amp;gp=0.jpg">
+  <div class="pattern-attachment-img lazyload" style="background-image: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&amp;fm=26&amp;gp=0.jpg);" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&amp;fm=26&amp;gp=0.jpg">
   </div>
   <header class="pattern-header single-header">
     <h1 class="entry-title">
-      修饰符</h1>
+      Webpack</h1>
     <p class="entry-census">
       <span>
-        <a href="www.fudaqiang.com">
+        <a href="fudaqiang.com">
           <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif">
         </a>
       </span>
       <span>
-        <a href="www.fudaqiang.com">強い</a>
+        <a href="fudaqiang.com">強い</a>
       </span>
       <span class="bull">
         ·</span>
-      2018-10-8<span class="bull">
+      2018-10-12<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
   </header>
@@ -443,194 +443,397 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <!-- [TOC] -->
-<h2 id="一、事件修饰符"><a href="#一、事件修饰符" class="headerlink" title="一、事件修饰符"></a>一、事件修饰符</h2><ul>
-<li><p><code>.stop</code>  ：  阻止冒泡</p>
-</li>
-<li><p><code>.prevent</code> ：    阻止默认事件（比如点击超链接，阻止跳转到默认网页）</p>
-</li>
-<li><p><code>.capture</code>  ：  添加事件侦听器时使用事件捕获模式（与冒泡模式相反）</p>
-</li>
-<li><p><code>.self</code>  ：只当事件在该元素本身（比如不是子元素）触发时触发回调</p>
-</li>
-<li><p><code>.once</code>  ：事件只触发一次，之后还原标签本身的行为。</p>
+            <!-- [TOC] -->
+<p>##一、Webpack介绍</p>
+<p>Webpack 中文官网 <a href="https://www.webpackjs.com/" target="_blank" rel="noopener">https://www.webpackjs.com/</a></p>
+<h3 id="1、什么是webpack"><a href="#1、什么是webpack" class="headerlink" title="1、什么是webpack?"></a>1、什么是webpack?</h3><p>Webpack是一个<strong>模块打包器(bundler)</strong>。</p>
+<p>但是，webpack的<strong>核心功能</strong>是：</p>
+<blockquote>
+<p>把模块化规范的代码，比如commonJS等编译成浏览器能识别的代码输出出来(也叫作前端模块化)</p>
+</blockquote>
+<p><strong>我们知道在之前，commonJS规范的代码只能在node后端中运行（node是原生支持commonJS模块化的），如果在前端使用的话，会报一个错误：‘require is not defined’ 找不到require，这就是模块化规范的代码不能在浏览器中解析运行，如果想运行，达到前端模块化的功能，就要使用自动化构建工具，webpack就是其中的一种。</strong></p>
+<p>webpack的<strong>辅助功能</strong>才是对源代码的打包，压缩，混淆处理等。</p>
+<p>所以一定要搞清楚主次关系。</p>
+<p>在Webpack看来, 前端的所有资源文件(js/json/css/img/less/…)都会作为模块处理，每一个资源文件都是一个模块。它将根据模块的依赖关系进行静态编译，生成对应的静态资源。</p>
+<p>webpack所有的配置都会写在项目根目录下的<code>webpack.config.js</code> 文件下。</p>
+<p>webpack如何配置，你需要先理解四个<strong>核心概念</strong>：</p>
+<ul>
+<li>入口(entry)</li>
+<li>输出(output)</li>
+<li>loader</li>
+<li>插件(plugins)</li>
+</ul>
+<p><strong>入口</strong></p>
+<p>指示 webpack 应该使用哪个模块作为主模块来构建静态资源，一般打包的时候只引入主模块，而在主模块中会引入其他的模块，这样我们就只需要打包一份主模块就够了。</p>
+<p><strong>Loader</strong></p>
+<p>Webpack 本身只能加载<code>JS/JSON</code>模块，如果要加载其他类型的文件(模块)，就需要使用对应的loader 进行转换/加载</p>
+<ul>
+<li>Loader 本身也是运行在 node.js 环境中的 JavaScript 模块</li>
+<li>它本身是一个函数，接受源文件作为参数，返回转换的结果</li>
+<li>loader 一般以 xxx-loader 的方式命名，xxx 代表了这个 loader 要做的转换功能，比如 json-loader。</li>
+<li>配置文件(默认)</li>
+<li>webpack.config.js : 是一个node模块，返回一个 json 格式的配置信息对象</li>
+</ul>
+<ul>
+<li><p>插件</p>
+<p>插件件可以完成一些loader不能完成的功能。</p>
+<p>插件的使用一般是在 webpack 的配置信息 plugins 选项中指定。</p>
+<p>CleanWebpackPlugin: 自动清除指定文件夹资源</p>
+<p>HtmlWebpackPlugin: 自动生成HTML文件并</p>
+<p>UglifyJSPlugin: 压缩js文件</p>
 </li>
 </ul>
-<p>示例：</p>
-<pre><code class="html">    &lt;div id=&quot;app&quot;&gt;
-
-        &lt;!-- 使用  .stop  阻止冒泡 --&gt;
-        &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .prevent 阻止默认行为（跳转到百度首页） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
-
-        &lt;!-- 使用  .capture 实现捕获触发事件的机制：跟冒泡相反，从外到里--&gt;
-        &lt;div class=&quot;inner&quot; @click.capture=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .self 实现只有点击当前元素时候，才会触发事件处理函数 --&gt;
-        &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .once 只触发一次事件处理函数（如下案例只触发一次点击事件，之后还原标签本身的行为） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent.once=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
-
-    &lt;/div&gt;
-</code></pre>
-<p><code>.stop</code> 和 <code>.self</code> 的区别：</p>
-<pre><code class="html">        &lt;!-- stop 会阻止冒泡行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;!-- .self 只会阻止自己身上冒泡行为的触发，并不会真正阻止冒泡的行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-</code></pre>
-<h2 id="二、按键修饰符"><a href="#二、按键修饰符" class="headerlink" title="二、按键修饰符"></a>二、按键修饰符</h2><p>我们现在有个需求就是输入ID和name后不点击add按钮，而是按下回车键也需要添加到列表中。</p>
-<p>我们可以在name输入框中加入按键抬起事件，并且指定是enter键抬起时才触发。</p>
-<pre><code class="html">&lt;label for=&quot;name&quot;&gt;
-  name:
-  &lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.enter=&quot;addClick&quot;&gt;
+<h2 id="二、webpack初体验"><a href="#二、webpack初体验" class="headerlink" title="二、webpack初体验"></a>二、webpack初体验</h2><h3 id="1、安装webpack"><a href="#1、安装webpack" class="headerlink" title="1、安装webpack"></a>1、安装webpack</h3><p>由于现在webpack版本在2018年8月份的时候更新到 webpack 4+ 了，但是市面上用的最多的还是webpack3+，所以下面所有的示例均已webpack3+来演示。</p>
+<p>如果想要使用 webpack3+ 的版本的话，在全局安装和局部安装的时候需要注意，需要在webpack后面加上<code>@3</code> ，表示安装webpack3+ 的版本。</p>
+<pre><code class="js">//全局安装
+npm install webpack@3.11.0 -g  
+//局部安装
+npm install webpack@3.11.0 -D
 </code></pre>
 <blockquote>
-<p>  <code>.enter</code> ： 就是按键修饰符。 </p>
+<p>全局安装时为了能够使用webpack指令来进行项目的编译等，</p>
+<p>项目安装是为了使用webpack模块的内容。</p>
 </blockquote>
-<p><strong>系统提供的按键修饰符有：</strong></p>
-<ul>
-<li><code>.enter</code></li>
-<li><code>.tab</code></li>
-<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
-<li><code>.esc</code></li>
-<li><code>.space</code></li>
-<li><code>.up</code></li>
-<li><code>.down</code></li>
-<li><code>.left</code></li>
-<li><code>.right</code></li>
-</ul>
-<p>如果我们想自定义其他的按键怎么办呢？</p>
-<p>通过<code>Vue.config.keyCodes.f2 = 113;</code> ；可以将f2作为按键修饰符添加到系统按键修饰符中。</p>
-<p>具体每个按键的值是多少？下面是常见的按键的码。</p>
-<pre><code>keyCode 8 = BackSpace BackSpace
-keyCode 9 = Tab Tab
-keyCode 12 = Clear
-keyCode 13 = Enter
-keyCode 16 = Shift_L
-keyCode 17 = Control_L
-keyCode 18 = Alt_L
-keyCode 19 = Pause
-keyCode 20 = Caps_Lock
-keyCode 27 = Escape Escape
-keyCode 32 = space
-keyCode 33 = Prior
-keyCode 34 = Next
-keyCode 35 = End
-keyCode 36 = Home
-keyCode 37 = Left
-keyCode 38 = Up
-keyCode 39 = Right
-keyCode 40 = Down
-keyCode 41 = Select
-keyCode 42 = Print
-keyCode 43 = Execute
-keyCode 45 = Insert
-keyCode 46 = Delete
-keyCode 47 = Help
-keyCode 48 = 0 equal braceright
-keyCode 49 = 1 exclam onesuperior
-keyCode 50 = 2 quotedbl twosuperior
-keyCode 51 = 3 section threesuperior
-keyCode 52 = 4 dollar
-keyCode 53 = 5 percent
-keyCode 54 = 6 ampersand
-keyCode 55 = 7 slash braceleft
-keyCode 56 = 8 parenleft bracketleft
-keyCode 57 = 9 parenright bracketright
-keyCode 65 = a A
-keyCode 66 = b B
-keyCode 67 = c C
-keyCode 68 = d D
-keyCode 69 = e E EuroSign
-keyCode 70 = f F
-keyCode 71 = g G
-keyCode 72 = h H
-keyCode 73 = i I
-keyCode 74 = j J
-keyCode 75 = k K
-keyCode 76 = l L
-keyCode 77 = m M mu
-keyCode 78 = n N
-keyCode 79 = o O
-keyCode 80 = p P
-keyCode 81 = q Q at
-keyCode 82 = r R
-keyCode 83 = s S
-keyCode 84 = t T
-keyCode 85 = u U
-keyCode 86 = v V
-keyCode 87 = w W
-keyCode 88 = x X
-keyCode 89 = y Y
-keyCode 90 = z Z
-keyCode 96 = KP_0 KP_0
-keyCode 97 = KP_1 KP_1
-keyCode 98 = KP_2 KP_2
-keyCode 99 = KP_3 KP_3
-keyCode 100 = KP_4 KP_4
-keyCode 101 = KP_5 KP_5
-keyCode 102 = KP_6 KP_6
-keyCode 103 = KP_7 KP_7
-keyCode 104 = KP_8 KP_8
-keyCode 105 = KP_9 KP_9
-keyCode 106 = KP_Multiply KP_Multiply
-keyCode 107 = KP_Add KP_Add
-keyCode 108 = KP_Separator KP_Separator
-keyCode 109 = KP_Subtract KP_Subtract
-keyCode 110 = KP_Decimal KP_Decimal
-keyCode 111 = KP_Divide KP_Divide
-keyCode 112 = F1
-keyCode 113 = F2
-keyCode 114 = F3
-keyCode 115 = F4
-keyCode 116 = F5
-keyCode 117 = F6
-keyCode 118 = F7
-keyCode 119 = F8
-keyCode 120 = F9
-keyCode 121 = F10
-keyCode 122 = F11
-keyCode 123 = F12
-keyCode 124 = F13
-keyCode 125 = F14
-keyCode 126 = F15
-keyCode 127 = F16
-keyCode 128 = F17
-keyCode 129 = F18
-keyCode 130 = F19
-keyCode 131 = F20
-keyCode 132 = F21
-keyCode 133 = F22
-keyCode 134 = F23
-keyCode 135 = F24
-</code></pre><p>示例：</p>
-<pre><code class="html">&lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.f2=&quot;addClick&quot;&gt;
+<h3 id="2、初始化项目"><a href="#2、初始化项目" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h3><p>使用<code>npm init -y</code> 初始化项目。</p>
+<blockquote>
+<p><code>-y</code>的目的是不提示项目名等等提示信息，直接全部使用默认的配置创建package.json文件。</p>
+</blockquote>
+<p>创建src目录，目录下建一个主模块main.js，在主模块中调用sayHello.js文件</p>
+<pre><code class="js">// sayHello.js
+module.exports = name =&gt; {
+    console.log(name);
+}
 
- //...
-
-&lt;script&gt;
-    Vue.config.keyCodes.f2 = 113;
-&lt;/script&gt;
+// main.js
+let say = require(&#39;./sayHello&#39;);
+say(&#39;lone&#39;);
 </code></pre>
+<p>创建主页面</p>
+<p>将来webpack打包生成的js文件是dist目录下的index.js文件</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div&gt;真的&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3 id="3、编译运行"><a href="#3、编译运行" class="headerlink" title="3、编译运行"></a>3、编译运行</h3><pre><code>webpack main.js index.js
+</code></pre><p>然后就可以在浏览器中查看打印出’lone’</p>
+<h2 id="三、webpack打包"><a href="#三、webpack打包" class="headerlink" title="三、webpack打包"></a>三、webpack打包</h2><p>有的时候我们希望将编译好的js文件放到指定的dist目录，但是我们又不想手工创建，有没有办法呢？</p>
+<p><code>webpack.config.js</code>配置文件可以解决。</p>
+<p>1、新建一个<code>webpack.config.js</code>文件：</p>
+<pre><code class="js">module.exports = {
+    entry: __dirname + &#39;/src/main.js&#39;,
+    output: {
+        path: __dirname + &#39;/dist&#39;,
+        filename: &#39;index.js&#39;
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>__dirname</code> 表示当前项目的根路径。</p>
+<p><code>entry</code> 入口模块</p>
+<p><code>output</code> 输出的目标文件的路径和文件名</p>
+</blockquote>
+<p>2、使用指令进行编译：</p>
+<pre><code class="js">webpack
+</code></pre>
+<p>之后我们会在项目更目录下发现一个dist目录，目录下有个index.js文件，就是我们的目标文件。</p>
+<h2 id="四、热加载（自动编译）"><a href="#四、热加载（自动编译）" class="headerlink" title="四、热加载（自动编译）"></a>四、热加载（自动编译）</h2><p>每次在我们修改源文件后，都需要进行webpack指令进行打包才可以生成目标文件，才能在页面展示使用。</p>
+<p>有没有在源代码修改保存后，自动<del>编译成目标位文件</del>刷新页面呢？</p>
+<p>这就是<code>webpack-dev-server</code>模块。webpack-dev-server模块会自动开启个本地web服务器来运行我们的程序，一旦源文件被修改，会自动同步到浏览器中。</p>
+<p>webpack-dev-server模块原理：</p>
+<p>webpack-dev-server 其实就是个微服务器，在执行 webpack-dev-server 命令的时候，也会首先从  webpack.config.js 中找到任务，然后在其自己内部进行打包，打包好了之后，并不会输出到本地，而是在其内存中有一份 index.js ，我们通过 <code>http://localhost:3000/</code> 访问的其实就是其内存中的文件，这时候即使我们删除本地 index.js 也不会影响页面的显示。</p>
+<p>并且 webpack-dev-server 会自动寻找文件的路径，所以我们不需要指定 index.js 和 大图的路径，这也是其智能的地方。</p>
+<blockquote>
+<p><strong>但是需要注意的是，webpack-dev-server模块不会生成目标文件，也就是不会生成dist文件夹和里面的目标文件，webpack-dev-server会将编译运行放在内存的目标文件，而不会生成到项目中。而webpack指令才可以生成目标文件。</strong></p>
+</blockquote>
+<p>1、安装 webpack-dev-server模块</p>
+<pre><code class="js">npm i webpack-dev-server@2.9.7 -g
+</code></pre>
+<blockquote>
+<p>注意安装2.9.7版本的。</p>
+</blockquote>
+<p>2、在webpack.config.js中进行配置：</p>
+<pre><code class="js">// 安装的webpack-dev-server模块配置信息
+devServer: {
+    contentBase: __dirname + &#39;/dist&#39;, // 指定本地web服务器根路径
+    port: 3000,
+    inline: true // 当源文件改变后，自动在浏览器页面刷新
+}
+</code></pre>
+<p>3、运行指令</p>
+<pre><code>webpack-dev-server --inline --open
+</code></pre><p>这时候，编译完成会自动访问<code>http://localhost:3000</code> 地址，就不用再打开浏览器了，如果项目源代码有修改，保存后，浏览器会自动进行刷新显示。</p>
+<p>4、这个命令太长了，package.json就用到了。</p>
+<pre><code class="json">&quot;scripts&quot;: {
+        &quot;start&quot;: &quot;webpack-dev-server --inline --open&quot;,
+        &quot;build&quot;: &quot;webpack&quot;
+}
+</code></pre>
+<p>以后直接使用指令：</p>
+<pre><code>npm run start
+</code></pre><p>想生成dist文件的时候：</p>
+<pre><code>npm run build
+</code></pre><h2 id="五、html-webpack-plugin插件"><a href="#五、html-webpack-plugin插件" class="headerlink" title="五、html-webpack-plugin插件"></a>五、html-webpack-plugin插件</h2><p>我们之前编译的dist文件夹只有index.js目标文件，其实我们在项目上线的时候，除了有js文件还应该有index.html</p>
+<p>主文件，所以我们应该把html文件放到dist目录下。但是由于一般dist下的文件不建议修改，我们希望的是修改了源文件中的html就自动复制一份到dist中，<code>html-webpack-plugin</code> 插件就给我们提供了帮助。</p>
+<p>1、安装html-webpack-plugin插件</p>
+<pre><code>npm i html-webpack-plugin -D
+</code></pre><p>2、修改webpack.config.js配置文件</p>
+<pre><code class="js">let Hwp = require(&#39;html-webpack-plugin&#39;);
+
+//..
+
+// 安装的html-webpack-plugin模块的配置
+plugins: [
+    new Hwp({
+        template: __dirname + &#39;/src/index.html&#39;, // 源文件index.html路径
+        filename: &#39;index.html&#39;, // 由于生成路径output已配置，这里只写生成的文件名
+        inject: true // 在index.html中自动引入需要的就js,css文件
+    })
+]
+</code></pre>
+<blockquote>
+<p>html-webpack-plugin插件还有个额外功能就是 <code>inject: true</code>，它可以自动识别需要引入的script和link文件，特别好使。</p>
+</blockquote>
+<p>3、重启服务</p>
+<h2 id="六、打包css到js"><a href="#六、打包css到js" class="headerlink" title="六、打包css到js"></a>六、打包css到js</h2><p>项目还存在css文件怎么办？可以把css样式打包到js中。</p>
+<p>1、安装模块 css-loader和style-loader</p>
+<pre><code>npm i css-loader style-loader -D
+</code></pre><blockquote>
+<p>css-loader：作用是读取css文件</p>
+<p>style-loader：作用是将css注入到js中</p>
+</blockquote>
+<p>2、配置config</p>
+<pre><code class="js">module: {
+    rules: [{
+        test: /\.css$/, // 解析以.css结尾的文件
+        loader: &#39;style-loader!css-loader&#39; //解析以.css结尾的文件需要用到的模块（注意：书写顺序是先使用的写后面）
+    }]
+}
+</code></pre>
+<blockquote>
+<p>注意：loader: ‘style-loader!css-loader’  中书写的顺序，先需要用到的写到后面。</p>
+</blockquote>
+<p>3、在入口js引入css文件</p>
+<pre><code class="js">// main.js
+require(&#39;./style/base.css&#39;);
+</code></pre>
+<p>4、重启服务</p>
+<pre><code class="js">npm run start
+</code></pre>
+<h2 id="七、打包图片文件到js"><a href="#七、打包图片文件到js" class="headerlink" title="七、打包图片文件到js"></a>七、打包图片文件到js</h2><p>1、安装插件</p>
+<pre><code class="js">// 图片相关插件（url-loader是对象file-loader的上层封装，使用时需配合file-loader使用。）
+npm install file-loader url-loader -D
+</code></pre>
+<p>2、修改配置文件</p>
+<pre><code class="json">module: {
+    rules: [
+        { test: /\.(png|jpg|gif)$/, use: [{ loader: &#39;url-loader&#39;, options: { limit: 8192 } }] } // 限制转换的图片大小为8Kb
+
+    ]
+},
+</code></pre>
+<p>3、在css中插入图片</p>
+<pre><code class="css">div {
+    width: 200px;
+    height: 200px;
+    background: url(../img/1.jpg);
+}
+</code></pre>
+<p>4、重新编译</p>
+<p>我们发现dist中没有图片，但是图片显示了，说明图片注入到了css中。我们可以查看生成的index.css看出来，图片是以base64的形式存在的：</p>
+<pre><code class="css">div {
+    width: 200px;
+    height: 200px;
+    background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASA...（太长省略）BBHDPds2gKCBThSN3rYhi5J6mjNJ2FJSsB7Sn+cV82af8A8hGy/wCvq3/9GpX0BXFXgnM3hJ2P/9k=);
+}
+</code></pre>
+<blockquote>
+<p>注意：当我们设置的图片大小超过限时时，会在dist中产生一个图片，而不是base64形式的。</p>
+</blockquote>
+<p>比如我把 limit: 1024 之后，重新webpack生成后会在dist下生成一个990384cd91d73b43929679287541587e.jpg图片，然后在css中引入的是这个图片，而不是base64。</p>
+<pre><code class="css">div {
+    width: 200px;
+    height: 200px;
+    background: url(990384cd91d73b43929679287541587e.jpg);
+}
+</code></pre>
+<h2 id="七、开启地图资源模式"><a href="#七、开启地图资源模式" class="headerlink" title="七、开启地图资源模式"></a>七、开启地图资源模式</h2><p>之前把所有的js和css都编译到一个js里面之后，如果我们代码有运行错误，排错非常麻烦，因为生成的js文件非常长，可能报错的位置是在一万多行的位置，但是 实际上我们代码的位置只是在几十行的位置。这个该如何处理？</p>
+<p>这就需要我们开启地图资源模式。</p>
+<p>开启的方式很简单，只需要在配置文件中加上下面一句话即可。</p>
+<pre><code class="js">// 开启地图资源模式
+devtool: &#39;source-map&#39;
+</code></pre>
+<p>此时，当我们使用<code>webpack</code> 生成目标文件的时候，会自动多出一个map文件，比如index.js.map</p>
+<p>这个就是一个源文件和编译后目标文件的一个映射文件，当程序有错误的时候，提示的就是源文件的行号而不是目标文件的行号，方便错误定位。</p>
+<p>我们可以在目标文件的最后发现有个映射文件的声明的注释，这个注释不能删除，否则就无法实现映射功能。</p>
+<h2 id="八、多入口文件"><a href="#八、多入口文件" class="headerlink" title="八、多入口文件"></a>八、多入口文件</h2><p>之前的目标文件只有一个index.js，如何生成多个目标文件？</p>
+<p>我们需要在配置文件的entry属性配置成一个对象，这个对象有多个属性，分别对应多个目标文件。</p>
+<pre><code class="json">entry: {
+    index: __dirname + &#39;/src/main.js&#39;,
+    goods: __dirname + &#39;/src/goods.js&#39;
+}, 
+output: {
+    path: __dirname + &#39;/dist&#39;,
+    filename: &#39;[name].js&#39;
+},
+</code></pre>
+<blockquote>
+<p>entry中每个属性即为目标文件名，输出文件的[name].js中的name即为entry的属性名。</p>
+</blockquote>
+<p>但是，现在一般都是单页面应用，所以像这种对入口文件的形式很少见了。</p>
+<h2 id="九、打包Less-Scss等"><a href="#九、打包Less-Scss等" class="headerlink" title="九、打包Less,Scss等"></a>九、打包Less,Scss等</h2><p>下面以less为例。</p>
+<p>1、安装loader</p>
+<pre><code class="js">npm i less-loader less -D
+</code></pre>
+<p>2、设置配置文件</p>
+<pre><code class="js">module: {
+    rules: [
+        {test: /\.css$/,loader: &#39;style-loader!css-loader&#39;},
+        {test: /\.less$/, loader: &#39;style-loader!css-loader!less-loader&#39; }
+    ]
+},
+</code></pre>
+<blockquote>
+<p>也是要注意书写顺序。</p>
+</blockquote>
+<p>3、重启服务。</p>
+<h2 id="十、提取样式文件"><a href="#十、提取样式文件" class="headerlink" title="十、提取样式文件"></a>十、提取样式文件</h2><p>之前我们是把css样式打包到js文件中的，而js是使用script标签引入的页面的。</p>
+<p>link标签与script的区别：</p>
+<p>link标签的加载时异步的，而script的加载会阻塞程序的运行，影响用户体验，所有有必要将css文件提取出来。</p>
+<p>1、安装插件</p>
+<pre><code>npm i extract-text-webpack-plugin -D
+</code></pre><p>2、修改配置</p>
+<pre><code class="json">let Ext = require(&#39;extract-text-webpack-plugin&#39;);
+
+module: {
+    rules: [
+        { test: /\.css$/, loader: Ext.extract(&#39;css-loader&#39;) },
+        { test: /\.less$/, loader: Ext.extract(&#39;css-loader!less-loader&#39;) }
+    ]
+},
+plugins: [
+    new Ext(&#39;index.css&#39;)
+],
+</code></pre>
+<p>由于不需要注入到js中了，所以style-loader就去掉了，但读取less和css还是需要的，顺序也是需要的。</p>
+<p>在plugins中也要new Ext，参数为生成的css目标文件名。</p>
+<h2 id="十一、ES6转换成ES5"><a href="#十一、ES6转换成ES5" class="headerlink" title="十一、ES6转换成ES5"></a>十一、ES6转换成ES5</h2><p>很多时候我们需要将ES6语法转换成ES5的，因为很多浏览器比如政府网站都比较老旧，不支持ES6语法。所以需要将ES6转换成ES5。</p>
+<p>1、安装插件</p>
+<pre><code>npm i babel-loader@7.1.5 babel-core babel-preset-env -D
+</code></pre><blockquote>
+<p>这三个插件：</p>
+<p><a href="mailto:babel-loader@7.1.5" target="_blank" rel="noopener">babel-loader@7.1.5</a> ：是一个babel工具</p>
+<p>babel-core ：是工具的依赖</p>
+<p>babel-preset-env：专门用来解析ES6到ES5的</p>
+</blockquote>
+<p>2、修改配置文件</p>
+<pre><code class="json">module: {
+    rules: [
+        { test: /\.css$/, loader: Ext.extract(&#39;css-loader&#39;) },
+        { test: /\.less$/, loader: Ext.extract(&#39;css-loader!less-loader&#39;) },
+        { test: /\.js$/, exclude: /node_modules/, loader: &#39;babel-loader?presets[]=env&#39; }
+    ]
+},
+</code></pre>
+<blockquote>
+<p>exclude:除去node-modules文件夹里面的js文件</p>
+</blockquote>
+<p>我们在<code>loader:babel-loader</code>中加了参数<code>?presets[]=env</code>，这只是临时写法。</p>
+<p>一般写法是在项目根目录新建一个文件<code>.babelrc</code>:</p>
+<pre><code class="json">{
+    &quot;presets&quot;:[&quot;env&quot;]
+}
+</code></pre>
+<p>和上面是等价的。</p>
+<p>如果使用到ES6的高级语法，比如展开符<code>...</code>时，上面的插件就满足不了了，需要另一个插件：</p>
+<pre><code>npm i babel-preset-stage-2 -D
+</code></pre><p>然后修改<code>.babelrc</code> :</p>
+<pre><code class="json">{
+    &quot;presets&quot;:[&quot;env&quot;, &quot;stage-2&quot;]
+}
+</code></pre>
+<p>3、在main.js书写测试代码</p>
+<pre><code class="js">let obj = { name: &#39;daotin&#39;, age: 18 }
+let { name: user, age } = obj;
+
+console.log(user, age);
+</code></pre>
+<p>4、重启服务</p>
+<h2 id="十二、使用jquery"><a href="#十二、使用jquery" class="headerlink" title="十二、使用jquery"></a>十二、使用jquery</h2><p>方式一：在线cdn</p>
+<p>方式二：下载jq，然后在html引入</p>
+<p>方式三：安装插件</p>
+<p>1、安装jq插件</p>
+<pre><code class="js">npm i jquery -S
+</code></pre>
+<p>2、然后那个js文件需要，直接require引入</p>
+<pre><code class="js">let $ = require(&#39;jquery&#39;);
+</code></pre>
+<blockquote>
+<p>这种方式有个缺陷就是，只能本文件使用jq，其他文件要使用，还得require一次，很多文件使用jq就得很多文件require，可不可以只引入一次所有的js都可用呢？</p>
+</blockquote>
+<p>3、设置jq全局作用域</p>
+<pre><code class="json">let webpack = require(&#39;webpack&#39;);
+
+plugins: [
+    new webpack.ProvidePlugin({ $: &#39;jquery&#39; })
+],
+</code></pre>
+<p>4、重启服务即可。</p>
+<p>##十二、其他插件</p>
+<p><strong>webpack 插件：</strong></p>
+<p><a href="https://www.webpackjs.com/plugins/" target="_blank" rel="noopener">https://www.webpackjs.com/plugins/</a> </p>
+<p><a href="https://webpack.docschina.org/plugins/" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/</a></p>
+<h3 id="1、常用的插件"><a href="#1、常用的插件" class="headerlink" title="1、常用的插件"></a>1、常用的插件</h3><ul>
+<li>使用<code>html-webpack-plugin</code>根据模板html生成新的html文件，并自动引入js文件到页面</li>
+<li>使用<code>clean-webpack-plugin</code>清除dist文件夹</li>
+<li>使用<code>uglifyjs-webpack-plugin</code>压缩打包的js文件</li>
+</ul>
+<h3 id="2、使用步骤"><a href="#2、使用步骤" class="headerlink" title="2、使用步骤"></a>2、使用步骤</h3><p><strong>1、下载</strong></p>
+<pre><code>npm install --save-dev  html-webpack-plugin clean-webpack-plugin uglifyjs-webpack-plugin
+</code></pre><p><strong>2、配置</strong></p>
+<pre><code class="js">const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+const CleanWebpackPlugin = require(&#39;clean-webpack-plugin&#39;);
+const UglifyJsPlugin = require(&#39;uglifyjs-webpack-plugin&#39;);
+
+
+
+module.exports = {
+  entry: &#39;./src/js/entry.js&#39;, // 入口文件
+  output: {
+    // 略
+  },
+  module: {
+    // 略
+  },
+  devServer: {
+    // 略
+  },
+  plugins: [
+    // template 表示模板的意思，表示以 &#39;./index.html&#39; 为模板创建一个html文件
+    // 新创建的html文件默认会生成在dist/js目录下，并自动引入bundle.js文件到页面
+    new HtmlWebpackPlugin({template: &#39;./index.html&#39;}),
+    // 在打包的时候，先清空dist目录下的所有文件再生成相关文件
+    new CleanWebpackPlugin([&#39;dist&#39;]),
+    // 将生成的bundle.js压缩
+    new UglifyJsPlugin()
+  ]
+};
+</code></pre>
+<p><strong>3、打包运行项目</strong></p>
+<pre><code>webpack
+</code></pre><p>结果在 dist/js下自动生成index.html文件，并且自动引入bundle.js文件。</p>
 
         </div>
         <!-- .entry-content -->
@@ -663,15 +866,15 @@ keyCode 135 = F24
         
         <div class="post-nepre half previous">
           
-            <a href="/2018/10/12/Webpack/" rel="prev">
+            <a href="/2018/11/01/Vue的动画/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
                 Previous Post</span>
               <div class="info">
                 <h3>
-                  Webpack</h3>
+                  Vue的动画</h3>
                 <hr>
               </div>
             </a>
@@ -681,15 +884,15 @@ keyCode 135 = F24
           
           <div class="post-nepre half next">
             
-              <a href="/2018/10/08/javascript数组去重/" rel="next">
+              <a href="/2018/10/08/修饰符/" rel="next">
                 <div class="background">
-                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
                 </div>
                 <span class="label">
                   Next Post</span>
                 <div class="info">
                   <h3>
-                    javascript数组去重</h3>
+                    修饰符</h3>
                   <hr>
                 </div>
               </a>
@@ -699,11 +902,11 @@ keyCode 135 = F24
       
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="www.fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-              <a href="www.fudaqiang.com" itemprop="url" rel="author">強い</a>
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
             </h3>
           </div>
         </div>

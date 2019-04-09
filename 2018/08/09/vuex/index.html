@@ -10,7 +10,7 @@
   <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
   
 
-  <title itemprop="name">修饰符 | 強い</title>
+  <title itemprop="name">vuex | 強い</title>
   
   <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
   
@@ -417,19 +417,19 @@
   </div>
   <header class="pattern-header single-header">
     <h1 class="entry-title">
-      修饰符</h1>
+      vuex</h1>
     <p class="entry-census">
       <span>
-        <a href="www.fudaqiang.com">
+        <a href="fudaqiang.com">
           <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif">
         </a>
       </span>
       <span>
-        <a href="www.fudaqiang.com">強い</a>
+        <a href="fudaqiang.com">強い</a>
       </span>
       <span class="bull">
         ·</span>
-      2018-10-8<span class="bull">
+      2018-8-9<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
   </header>
@@ -444,192 +444,622 @@
         
         <div class="entry-content">
           <!-- [TOC] -->
-<h2 id="一、事件修饰符"><a href="#一、事件修饰符" class="headerlink" title="一、事件修饰符"></a>一、事件修饰符</h2><ul>
-<li><p><code>.stop</code>  ：  阻止冒泡</p>
-</li>
-<li><p><code>.prevent</code> ：    阻止默认事件（比如点击超链接，阻止跳转到默认网页）</p>
-</li>
-<li><p><code>.capture</code>  ：  添加事件侦听器时使用事件捕获模式（与冒泡模式相反）</p>
-</li>
-<li><p><code>.self</code>  ：只当事件在该元素本身（比如不是子元素）触发时触发回调</p>
-</li>
-<li><p><code>.once</code>  ：事件只触发一次，之后还原标签本身的行为。</p>
-</li>
-</ul>
-<p>示例：</p>
-<pre><code class="html">    &lt;div id=&quot;app&quot;&gt;
+<p>​    </p>
+<h2 id="一、Vuex"><a href="#一、Vuex" class="headerlink" title="一、Vuex"></a>一、Vuex</h2><p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态（意思就是数据），并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<p>简单来说，vuex就是用来集中管理组件的数据的。</p>
+<h2 id="二、Vuex使用场合"><a href="#二、Vuex使用场合" class="headerlink" title="二、Vuex使用场合"></a>二、Vuex使用场合</h2><p>如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的 store 模式就足够您所需了。但是，如果您需要构建一个中大型单页应用，您很可能会考虑如何更好地在组件外部管理状态，Vuex 将会成为自然而然的选择。引用 Redux 的作者 Dan Abramov 的话说就是：</p>
+<blockquote>
+<p>Flux 架构就像眼镜：您自会知道什么时候需要它。</p>
+</blockquote>
+<h3 id="1、store模式"><a href="#1、store模式" class="headerlink" title="1、store模式"></a>1、store模式</h3><p>安装vuex</p>
+<pre><code>npm i vuex -S
+</code></pre><p>我们在原有项目下新建一个store.js管理Home，Goods，Users组件的数据。</p>
+<p>其中state属性就是保存Home，Goods，Users组件所有的数据。</p>
+<pre><code class="js">// store.js
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
 
-        &lt;!-- 使用  .stop  阻止冒泡 --&gt;
-        &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
+Vue.use(Vuex);
 
-        &lt;!-- 使用 .prevent 阻止默认行为（跳转到百度首页） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
+const store = new Vuex.Store({
+    state: {
+        title: &#39;首页&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    }
+});
 
-        &lt;!-- 使用  .capture 实现捕获触发事件的机制：跟冒泡相反，从外到里--&gt;
-        &lt;div class=&quot;inner&quot; @click.capture=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .self 实现只有点击当前元素时候，才会触发事件处理函数 --&gt;
-        &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .once 只触发一次事件处理函数（如下案例只触发一次点击事件，之后还原标签本身的行为） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent.once=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
-
-    &lt;/div&gt;
-</code></pre>
-<p><code>.stop</code> 和 <code>.self</code> 的区别：</p>
-<pre><code class="html">        &lt;!-- stop 会阻止冒泡行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;!-- .self 只会阻止自己身上冒泡行为的触发，并不会真正阻止冒泡的行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-</code></pre>
-<h2 id="二、按键修饰符"><a href="#二、按键修饰符" class="headerlink" title="二、按键修饰符"></a>二、按键修饰符</h2><p>我们现在有个需求就是输入ID和name后不点击add按钮，而是按下回车键也需要添加到列表中。</p>
-<p>我们可以在name输入框中加入按键抬起事件，并且指定是enter键抬起时才触发。</p>
-<pre><code class="html">&lt;label for=&quot;name&quot;&gt;
-  name:
-  &lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.enter=&quot;addClick&quot;&gt;
+export { store }
 </code></pre>
 <blockquote>
-<p>  <code>.enter</code> ： 就是按键修饰符。 </p>
+<p>注意：将store.js文件导入到vue实例中：</p>
+<pre><code>new Vue({
+    el: &quot;#app&quot;,
+    components: { App },
+    template: `&lt;App /&gt;`,
+    router,
+    store
+})
+</code></pre></blockquote>
+<p>然后各个组件在获取数据的时候，是在<code>computed</code>属性中获取的，例如User组件（我们在user组件也把所有的数据都显示出来吧）：</p>
+<p>获取的方式通过<code>this.$store.state</code> 的方式获取。</p>
+<pre><code class="js">export let Users = {
+    template: require(&#39;./index.html&#39;),
+    // data() {
+    //     return {
+    //         users: [
+    //             { name: &#39;lvonve&#39; },
+    //             { name: &#39;daotin&#39; },
+    //             { name: &#39;wenran&#39; },
+    //         ]
+    //     }
+    // },
+    computed: {
+        // 这个userList就是获取到的state中的userList
+        title: function() {
+            return this.$store.state.title;
+        },
+        userList: function() {
+            return this.$store.state.userList;
+        },
+        goodsList: function() {
+            return this.$store.state.goodsList;
+        }
+    }
+}
+</code></pre>
+<p>然后在user组件进行显示：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;h4&gt;用户列表&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;user in userList&quot;&gt;{{user.userName}}+{{user.age}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h4&gt;商品列表&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;goods in goodsList&quot;&gt;{{goods.goodsName}}+{{goods.price}}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>但是现在有个不好的地方就是，每个组件都需要使用<code>this.$store.state</code>来获取其中的数据，显得有些麻烦，有没有简单的办法呢？</p>
+<h3 id="2、mapState"><a href="#2、mapState" class="headerlink" title="2、mapState"></a>2、mapState</h3><p>vuex提供了一个工具叫做<code>mapState</code>，通过它可以简化我们获取数据的方式。</p>
+<p>mapState的作用就是返回一个对象，这个对象可以直接丢给computed。所以上面获取state的数据的方式可以写成下面的方式：</p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    // computed: {
+    //     userList: function() {
+    //         return this.$store.state.userList;
+    //     },
+    //     goodsList: function() {
+    //         return this.$store.state.goodsList;
+    //     }
+    // }
+    computed: mapState({
+        title(state) {
+            return state.title;
+        },
+        userList(state) {
+            return state.userList;
+        },
+        goodsList(state) {
+            return state.goodsList;
+        }
+    }),
+}
+</code></pre>
+<p>或者你想要更简单，可以使用ES6的解构赋值：</p>
+<pre><code class="json">computed: mapState({
+    title: ({ title }) =&gt; title,
+    userList: ({ userList }) =&gt; userList,
+    goodsList: ({ goodsList }) =&gt; goodsList,
+}),
+</code></pre>
+<p>还有更简单的写法：如果state上有某个属性，可以直接赋值：</p>
+<pre><code class="json">computed: mapState({
+    title: &#39;title&#39;,
+    userList: &#39;userList&#39;,
+    goodsList: &#39;goodsList&#39;
+}),
+</code></pre>
+<p>终极写法，就是如果mapState属性的名字和state中属性的名字相同的话，就可以采用下面更简单的写法：</p>
+<p>（我们上面的例子就是mapState属性的名字和state中属性的名字相同）</p>
+<pre><code class="js">computed: mapState([&#39;title&#39;, &#39;goodsList&#39;, &#39;userList&#39;])
+</code></pre>
+<p><strong>mapState使用展开符写法</strong></p>
+<p>一个项目中，有些时候有些mapState属性的名字和state中属性的名字相同，有些又不相同，比如下面的例子：</p>
+<pre><code class="js">computed: mapState({
+    title: &#39;title&#39;,
+    users: &#39;userList&#39;,
+    goods: &#39;goodsList&#39;
+}),
+</code></pre>
+<p>受到users和goods的拖累，title也不能写成终极进化版，这时候可以使用展开符。</p>
+<pre><code class="js">...mapState([&#39;title&#39;])
+
+// 就类似于
+
+mapState({
+    title:&#39;title&#39;
+})
+</code></pre>
+<p>所以上面的例子的最终写法为：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;]),
+    ...mapState({
+        users: &#39;userList&#39;,
+        goods: &#39;goodsList&#39;
+    })
+},
+</code></pre>
+<p>由于我们的babel只能编译基础的ES6语法，展开符是高级ES6语法，所以还要安装一个模块：</p>
+<pre><code class="js">npm i babel-preset-stage-2 -D
+</code></pre>
+<p>然后在<code>.babelrc</code> 里面添加：</p>
+<pre><code class="json">{
+    &quot;presets&quot;: [
+        &quot;env&quot;, &quot;stage-2&quot;
+    ]
+}
+</code></pre>
+<p>使用展开符的写法还有一个好处就是可以写自己的computed计算属性，而终极写法是没办法加自己的计算属性的。所以展开符的写法是最灵活的写法。</p>
+<h3 id="3、mutations"><a href="#3、mutations" class="headerlink" title="3、mutations"></a>3、mutations</h3><h4 id="修改state"><a href="#修改state" class="headerlink" title="修改state"></a>修改state</h4><p>现在有个新需求，在user组件，点击按钮，添加一个新用户（先把没用的商品列表去掉），我门一般的想法是直接操作state数据，如下：</p>
+<pre><code class="json">methods: {
+    addUser() {
+        this.$store.state.userList.push({userName: &#39;aaa&#39;,age: 9})
+    }
+}
+</code></pre>
+<p>但是这种写法是不符合store架构规范的，只能通过store提供的<code>mutations</code>来操作自己的state。所以我们在store中定义一个mutations属性，然后这个属性中定义一个addUser方法来添加用户，这个方法的参数指向的就是store的state属性：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        title: &#39;我是title&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    // 添加mutations属性用来操作state数据
+    mutations: {
+        addUser(state) {
+            state.userList.push({ userName: &#39;aaa&#39;, age: 10 });
+        }
+    }
+});
+
+export { store }
+</code></pre>
+<p>然后在User.js中怎么调用这个addList方法呢？</p>
+<p>使用<code>this.$store.commit(&#39;mutations的属性名&#39;)</code>来调用：</p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;])
+    },
+    methods: {
+        addUser() {
+            // 使用commit的方式调用
+            this.$store.commit(&#39;addUser&#39;);
+        }
+    },
+
+}
+</code></pre>
+<p>这样就可以点击按钮添加用户了。</p>
+<blockquote>
+<p>整个应用程序，只有mutations才可以操作state状态。</p>
+<p>但是注意：</p>
+<p><strong>mutations中的属性，必须为纯函数，必须为同步代码。</strong></p>
+<p>纯函数就是传入相同的参数，得到相同的结果。</p>
+<p>同步代码就不能是异步的，比如ajax，比如setTimeout等。</p>
 </blockquote>
-<p><strong>系统提供的按键修饰符有：</strong></p>
-<ul>
-<li><code>.enter</code></li>
-<li><code>.tab</code></li>
-<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
-<li><code>.esc</code></li>
-<li><code>.space</code></li>
-<li><code>.up</code></li>
-<li><code>.down</code></li>
-<li><code>.left</code></li>
-<li><code>.right</code></li>
-</ul>
-<p>如果我们想自定义其他的按键怎么办呢？</p>
-<p>通过<code>Vue.config.keyCodes.f2 = 113;</code> ；可以将f2作为按键修饰符添加到系统按键修饰符中。</p>
-<p>具体每个按键的值是多少？下面是常见的按键的码。</p>
-<pre><code>keyCode 8 = BackSpace BackSpace
-keyCode 9 = Tab Tab
-keyCode 12 = Clear
-keyCode 13 = Enter
-keyCode 16 = Shift_L
-keyCode 17 = Control_L
-keyCode 18 = Alt_L
-keyCode 19 = Pause
-keyCode 20 = Caps_Lock
-keyCode 27 = Escape Escape
-keyCode 32 = space
-keyCode 33 = Prior
-keyCode 34 = Next
-keyCode 35 = End
-keyCode 36 = Home
-keyCode 37 = Left
-keyCode 38 = Up
-keyCode 39 = Right
-keyCode 40 = Down
-keyCode 41 = Select
-keyCode 42 = Print
-keyCode 43 = Execute
-keyCode 45 = Insert
-keyCode 46 = Delete
-keyCode 47 = Help
-keyCode 48 = 0 equal braceright
-keyCode 49 = 1 exclam onesuperior
-keyCode 50 = 2 quotedbl twosuperior
-keyCode 51 = 3 section threesuperior
-keyCode 52 = 4 dollar
-keyCode 53 = 5 percent
-keyCode 54 = 6 ampersand
-keyCode 55 = 7 slash braceleft
-keyCode 56 = 8 parenleft bracketleft
-keyCode 57 = 9 parenright bracketright
-keyCode 65 = a A
-keyCode 66 = b B
-keyCode 67 = c C
-keyCode 68 = d D
-keyCode 69 = e E EuroSign
-keyCode 70 = f F
-keyCode 71 = g G
-keyCode 72 = h H
-keyCode 73 = i I
-keyCode 74 = j J
-keyCode 75 = k K
-keyCode 76 = l L
-keyCode 77 = m M mu
-keyCode 78 = n N
-keyCode 79 = o O
-keyCode 80 = p P
-keyCode 81 = q Q at
-keyCode 82 = r R
-keyCode 83 = s S
-keyCode 84 = t T
-keyCode 85 = u U
-keyCode 86 = v V
-keyCode 87 = w W
-keyCode 88 = x X
-keyCode 89 = y Y
-keyCode 90 = z Z
-keyCode 96 = KP_0 KP_0
-keyCode 97 = KP_1 KP_1
-keyCode 98 = KP_2 KP_2
-keyCode 99 = KP_3 KP_3
-keyCode 100 = KP_4 KP_4
-keyCode 101 = KP_5 KP_5
-keyCode 102 = KP_6 KP_6
-keyCode 103 = KP_7 KP_7
-keyCode 104 = KP_8 KP_8
-keyCode 105 = KP_9 KP_9
-keyCode 106 = KP_Multiply KP_Multiply
-keyCode 107 = KP_Add KP_Add
-keyCode 108 = KP_Separator KP_Separator
-keyCode 109 = KP_Subtract KP_Subtract
-keyCode 110 = KP_Decimal KP_Decimal
-keyCode 111 = KP_Divide KP_Divide
-keyCode 112 = F1
-keyCode 113 = F2
-keyCode 114 = F3
-keyCode 115 = F4
-keyCode 116 = F5
-keyCode 117 = F6
-keyCode 118 = F7
-keyCode 119 = F8
-keyCode 120 = F9
-keyCode 121 = F10
-keyCode 122 = F11
-keyCode 123 = F12
-keyCode 124 = F13
-keyCode 125 = F14
-keyCode 126 = F15
-keyCode 127 = F16
-keyCode 128 = F17
-keyCode 129 = F18
-keyCode 130 = F19
-keyCode 131 = F20
-keyCode 132 = F21
-keyCode 133 = F22
-keyCode 134 = F23
-keyCode 135 = F24
-</code></pre><p>示例：</p>
-<pre><code class="html">&lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.f2=&quot;addClick&quot;&gt;
+<h4 id="修改state时传参"><a href="#修改state时传参" class="headerlink" title="修改state时传参"></a>修改state时传参</h4><p>我们现在希望添加的用户信息自定义怎么向addUser传递参数呢？</p>
+<p><strong>我们在commit的第二个参数传递数据。这里有个专业的术语叫做【载荷】</strong></p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
 
- //...
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;])
+    },
+    methods: {
+        addUser() {
+            // commit的第二个参数填写传递的载荷
+            this.$store.commit(&#39;addUser&#39;, {
+                name: this.name,
+                age: this.age
+            });
+        }
+    },
+}
+</code></pre>
+<p>在store里面addUser的第二个参数接收数据：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
 
-&lt;script&gt;
-    Vue.config.keyCodes.f2 = 113;
-&lt;/script&gt;
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        title: &#39;我是title&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    mutations: {
+        // data接收commit的载荷
+        addUser(state, data) {
+            state.userList.push({
+                userName: data.name,
+                age: data.age
+            });
+        }
+    }
+});
+
+export { store }
+</code></pre>
+<h3 id="3、actions"><a href="#3、actions" class="headerlink" title="3、actions"></a>3、actions</h3><p>除了state和mutations，store还有一个属性叫做<code>actions</code>。</p>
+<p>actions里面放的就是mutations不能放的非纯函数，异步函数等。</p>
+<p>actions里面的方法，<strong>第一个参数不是指向state，而知指向store</strong>，第二个参数还是载荷。</p>
+<blockquote>
+<p>需要注意的是，能操作state的只有mutations，actions也不行。只能调用mutations去操作state。</p>
+</blockquote>
+<p>举个例子，这里我们还是添加user，不过是间隔3s才写入state。</p>
+<pre><code class="json">actions: {
+    // 第一个参数指向store
+    // 第二个参数还是载荷
+    addUserTimeout(cStore, data) {
+        setTimeout(() =&gt; {
+            cStore.commit(&#39;addUser&#39;, data);
+        }, 3000);
+    }
+}
+</code></pre>
+<p>然后在调用的时候就不能使用commit了，而是使用<code>dispatch</code> ：</p>
+<pre><code class="json">methods: {
+    addUser() {
+        this.$store.commit(&#39;addUser&#39;, {
+            name: this.name,
+            age: this.age
+        });
+    },
+    addUserTimeout() {
+        // 使用dispatch调用actions的属性
+        this.$store.dispatch(&#39;addUserTimeout&#39;, {
+            name: this.name,
+            age: this.age
+        });
+    }
+},
+</code></pre>
+<blockquote>
+<p><strong>总结mutations与actiosn的区别：</strong></p>
+<p>1、commit方法用于调用mutation；dispatch 方法用于调用action；</p>
+<p>2、mutation 函数必须是纯函数，而且不能有异步代码；action 可以不是纯函数，也可以有异步代码；</p>
+<p>3、按照上述规则，可以用mutation完成的事情，可以直接调用mutation，mutation不能实现的事情丢给action来完成。</p>
+<p>4、在action中，当完成异步操作，最终需要修改数据模型时，还是需要通过mutation来完成对数据模型的操作。action不允许直接操作数据模型。</p>
+</blockquote>
+<h3 id="4、getters"><a href="#4、getters" class="headerlink" title="4、getters"></a>4、getters</h3><p>store还有一个属性<code>getters</code>，相当于store的一个计算属性，就是对state的数据进行计算，当组件需要取到state的属性然后进行计算得到想要的结果的时候，计算的过程可以在<code>getters</code> 中进行，组件从getters中就可以直接拿到计算好的值。</p>
+<p>这样还有一个好处就是，不仅当前组件可以拿个计算好的值，所有组件都可以拿到，如果所有组件都需要这个计算的话，那就方便多了。</p>
+<p>举个例子：我们获取所有用户age之和：</p>
+<pre><code class="json">getters: {
+    countAge(state) {
+        let num = 0;
+        state.userList.map(user =&gt; {
+            num += user.age;
+        })
+        return num;
+    }
+}
+</code></pre>
+<p>然后在user组件里面：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+    // 直接调用getters的countAge属性即可
+    allAge() {
+        return this.$store.getters.countAge
+    }
+},
+</code></pre>
+<p>然后页面：<code>&lt;div&gt;age之和：&lt;/div&gt;</code> 就会显示所有用户age之和。</p>
+<p>和获取state值一样类似，每次获取getters的值都要使用<code>this.$store.getters</code> 的方式很麻烦，所以类似mapState还有mapGetters,写法和mapState一样：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+    ...mapGetters({ allAge: &#39;countAge&#39; }),
+    // allAge() {
+    //     return this.$store.getters.countAge
+    // }
+},
+</code></pre>
+<blockquote>
+<p>实际上，除了有mapState，mapActions，mapMutations，mapGetters都有，且用法相同。</p>
+</blockquote>
+<p>我们将user组件进行进行改造：</p>
+<pre><code class="json">methods: {
+    // addUser() {
+    //     this.$store.commit(&#39;addUser&#39;, {
+    //         name: this.name,
+    //         age: this.age
+    //     });
+    // },
+    // addUserTimeout() {
+    //     console.log(&#39;user&#39;, this.name, this.age);
+    //     this.$store.dispatch(&#39;addUserTimeout&#39;, {
+    //         name: this.name,
+    //         age: this.age
+    //     });
+    // },
+    // 改造一
+    ...mapMutations({ addUser: &#39;addUser&#39; }),
+    ...mapActions({ addUserTimeout: &#39;addUserTimeout&#39; }),
+    // 改造二
+    ...mapMutations([&#39;addUser&#39;]),
+    ...mapActions([&#39;addUserTimeout&#39;]),
+},
+</code></pre>
+<p>上面的写法有个问题就是没法传递载荷？</p>
+<p>那么载荷在哪里传递呢？在视图中绑定点击事件时传递：</p>
+<p><strong>给事件加上参数，这个参数就是载荷。</strong></p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;h4&gt;用户列表&lt;/h4&gt;
+    &lt;div&gt;用户名：&lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;&lt;/div&gt;
+    &lt;div&gt;年龄：&lt;input type=&quot;text&quot; v-model.number=&quot;age&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- 原始的只有函数名 --&gt;
+    &lt;!-- &lt;button @click=&#39;addUser&#39;&gt;添加用户&lt;/button&gt; --&gt;
+    &lt;!-- &lt;button @click=&#39;addUserTimeout&#39;&gt;间隔3s添加用户&lt;/button&gt; --&gt;
+
+    &lt;!-- 改造一 --&gt;
+    &lt;!-- &lt;button @click=&#39;addUser({name:name,age:age})&#39;&gt;添加用户&lt;/button&gt;
+    &lt;button @click=&#39;addUserTimeout({name:name,age:age})&#39;&gt;间隔3s添加用户&lt;/button&gt; --&gt;
+
+    &lt;!-- 改造二 --&gt;
+    &lt;button @click=&#39;addUser({name,age})&#39;&gt;添加用户&lt;/button&gt;
+    &lt;button @click=&#39;addUserTimeout({name,age})&#39;&gt;间隔3s添加用户&lt;/button&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;user in userList&quot;&gt;{{user.userName}}+{{user.age}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;age之和：{{allAge}}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="三、store拆分"><a href="#三、store拆分" class="headerlink" title="三、store拆分"></a>三、store拆分</h2><p>如果组件特别多，每个组件的数据也就特别多，我们希望对这些数据根据不同的组件进行拆分方便管理。</p>
+<p>现在有Home和User组件，Home组件的数据放在Home的store里面，User的数据放在User的store里面。</p>
+<p>分别为homeStore.js和userStore.js，然后还有一个合并一起的主store叫index.js。</p>
+<p>我们在home组件就显示一个title，user组件还是显示之前的内容。</p>
+<pre><code class="js">// homeStore.js
+export default {
+    state: {
+        title: &#39;我是首页&#39;,
+    }
+}
+
+// userStore.js
+export default {
+    state: {
+        title: &#39;我是用户页&#39;,
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    mutations: {
+        addUser(state, data) {
+            state.userList.push({
+                userName: data.name,
+                age: data.age
+            });
+        }
+    },
+    actions: {
+        // 第一个参数指向store
+        // 第二个参数还是载荷
+        addUserTimeout(cStore, data) {
+            setTimeout(() =&gt; {
+                cStore.commit(&#39;addUser&#39;, data);
+            }, 3000);
+        }
+    },
+    getters: {
+        countAge(state) {
+            let num = 0;
+            state.userList.map(user =&gt; {
+                num += user.age;
+            })
+            return num;
+        }
+    }
+}
+</code></pre>
+<p>然后主store，index.js：</p>
+<p>通过<code>modules</code>属性来注入各个子store</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+import homeStore from &#39;./homeStore&#39;
+import userStore from &#39;./userStore&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    modules: {
+        home: homeStore,
+        user: userStore
+    }
+});
+
+export { store }
+</code></pre>
+<p>然后在main.js里面vue实例中注入的就不是原先的store.js而是index.js。</p>
+<p>由于store下的主store名字是index.js，所以不需要修改，但是要重启服务。</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+
+import { router } from &#39;./router&#39;
+import { store } from &#39;./store&#39;
+import { App } from &#39;./App&#39;
+
+
+new Vue({
+    el: &#39;#app&#39;,
+    template: &#39;&lt;App/&gt;&#39;,
+    components: { App },
+    router,
+    store
+});
+</code></pre>
+<p>然后在Home.js和User.js显示这些数据：</p>
+<pre><code class="js">// Home.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Home = {
+    template: require(&#39;./index.html&#39;),
+    computed: {
+        ...mapState([&#39;title&#39;])
+    }
+}
+
+//User.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+        ...mapGetters({ allAge: &#39;countAge&#39; }),
+    },
+    methods: {
+        ...mapMutations([&#39;addUser&#39;]),
+        ...mapActions([&#39;addUserTimeout&#39;]),
+    },
+}
+</code></pre>
+<p>但是我们发现一个问题就是Home.js中的：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;])
+}
+</code></pre>
+<p>拿不到title的值，为什么呢？上面的写法相当于：</p>
+<pre><code class="js">computed: {
+    ...mapState({
+        //title:&#39;title&#39;
+        title: (state)=&gt;state.title;
+    })
+}
+</code></pre>
+<p>但是我们现在state里面还title吗，没有了state.home下才有title。</p>
+<p>所以，令人沮丧的是，如果使用了store拆分，就不能使用展开符的写法了。</p>
+<p>正确的写法是：</p>
+<pre><code class="json">computed: {
+    ...mapState({
+        title: (state) =&gt; state.home.title;
+    })
+}
+</code></pre>
+<p>User.js也是一样的。</p>
+<blockquote>
+<p>注意：</p>
+<p>但是对于mutations，actions，getters不会区分home和user，都会集合到一起，类似于全局的属性，所欲的组件都可以访问到，所以也就不需要加home和user前缀。</p>
+</blockquote>
+<h3 id="1、namespaced命名空间"><a href="#1、namespaced命名空间" class="headerlink" title="1、namespaced命名空间"></a>1、namespaced命名空间</h3><p>但是可能会存在这样一个问题，就是home和user下的mutations或者actions或者getters都有一个叫做add的方法，那么在调用的时候，调用的是谁的add呢？命名会冲突吗？</p>
+<p>我们可以在子store里面加一句话：</p>
+<p><code>namespaced:true</code> 开启命名空间。</p>
+<pre><code class="js">// homeStore.js
+export default {
+    // 开启命名空间
+    namespaced: true,
+    state: {
+        title: &#39;我是首页&#39;,
+    }
+}
+</code></pre>
+<p>然后获取的这些方法的时候就要加前缀home或者user：</p>
+<pre><code class="js">// User.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState({
+            title: (state) =&gt; state.user.title,
+            userList: (state) =&gt; state.user.userList
+        }),
+        // 加user前缀
+        ...mapGetters({ allAge: &#39;user/countAge&#39; }),
+    },
+    methods: {
+        // 加user前缀
+        ...mapMutations({ addUser: &#39;user/addUser&#39; }),
+        ...mapActions({ addUserTimeout: &#39;user/addUserTimeout&#39; }),
+    },
+}
+</code></pre>
+<p>然后还有一种写法如下，效果一样：</p>
+<p>就是把前缀路径‘user/’提到第一个参数的位置，后面的写法和以前相同。</p>
+<pre><code class="json">computed: {
+    ...mapState({
+        title: (state) =&gt; state.user.title,
+        userList: (state) =&gt; state.user.userList
+    }),
+    // &#39;user/&#39;提前
+    ...mapGetters(&#39;user/&#39;, { allAge: &#39;countAge&#39; }),
+},
+methods: {
+    // &#39;user/&#39;提前
+    ...mapMutations(&#39;user/&#39;, [&#39;addUser&#39;]),
+    ...mapActions(&#39;user/&#39;, [&#39;addUserTimeout&#39;]),
+},
 </code></pre>
 
         </div>
@@ -663,15 +1093,15 @@ keyCode 135 = F24
         
         <div class="post-nepre half previous">
           
-            <a href="/2018/10/12/Webpack/" rel="prev">
+            <a href="/2018/09/09/Gulp/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1744739979,1473444329&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
                 Previous Post</span>
               <div class="info">
                 <h3>
-                  Webpack</h3>
+                  Gulp</h3>
                 <hr>
               </div>
             </a>
@@ -681,15 +1111,15 @@ keyCode 135 = F24
           
           <div class="post-nepre half next">
             
-              <a href="/2018/10/08/javascript数组去重/" rel="next">
+              <a href="/2018/06/08/严格模式/" rel="next">
                 <div class="background">
-                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3841510341,4284169022&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
                 </div>
                 <span class="label">
                   Next Post</span>
                 <div class="info">
                   <h3>
-                    javascript数组去重</h3>
+                    严格模式</h3>
                   <hr>
                 </div>
               </a>
@@ -699,11 +1129,11 @@ keyCode 135 = F24
       
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="www.fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-              <a href="www.fudaqiang.com" itemprop="url" rel="author">強い</a>
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
             </h3>
           </div>
         </div>

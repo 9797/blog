@@ -10,7 +10,7 @@
   <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
   
 
-  <title itemprop="name">修饰符 | 強い</title>
+  <title itemprop="name">vue路由 | 強い</title>
   
   <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
   
@@ -417,19 +417,19 @@
   </div>
   <header class="pattern-header single-header">
     <h1 class="entry-title">
-      修饰符</h1>
+      vue路由</h1>
     <p class="entry-census">
       <span>
-        <a href="www.fudaqiang.com">
+        <a href="fudaqiang.com">
           <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif">
         </a>
       </span>
       <span>
-        <a href="www.fudaqiang.com">強い</a>
+        <a href="fudaqiang.com">強い</a>
       </span>
       <span class="bull">
         ·</span>
-      2018-10-8<span class="bull">
+      0208-12-1<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
   </header>
@@ -444,193 +444,510 @@
         
         <div class="entry-content">
           <!-- [TOC] -->
-<h2 id="一、事件修饰符"><a href="#一、事件修饰符" class="headerlink" title="一、事件修饰符"></a>一、事件修饰符</h2><ul>
-<li><p><code>.stop</code>  ：  阻止冒泡</p>
-</li>
-<li><p><code>.prevent</code> ：    阻止默认事件（比如点击超链接，阻止跳转到默认网页）</p>
-</li>
-<li><p><code>.capture</code>  ：  添加事件侦听器时使用事件捕获模式（与冒泡模式相反）</p>
-</li>
-<li><p><code>.self</code>  ：只当事件在该元素本身（比如不是子元素）触发时触发回调</p>
-</li>
-<li><p><code>.once</code>  ：事件只触发一次，之后还原标签本身的行为。</p>
-</li>
-</ul>
-<p>示例：</p>
-<pre><code class="html">    &lt;div id=&quot;app&quot;&gt;
-
-        &lt;!-- 使用  .stop  阻止冒泡 --&gt;
-        &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .prevent 阻止默认行为（跳转到百度首页） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
-
-        &lt;!-- 使用  .capture 实现捕获触发事件的机制：跟冒泡相反，从外到里--&gt;
-        &lt;div class=&quot;inner&quot; @click.capture=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .self 实现只有点击当前元素时候，才会触发事件处理函数 --&gt;
-        &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!-- 使用 .once 只触发一次事件处理函数（如下案例只触发一次点击事件，之后还原标签本身的行为） --&gt;
-        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent.once=&quot;linkClick&quot;&gt;有问题，先去百度&lt;/a&gt;
-
-    &lt;/div&gt;
+<p>示例文件接到 <strong>Vue的组件</strong></p>
+<hr>
+<h2 id="一、Vue路由"><a href="#一、Vue路由" class="headerlink" title="一、Vue路由"></a>一、Vue路由</h2><h3 id="1、什么是路由？"><a href="#1、什么是路由？" class="headerlink" title="1、什么是路由？"></a>1、什么是路由？</h3><p><strong>后端路由：</strong>对于普通的网站，所有的超链接都是URL地址，所有的URL地址都对应服务器上对应的资源；</p>
+<p><strong>前端路由：</strong>对于单页面应用程序来说，主要通过URL中的hash(#号)来实现不同页面之间的切换，并不会向后端发送请求。同时，hash有一个特点：HTTP请求中不会包含hash相关的内容；所以，单页面程序中的页面跳转主要用hash实现；</p>
+<p>在单页面应用程序中，这种<strong>通过hash改变来切换页面</strong>的方式，称作前端路由（区别于后端路由）；</p>
+<p>承接到<strong>Vue的组件</strong>的示例文件：👇</p>
+<p>现在有Home，Goods和Users子组件，我们在点击跳转按钮的时候，页面通过<code>&lt;Component :is=&quot;currentPage&quot; /&gt;</code> 改变了，但是地址url没变，这就是单页面应用。</p>
+<p>这样有一个问题就是没法分享给他人，因为地址是相同的，但是看到的内容不同。还有一点就是没有回退功能。</p>
+<p>如何解决这个问题？及用到了vue的路由。</p>
+<h3 id="2、路由的基本使用"><a href="#2、路由的基本使用" class="headerlink" title="2、路由的基本使用"></a>2、路由的基本使用</h3><p>在vue中使用路由需要用到<code>vue-router</code>的插件。</p>
+<p>1、按照vue-router插件</p>
+<pre><code class="html">npm i vue-router -S
 </code></pre>
-<p><code>.stop</code> 和 <code>.self</code> 的区别：</p>
-<pre><code class="html">        &lt;!-- stop 会阻止冒泡行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click.stop=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+<p>2、引入并注入路由到vue</p>
+<pre><code class="js">import Router from &#39;vue-router&#39;
 
-        &lt;!-- .self 只会阻止自己身上冒泡行为的触发，并不会真正阻止冒泡的行为 --&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click.self=&quot;div1Handler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;戳他&quot; @click=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+Vue.use(Router);
 </code></pre>
-<h2 id="二、按键修饰符"><a href="#二、按键修饰符" class="headerlink" title="二、按键修饰符"></a>二、按键修饰符</h2><p>我们现在有个需求就是输入ID和name后不点击add按钮，而是按下回车键也需要添加到列表中。</p>
-<p>我们可以在name输入框中加入按键抬起事件，并且指定是enter键抬起时才触发。</p>
-<pre><code class="html">&lt;label for=&quot;name&quot;&gt;
-  name:
-  &lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.enter=&quot;addClick&quot;&gt;
+<p>3、创建一个路由实例，参数为一个对象，这个配置对象中有一个属性：<code>routes</code>，表示 <strong>路由的匹配规则</strong>。</p>
+<pre><code class="js">let router = new Router({
+    routes : [
+        { path: &#39;/home&#39;, component: Home }, //当地址为/home时，显示Home组件
+        { path: &#39;/goods&#39;, component: Goods },
+        { path: &#39;/users&#39;, component: Users }
+    ]
+});
 </code></pre>
 <blockquote>
-<p>  <code>.enter</code> ： 就是按键修饰符。 </p>
+<p>routes 属性是一个数组，数组中的每一项都是一条匹配规则。</p>
+<p>每个路由规则，都是一个对象，这个规则对象，身上，有两个必须的属性：</p>
+<p><code>path</code>：表示监听的路由链接地址</p>
+<p><code>component</code>：表示如果路由是前面匹配到的 path ，则展示 component 属性对应的那个组件。</p>
 </blockquote>
-<p><strong>系统提供的按键修饰符有：</strong></p>
-<ul>
-<li><code>.enter</code></li>
-<li><code>.tab</code></li>
-<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
-<li><code>.esc</code></li>
-<li><code>.space</code></li>
-<li><code>.up</code></li>
-<li><code>.down</code></li>
-<li><code>.left</code></li>
-<li><code>.right</code></li>
-</ul>
-<p>如果我们想自定义其他的按键怎么办呢？</p>
-<p>通过<code>Vue.config.keyCodes.f2 = 113;</code> ；可以将f2作为按键修饰符添加到系统按键修饰符中。</p>
-<p>具体每个按键的值是多少？下面是常见的按键的码。</p>
-<pre><code>keyCode 8 = BackSpace BackSpace
-keyCode 9 = Tab Tab
-keyCode 12 = Clear
-keyCode 13 = Enter
-keyCode 16 = Shift_L
-keyCode 17 = Control_L
-keyCode 18 = Alt_L
-keyCode 19 = Pause
-keyCode 20 = Caps_Lock
-keyCode 27 = Escape Escape
-keyCode 32 = space
-keyCode 33 = Prior
-keyCode 34 = Next
-keyCode 35 = End
-keyCode 36 = Home
-keyCode 37 = Left
-keyCode 38 = Up
-keyCode 39 = Right
-keyCode 40 = Down
-keyCode 41 = Select
-keyCode 42 = Print
-keyCode 43 = Execute
-keyCode 45 = Insert
-keyCode 46 = Delete
-keyCode 47 = Help
-keyCode 48 = 0 equal braceright
-keyCode 49 = 1 exclam onesuperior
-keyCode 50 = 2 quotedbl twosuperior
-keyCode 51 = 3 section threesuperior
-keyCode 52 = 4 dollar
-keyCode 53 = 5 percent
-keyCode 54 = 6 ampersand
-keyCode 55 = 7 slash braceleft
-keyCode 56 = 8 parenleft bracketleft
-keyCode 57 = 9 parenright bracketright
-keyCode 65 = a A
-keyCode 66 = b B
-keyCode 67 = c C
-keyCode 68 = d D
-keyCode 69 = e E EuroSign
-keyCode 70 = f F
-keyCode 71 = g G
-keyCode 72 = h H
-keyCode 73 = i I
-keyCode 74 = j J
-keyCode 75 = k K
-keyCode 76 = l L
-keyCode 77 = m M mu
-keyCode 78 = n N
-keyCode 79 = o O
-keyCode 80 = p P
-keyCode 81 = q Q at
-keyCode 82 = r R
-keyCode 83 = s S
-keyCode 84 = t T
-keyCode 85 = u U
-keyCode 86 = v V
-keyCode 87 = w W
-keyCode 88 = x X
-keyCode 89 = y Y
-keyCode 90 = z Z
-keyCode 96 = KP_0 KP_0
-keyCode 97 = KP_1 KP_1
-keyCode 98 = KP_2 KP_2
-keyCode 99 = KP_3 KP_3
-keyCode 100 = KP_4 KP_4
-keyCode 101 = KP_5 KP_5
-keyCode 102 = KP_6 KP_6
-keyCode 103 = KP_7 KP_7
-keyCode 104 = KP_8 KP_8
-keyCode 105 = KP_9 KP_9
-keyCode 106 = KP_Multiply KP_Multiply
-keyCode 107 = KP_Add KP_Add
-keyCode 108 = KP_Separator KP_Separator
-keyCode 109 = KP_Subtract KP_Subtract
-keyCode 110 = KP_Decimal KP_Decimal
-keyCode 111 = KP_Divide KP_Divide
-keyCode 112 = F1
-keyCode 113 = F2
-keyCode 114 = F3
-keyCode 115 = F4
-keyCode 116 = F5
-keyCode 117 = F6
-keyCode 118 = F7
-keyCode 119 = F8
-keyCode 120 = F9
-keyCode 121 = F10
-keyCode 122 = F11
-keyCode 123 = F12
-keyCode 124 = F13
-keyCode 125 = F14
-keyCode 126 = F15
-keyCode 127 = F16
-keyCode 128 = F17
-keyCode 129 = F18
-keyCode 130 = F19
-keyCode 131 = F20
-keyCode 132 = F21
-keyCode 133 = F22
-keyCode 134 = F23
-keyCode 135 = F24
-</code></pre><p>示例：</p>
-<pre><code class="html">&lt;input type=&quot;text&quot; id=&quot;name&quot; v-model=&quot;name&quot; @keyup.f2=&quot;addClick&quot;&gt;
-
- //...
-
-&lt;script&gt;
-    Vue.config.keyCodes.f2 = 113;
-&lt;/script&gt;
+<p>4、将路由规则对象router注册到vue实例</p>
+<pre><code class="js">new Vue({
+  el: &quot;#box&quot;,
+  data: {},
+  methods: {},
+  // 将路由对象注册到vue实例
+  router
+});
 </code></pre>
+<p>5、一旦路由规则匹配成功，就会在vue-router 提供的标签<code>router-view</code> 上显示出来，这个标签就是匹配路由成功后component对应的组件应该显示的位置。</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;button @click=&quot;goPage(nav.name)&quot; v-for=&quot;nav in navs&quot;&gt;{{nav.text}}&lt;/button&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code></pre>
+<p>然后来看看界面：</p>
+<h3 id="3、router-link属性"><a href="#3、router-link属性" class="headerlink" title="3、router-link属性"></a>3、router-link属性</h3><p>我们之前的超链接是由a标签代替的，如果要跳转那么并且每次href属性都要加上#，这样太麻烦。</p>
+<p>vue-router官方提供了一个<code>router-link</code> 的属性可以实现路由的跳转。</p>
+<pre><code class="html">&lt;!--app.html--&gt;
+&lt;div&gt;
+    &lt;router-link tag=&quot;button&quot; :to=&quot;nav.name&quot; v-for=&quot;nav in navs&quot;&gt;{{nav.text}}&lt;/router-link&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code></pre>
+<p>我们通过检查可以知道，router-link 会默认渲染为一个a 标签。</p>
+<p>但是我们也可以将其改变成别的标签，使用 <code>tag=&quot;span&quot;</code>  属性可以将默认的a标签转换成span标签：</p>
+<pre><code class="html">&lt;router-link to=&quot;/login&quot; tag=&quot;span&quot;&gt;登陆&lt;/router-link&gt;
+</code></pre>
+<h3 id="4、路由嵌套"><a href="#4、路由嵌套" class="headerlink" title="4、路由嵌套"></a>4、路由嵌套</h3><p>我们现在想在/home路径下再接子路由a和b，形成嵌套路由/home/a或者/home/b形式的路由。</p>
+<p>在路由配置规则数组中使用 <code>children</code> 属性，实现子路由功能。</p>
+<pre><code class="js">let router = new Router({
+    routes: [
+        // 路由重定向
+        { path: &#39;/&#39;, redirect: &#39;/home&#39; },
+        {
+            path: &#39;/home&#39;,
+            component: Home,
+            // 使用children实现子路由
+            children: [
+                { path: &#39;a&#39;, component: A },
+                { path: &#39;b&#39;, component: B }
+            ]
+        },
+        { path: &#39;/goods&#39;, component: Goods },
+        { path: &#39;/users&#39;, component: Users }
+    ]
+});
+</code></pre>
+<blockquote>
+<p>注意：子路由的匹配规则前面不要加 <code>/</code> 。</p>
+</blockquote>
+<p>然后在Home的template中加入<code>&lt;router-view&gt;&lt;/router-view&gt;</code>即可。</p>
+<p><strong>给路由起别名</strong></p>
+<p>我们还可以给路由起个别名，这样在有些路由特别长的时候就很方便。</p>
+<p>起别名的方式就是往路由匹配规则加个<code>name</code>属性即可。</p>
+<pre><code class="js">let router = new Router({
+    routes: [
+        { path: &#39;/&#39;, redirect: &#39;/home&#39; },
+        {
+            path: &#39;/home&#39;,
+            component: Home,
+            name: &#39;h&#39;,
+            children: [
+                { path: &#39;a&#39;, component: A, name: &#39;a&#39; },
+                { path: &#39;b&#39;, component: B, name: &#39;b&#39; }
+            ]
+        }, //当地址为/home时，显示Home组件
+        { path: &#39;/goods&#39;, component: Goods, name: &#39;g&#39; },
+        { path: &#39;/users&#39;, component: Users, name: &#39;u&#39; }
+    ]
+});
+</code></pre>
+<p>那么我们在使用router-link跳转的时候，属性to就是动态的：</p>
+<pre><code class="html">&lt;router-link tag=&quot;button&quot; :to=&quot;{name:&#39;a&#39;}&quot; v-for=&quot;nav in navs&quot;&gt;{{nav.text}}&lt;/router-link&gt;
+</code></pre>
+<p>然后重定向redirect也可以使用name：</p>
+<pre><code class="js">{ path: &#39;/&#39;, redirect: {name:&#39;h&#39;} },
+</code></pre>
+<h3 id="5、多视图路由"><a href="#5、多视图路由" class="headerlink" title="5、多视图路由"></a>5、多视图路由</h3><p>之前我们是在Home中加载A，B组件，现在有如下需求：</p>
+<p>我们在加载/home/one路由的时候，没有名字的router-view加载A组件，有名字的router-view加载B组件；</p>
+<p>在加载/home/two路由的时候，没有名字的router-view加载A2组件，有名字的router-view加载B2组件；</p>
+<p>这种在Home中显示多个router-view的方式就叫做多视图路由。</p>
+<p>首先在Home的template中添加router-view：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;首页&lt;/h1&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;router-view name=&quot;b&quot;&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code></pre>
+<p>接着配置路由：</p>
+<pre><code class=":arrow_down:">let router = new Router({
+    routes: [
+        { path: &#39;/&#39;, redirect: &#39;/home&#39; },
+        {
+            path: &#39;/home&#39;,
+            component: Home,
+            name: &#39;h&#39;,
+            children: [{
+                    path: &#39;one&#39;,
+                    components: {
+                        b: B,
+                        default: A
+                    },
+                    name: &#39;a&#39;
+                },
+                {
+                    path: &#39;two&#39;,
+                    components: {
+                        b: B2,
+                        default: A2
+                    },
+                    name: &#39;b&#39;
+                }
+            ]
+        }, //当地址为/home时，显示Home组件
+        { path: &#39;/goods&#39;, component: Goods, name: &#39;g&#39; },
+        { path: &#39;/users&#39;, component: Users, name: &#39;u&#39; }
+    ]
+});
+</code></pre>
+<p>由于一个router-view要加载的有两个路由，所以component变成components，复数，然后是个对象，有name=b的就是b：B组件，没有name的就是default：A组件。</p>
+<p>演示：</p>
+<h3 id="6、编程式导航"><a href="#6、编程式导航" class="headerlink" title="6、编程式导航"></a>6、编程式导航</h3><p>编程式导航就是通过js来实现页面跳转（之前都是通过标签router-link来跳转的），比如如果用户登录成功跳转道首页，这个判断的功能只能通过js来实现。</p>
+<p>我在app.html添加一个按钮：</p>
+<pre><code class="js">&lt;button @click=&#39;goHome&#39;&gt;跳转到首页&lt;/button&gt;
+</code></pre>
+<p>然后在app.js里面实现点击事件：</p>
+<p>通过<code>父组件.$router.push(&#39;路由地址&#39;)</code> 或者是<code>父组件.$router.push({name:&#39;路由别名&#39;})</code>的方式进行跳转。</p>
+<pre><code class="js">methods: {
+    goHome() {
+        this.$router.push(&#39;/home&#39;);
+        this.$router.push({ name: &#39;h&#39; });
+    }
+},
+</code></pre>
+<blockquote>
+<p><code>this.$router.push</code>和<code>this.$router.replace</code>的区别:</p>
+<p>push会保留跳转前的地址，而replace不会。通过名字也可以看出端倪。</p>
+<p>还有<code>this.$router.go(1)</code> 执行浏览指针的前进或者后退次数。</p>
+</blockquote>
+<h3 id="7、路由高亮显示"><a href="#7、路由高亮显示" class="headerlink" title="7、路由高亮显示"></a>7、路由高亮显示</h3><p>我们在点击登陆和注册链接的时候，可不可以让被点击的链接高亮显示呢？</p>
+<p><strong>方式一：</strong></p>
+<p>我们可以看到在激活的路由上面，会使用一个叫做<code>router-link-active</code> 的类，我们通过修改这个类的属性就可以让这个链接高亮显示了。</p>
+<pre><code class="css">.router-link-active {
+  color: red;
+  background-color: yellow;
+}
+</code></pre>
+<p><strong>方式二：</strong></p>
+<p>可以通过路由的构造选项 <code>linkActiveClass</code> 来全局配置需要激活的路由样式。</p>
+<pre><code class="js">var routerObj = new VueRouter({
+  routes: [{
+    path: &#39;/&#39;,
+    redirect: &#39;/login&#39;
+  }, {
+    path: &#39;/login&#39;,
+    component: login
+  }, {
+    path: &#39;/register&#39;,
+    component: register
+  }],
+  // 自定义路由构造选项 linkActiveClass
+  linkActiveClass: &#39;myClass&#39;
+});
+</code></pre>
+<h3 id="8、路由切换添加动画效果"><a href="#8、路由切换添加动画效果" class="headerlink" title="8、路由切换添加动画效果"></a>8、路由切换添加动画效果</h3><p>既然 router-view 是显示组件的，那么我们可以给 router-view 来添加动画效果：</p>
+<pre><code class="html">&lt;style&gt;
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+&lt;/style&gt;
+
+&lt;transition mode=&quot;out-in&quot;&gt;
+  &lt;router-view&gt;&lt;/router-view&gt;
+&lt;/transition&gt;
+</code></pre>
+<h3 id="9、给路由传递参数"><a href="#9、给路由传递参数" class="headerlink" title="9、给路由传递参数"></a>9、给路由传递参数</h3><h4 id="方式一：问号传参"><a href="#方式一：问号传参" class="headerlink" title="方式一：问号传参"></a>方式一：问号传参</h4><p>我们可以在路由中，使用查询字符串的方式给路由传递参数。</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;商品列表页面&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;router-link tag=&#39;li&#39; :to=&quot;{name:&#39;d&#39;,query:{gid:goods.goodsID}}&quot; v-for=&quot;goods in list&quot;&gt;
+            &lt;h4&gt;商品名:{{goods.name}}&lt;/h4&gt;
+            &lt;p&gt;价格:{{goods.price}}&lt;/p&gt;
+        &lt;/router-link&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>当然上面传递的方式就类似于传统的问号传参方式。比如 <code>/detail?gid=4</code> 这样的方式传递，如果想写在to里面就用上面的方式。</p>
+<p>给路由传递参数后，我们并<strong>不需要修改路由匹配规则</strong>。</p>
+<p>我们给路由传递参数就是为了拿到参数，那么如何获取参数呢？</p>
+<p>在我们的组件模板对象里面，可以使用<code>this.$route.query</code> 的方式获取我们传入的参数对象。</p>
+<pre><code class="js">export let Detail = {
+    template : require(&quot;./index.html&quot;),
+    data(){
+        return {
+            goodsid : 0
+        }
+    },
+    // 加载后获取路由参数
+    mounted(){
+        let goodsid = this.$route.query.gid
+        this.goodsid = goodsid
+    }
+} 
+</code></pre>
+<h4 id="方式二：路径传参"><a href="#方式二：路径传参" class="headerlink" title="方式二：路径传参"></a>方式二：路径传参</h4><p>首先在路由匹配规则中，使用占位符代替路由传递时的参数。</p>
+<p>path 中的 <code>:newGid</code>表示如果以后路由后面跟内容了，那么内容的属性就是gid。</p>
+<pre><code class="html">{path : &#39;/detail/:newGid&#39;,component:Detail,name:&quot;d&quot;},
+</code></pre>
+<p>然后在传递参数时，就不是用query了，而是params。</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;商品列表页面&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;router-link tag=&#39;li&#39; :to=&quot;{name:&#39;d&#39;,params:{newGid:goods.goodsID}}&quot; v-for=&quot;goods in list&quot;&gt;
+            &lt;h4&gt;商品名:{{goods.name}}&lt;/h4&gt;
+            &lt;p&gt;价格:{{goods.price}}&lt;/p&gt;
+        &lt;/router-link&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>这时候，传过去时就不是问号的形式，而是路径的形式，如：<code>/detail/4</code></p>
+<p>获取的时候也不是query而是params，<code>this.$route.params</code>。</p>
+<pre><code class="js">export let Detail = {
+    template : require(&quot;./index.html&quot;),
+    data(){
+        return {
+            goodsid : 0
+        }
+    },
+    // 加载后获取路由参数
+    mounted(){
+        let newGoodsid = this.$route.params.newGid;
+        this.goodsid = newGoodsid;
+    }
+} 
+</code></pre>
+<h4 id="方式三：编程式导航传参"><a href="#方式三：编程式导航传参" class="headerlink" title="方式三：编程式导航传参"></a>方式三：编程式导航传参</h4><p>上面的路由传参都是采用to传参，也就是标签传参，怎么使用编程式导航传参？</p>
+<p>其实和to是一样的：</p>
+<pre><code class="js">this.$router.push({name:&#39;d&#39;,query:{gid:goods.goodsID}})
+this.$router.push({name:&#39;d&#39;,params:{newGid:goods.goodsID}})
+</code></pre>
+<h3 id="10、vue路由守卫"><a href="#10、vue路由守卫" class="headerlink" title="10、vue路由守卫"></a>10、vue路由守卫</h3><p>什么是路由守卫？简单来说就是路由在跳转之前的验证，当满足条件时才会进行跳转。</p>
+<p>路由守卫也称导航守卫，分为<code>全局守卫</code>，<code>路由守卫</code>和<code>组件守卫</code></p>
+<h4 id="10-1、全局守卫"><a href="#10-1、全局守卫" class="headerlink" title="10.1、全局守卫"></a>10.1、全局守卫</h4><p>注册全局守卫应该在路由模块暴露出去之前定义，使用<code>router.beforeEach(function(to,from,next){})</code>来注册一个全局守卫。</p>
+<p>参数：</p>
+<ul>
+<li><p>to：代表目标路径对象</p>
+</li>
+<li><p>from：来源路径对象</p>
+</li>
+<li><p>next：用于决定是否继续进行跳转。该方法参数有三种情况：</p>
+<p>当next()函数不传参数或者传入true的时候 则允许正常跳转；</p>
+<p>当next()函数传入false时 会中断跳转(阻止跳转)；</p>
+<p>当next()函数中<strong>传入路径</strong>时或者<strong>对象</strong>时(比如:{name:’xxx’})则会重定向到指定路径。</p>
+</li>
+</ul>
+<blockquote>
+<p>定义在router上的路由守卫 ，全局范围内有效，只要有路径跳转就会触发该守卫。</p>
+</blockquote>
+<p>假如我现在从首页/home跳转到/home/two，根据随机数是否大于0.5决定是否跳转：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Router from &#39;vue-router&#39;
+
+import { Home } from &#39;./pages/Home&#39;
+import { Goods } from &#39;./pages/Goods&#39;
+import { Users } from &#39;./pages/Users&#39;
+
+import { A } from &#39;./components/A&#39;
+import { B } from &#39;./components/B&#39;
+import { A2 } from &#39;./components/A2&#39;
+import { B2 } from &#39;./components/B2&#39;
+
+Vue.use(Router);
+
+let router = new Router({
+    routes: [
+        { path: &#39;/&#39;, redirect: &#39;/home&#39; },
+        {
+            path: &#39;/home&#39;,
+            component: Home,
+            name: &#39;h&#39;,
+            children: [{
+                    path: &#39;one&#39;,
+                    components: {
+                        b: B,
+                        default: A
+                    },
+                    name: &#39;a&#39;
+                },
+                {
+                    path: &#39;two&#39;,
+                    components: {
+                        b: B2,
+                        default: A2
+                    },
+                    name: &#39;b&#39;
+                }
+            ]
+        }, //当地址为/home时，显示Home组件
+        { path: &#39;/goods&#39;, component: Goods, name: &#39;g&#39; },
+        { path: &#39;/users&#39;, component: Users, name: &#39;u&#39; }
+    ]
+});
+
+// 当有路由跳转的时候，就会执行这个函数
+router.beforeEach(function(to, from, next) {
+    console.log(to, from);
+    let num = Math.random();
+    console.log(num);
+    next(num &gt; 0.5 ? true : false);
+});
+
+export { router };
+</code></pre>
+<p>可以看到只有随机数大于0.5的时候，页面才真正发生了变化，跳转到了/home/two:</p>
+<p>我们把路径对象展开可以看到所有有关路径的信息：</p>
+<p>全局守卫还有一个<code>router.afterEach(function(to,from){})</code> ，还是在路由跳转之前执行，它在决定跳转后 以及真正跳转前执行，其中形参 to from同上。</p>
+<h4 id="10-2、路由守卫"><a href="#10-2、路由守卫" class="headerlink" title="10.2、路由守卫"></a>10.2、路由守卫</h4><p>路由守卫就是针对单个路由对象配置的守卫。</p>
+<p>假如我在users组件配置路由守卫，那么只有跳转到users路由时才会触发该守卫，跳转到其他路由时不会触发该守卫。</p>
+<p>路由守卫的注册写在路由匹配规则数组里面：</p>
+<pre><code class="js">let router = new Router({
+    routes: [
+        //...
+        {
+            path: &#39;/users&#39;,
+            component: Users,
+            name: &#39;u&#39;,
+            beforeEnter: (to, from, next) =&gt; {
+                next(confirm(&#39;Entey Users?&#39;));
+            }
+        }
+    ]
+});
+</code></pre>
+<h4 id="10-3、组件守卫"><a href="#10-3、组件守卫" class="headerlink" title="10.3、组件守卫"></a>10.3、组件守卫</h4><p>组件守卫是针对单个组件进行监听，在访问到该组件时才会触发。</p>
+<p>既然是组件守卫就写在组件里面，这里以进入Home组件为例：</p>
+<pre><code class="js">export let Home = {
+    template: `
+        &lt;div&gt;
+            &lt;h1&gt;首页&lt;/h1&gt;
+            &lt;router-view&gt;&lt;/router-view&gt;
+            &lt;router-view name=&quot;b&quot;&gt;&lt;/router-view&gt;
+        &lt;/div&gt;
+    `,
+    // 在路由跳转时,如果会访问到当前组件,则会触发该守卫
+    beforeRouteEnter(to, from, next) {
+        next(confirm(&#39;Enter Home?&#39;));
+    },
+    // 在路由跳转时,如果离开当前组件,则会触发该守卫
+    beforeRouteLeave (to, from, next) {
+        next(confirm(&#39;Leave Home?&#39;));
+    },
+    // 在当前路径下,当路由的参数发生变化时，才会触发该路由守卫
+    beforeRouteUpdate(to, from, next) {
+        console.log(to.params.path);
+    }
+}
+</code></pre>
+<h3 id="命名视图实现经典布局"><a href="#命名视图实现经典布局" class="headerlink" title="命名视图实现经典布局"></a>命名视图实现经典布局</h3><p><strong>什么是命名视图？</strong></p>
+<p>我们之前的 router-view 都是没有名字的，现在我们可以为其指定名称，就是命名视图。</p>
+<p>我们要实现的目标是显示标题，侧边栏和主体三部分的经典视图，类似如下的布局：</p>
+<p>那么既然要显示三部分，就需要三个 router-view，怎么让每个 router-view显示不同的内容呢？这就需要用到命名视图。</p>
+<p>语法：</p>
+<pre><code class="html"> &lt;router-view name=&quot;view1&quot;&gt;&lt;/router-view&gt;
+</code></pre>
+<p>只需要指定一个name属性即可。</p>
+<p><strong>经典布局示例：</strong></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- 1.引入vue-router文件 --&gt;
+  &lt;script src=&quot;./lib/vue-router-3.0.1.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    body,
+    html,
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      width: 100%;
+      height: 80px;
+      background-color: red;
+    }
+
+    .left {
+      float: left;
+      width: 20%;
+      height: 500px;
+      background-color: green;
+    }
+
+    .right {
+      float: left;
+      width: 80%;
+      height: 500px;
+      background-color: blue;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;router-view name=&quot;leftBanner&quot;&gt;&lt;/router-view&gt;
+    &lt;router-view name=&quot;rightBanner&quot;&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    // 3、创建组件模板对象
+    var header = {
+      template: &#39;&lt;h1 class=&quot;header&quot;&gt;顶部&lt;/h1&gt;&#39;,
+    };
+
+    var left = {
+      template: &#39;&lt;h3 class=&quot;left&quot;&gt;左边侧栏&lt;/h3&gt;&#39;
+    };
+
+    var right = {
+      template: &#39;&lt;h3 class=&quot;right&quot;&gt;右边主体&lt;/h3&gt;&#39;,
+    };
+
+    // 2、创建路由对象
+    var router = new VueRouter({
+      routes: [{
+        path: &#39;/&#39;,
+        // component 要显示的组件为一个对象，default为默认显示的组件
+        // leftBanner表示router-view显示名称为leftBanner的组件
+        // rightBanner表示router-view显示名称为rightBanner的组件
+        components: {
+          &#39;default&#39;: header,
+          &#39;leftBanner&#39;: left,
+          &#39;rightBanner&#39;: right
+        }
+      }]
+    });
+
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {},
+      methods: {},
+      // 4、将vm实例和路由对象联系起来
+      router
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>1、首先创建三个组件模板对象，分别用于显示头部，侧边栏，和主体三个部分。</p>
+<p>2、在匹配规则里面， <strong>component 变成了 components</strong>，并且展示多个组件。其中：</p>
+<p>default为默认显示的组件；</p>
+<p>leftBanner表示router-view显示名称为leftBanner的组件</p>
+<p> rightBanner表示router-view显示名称为rightBanner的组件。</p>
+<p>3、为 router-view 指定 components 中显示不同组件的名称。</p>
+<p>4、为显示的不同组件添加样式，形成经典布局样式。</p>
+</blockquote>
 
         </div>
         <!-- .entry-content -->
@@ -661,49 +978,32 @@ keyCode 135 = F24
       <section class="post-squares nextprev">
         
         
-        <div class="post-nepre half previous">
-          
-            <a href="/2018/10/12/Webpack/" rel="prev">
+          <div class="post-nepre full previous">
+            
+            <a href="/2018/06/08/严格模式/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3841510341,4284169022&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
                 Previous Post</span>
               <div class="info">
                 <h3>
-                  Webpack</h3>
+                  严格模式</h3>
                 <hr>
               </div>
             </a>
           </div>
           
           
-          
-          <div class="post-nepre half next">
-            
-              <a href="/2018/10/08/javascript数组去重/" rel="next">
-                <div class="background">
-                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-                </div>
-                <span class="label">
-                  Next Post</span>
-                <div class="info">
-                  <h3>
-                    javascript数组去重</h3>
-                  <hr>
-                </div>
-              </a>
-            </div>
-            
       </section>
       
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="www.fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-              <a href="www.fudaqiang.com" itemprop="url" rel="author">強い</a>
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
             </h3>
           </div>
         </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fudaqiang.com/"/>
-  <updated>2019-04-09T05:25:26.033Z</updated>
+  <updated>2019-04-09T06:34:14.955Z</updated>
   <id>http://fudaqiang.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>vuex</title>
-    <link href="http://fudaqiang.com/2019/04/09/vuex/"/>
-    <id>http://fudaqiang.com/2019/04/09/vuex/</id>
-    <published>2019-04-09T05:24:15.000Z</published>
-    <updated>2019-04-09T05:25:26.033Z</updated>
+    <title>防抖debounce</title>
+    <link href="http://fudaqiang.com/2019/02/09/%E9%98%B2%E6%8A%96debounce/"/>
+    <id>http://fudaqiang.com/2019/02/09/防抖debounce/</id>
+    <published>2019-02-09T06:02:06.000Z</published>
+    <updated>2019-04-09T06:34:14.955Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,11 @@
       
         
         
-          &lt;!-- [TOC] --&gt;
-&lt;p&gt;​    &lt;/p&gt;
-&lt;h2 id=&quot;一、Vuex&quot;&gt;&lt;a href=&quot;#一、Vuex&quot; class=&quot;headerlink&quot; title=&quot;一、Vuex&quot;&gt;&lt;/a&gt;一、Vuex&lt;/h2&gt;&lt;p&gt;Vuex 是一个专为 Vue.js
+          &lt;pre&gt;&lt;code class=&quot;js&quot;&gt;   function debounce(fn, wait) {
+      var timer = null;
+      return function () {
+        if (timer !== null){
+    
         
       
     
@@ -43,11 +45,11 @@
   </entry>
   
   <entry>
-    <title>Vue的动画</title>
-    <link href="http://fudaqiang.com/2019/04/09/Vue%E7%9A%84%E5%8A%A8%E7%94%BB/"/>
-    <id>http://fudaqiang.com/2019/04/09/Vue的动画/</id>
-    <published>2019-04-09T03:47:27.000Z</published>
-    <updated>2019-04-09T05:25:42.503Z</updated>
+    <title>节流throttle</title>
+    <link href="http://fudaqiang.com/2019/02/09/%E8%8A%82%E6%B5%81throttle/"/>
+    <id>http://fudaqiang.com/2019/02/09/节流throttle/</id>
+    <published>2019-02-09T06:01:31.000Z</published>
+    <updated>2019-04-09T06:34:13.259Z</updated>
     
     <summary type="html">
     
@@ -55,8 +57,35 @@
       
         
         
-          &lt;!-- [TOC] --&gt;
-&lt;h2 id=&quot;一、Vue的动画&quot;&gt;&lt;a href=&quot;#一、Vue的动画&quot; class=&quot;headerlink&quot;
+          &lt;pre&gt;&lt;code class=&quot;js&quot;&gt;  function throttle(fn, wait) {
+      let timer = null;
+      return function () {
+        if (timer) return
+       
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue组件</title>
+    <link href="http://fudaqiang.com/2018/12/03/vue%E7%BB%84%E4%BB%B6/"/>
+    <id>http://fudaqiang.com/2018/12/03/vue组件/</id>
+    <published>2018-12-03T05:40:49.000Z</published>
+    <updated>2019-04-09T05:48:33.086Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、Vue组件&quot;&gt;&lt;a href=&quot;#一、Vue组件&quot; class=&quot;headerlink&quot; title=&quot;一、Vue组件&quot;&gt;&lt;/a&gt;一、Vue组件&lt;/h2&gt;&lt;p&gt;什么是组件： 组件的出现，就是为了拆分 Vue
         
       
     
@@ -69,10 +98,10 @@
   
   <entry>
     <title>grunt</title>
-    <link href="http://fudaqiang.com/2019/04/09/grunt/"/>
-    <id>http://fudaqiang.com/2019/04/09/grunt/</id>
-    <published>2019-04-09T03:22:55.000Z</published>
-    <updated>2019-04-09T03:42:56.693Z</updated>
+    <link href="http://fudaqiang.com/2018/11/09/grunt/"/>
+    <id>http://fudaqiang.com/2018/11/09/grunt/</id>
+    <published>2018-11-09T03:22:55.000Z</published>
+    <updated>2019-04-09T05:30:51.134Z</updated>
     
     <summary type="html">
     
@@ -85,110 +114,6 @@
 &gt;
 &gt; - github：https://github.com/Daotin/Web
 &gt; -
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Webpack</title>
-    <link href="http://fudaqiang.com/2019/04/09/Webpack/"/>
-    <id>http://fudaqiang.com/2019/04/09/Webpack/</id>
-    <published>2019-04-09T02:01:13.000Z</published>
-    <updated>2019-04-09T03:42:26.895Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-            &lt;!-- [TOC] --&gt;
-&lt;p&gt;##一、Webpack介绍&lt;/p&gt;
-&lt;p&gt;Webpack 中文官网 &lt;a href=&quot;https://www.webpackjs.com/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Gulp</title>
-    <link href="http://fudaqiang.com/2019/04/09/Gulp/"/>
-    <id>http://fudaqiang.com/2019/04/09/Gulp/</id>
-    <published>2019-04-09T01:24:39.000Z</published>
-    <updated>2019-04-09T03:42:57.469Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-            &lt;!-- [TOC] --&gt;
-&lt;!-- &gt;大家好，这里是「 从零开始学 Web 系列教程 」，并在下列地址同步更新......
-&gt;
-&gt; - github：https://github.com/Daotin/Web
-&gt; -
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue指令</title>
-    <link href="http://fudaqiang.com/2019/04/08/Vue%E6%8C%87%E4%BB%A4/"/>
-    <id>http://fudaqiang.com/2019/04/08/Vue指令/</id>
-    <published>2019-04-08T14:16:33.000Z</published>
-    <updated>2019-04-09T03:39:25.889Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-           &lt;!--[TOC]--&gt;
-&lt;h2 id=&quot;Vue-指令&quot;&gt;&lt;a href=&quot;#Vue-指令&quot; class=&quot;headerlink&quot; title=&quot;Vue 指令&quot;&gt;&lt;/a&gt;Vue 指令&lt;/h2&gt;&lt;h3 id=&quot;1、插值表达式&quot;&gt;&lt;a href=&quot;#1、插值表达式&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>严格模式</title>
-    <link href="http://fudaqiang.com/2019/04/08/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://fudaqiang.com/2019/04/08/严格模式/</id>
-    <published>2019-04-08T14:16:33.000Z</published>
-    <updated>2019-04-09T01:17:59.137Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;!-- [TOC] --&gt;
-&lt;h3 id=&quot;一、ECMAScript-5-严格模式&quot;&gt;&lt;a href=&quot;#一、ECMAScript-5-严格模式&quot; class=&quot;headerlink&quot; title=&quot;一、ECMAScript 5 严格模式&quot;&gt;&lt;/a&gt;一、ECMAScript
         
       
     
@@ -201,10 +126,10 @@
   
   <entry>
     <title>CommonJS、AMD、CMD、ES6</title>
-    <link href="http://fudaqiang.com/2019/04/08/CommonJS%E3%80%81AMD%E3%80%81CMD%E3%80%81ES6/"/>
-    <id>http://fudaqiang.com/2019/04/08/CommonJS、AMD、CMD、ES6/</id>
-    <published>2019-04-08T11:47:28.000Z</published>
-    <updated>2019-04-09T03:42:55.272Z</updated>
+    <link href="http://fudaqiang.com/2018/11/08/CommonJS%E3%80%81AMD%E3%80%81CMD%E3%80%81ES6/"/>
+    <id>http://fudaqiang.com/2018/11/08/CommonJS、AMD、CMD、ES6/</id>
+    <published>2018-11-08T11:47:28.000Z</published>
+    <updated>2019-04-09T05:33:47.442Z</updated>
     
     <summary type="html">
     
@@ -225,11 +150,11 @@
   </entry>
   
   <entry>
-    <title>测试Mathjax支持</title>
-    <link href="http://fudaqiang.com/2019/02/21/%E6%B5%8B%E8%AF%95Mathjax%E6%94%AF%E6%8C%81/"/>
-    <id>http://fudaqiang.com/2019/02/21/测试Mathjax支持/</id>
-    <published>2019-02-21T09:55:11.000Z</published>
-    <updated>2019-04-09T03:45:11.289Z</updated>
+    <title>Vue指令</title>
+    <link href="http://fudaqiang.com/2018/11/07/Vue%E6%8C%87%E4%BB%A4/"/>
+    <id>http://fudaqiang.com/2018/11/07/Vue指令/</id>
+    <published>2018-11-07T14:16:33.000Z</published>
+    <updated>2019-04-09T05:32:36.033Z</updated>
     
     <summary type="html">
     
@@ -237,7 +162,8 @@
       
         
         
-          &lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h2&gt;&lt;p&gt;When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they
+           &lt;!--[TOC]--&gt;
+&lt;h2 id=&quot;Vue-指令&quot;&gt;&lt;a href=&quot;#Vue-指令&quot; class=&quot;headerlink&quot; title=&quot;Vue 指令&quot;&gt;&lt;/a&gt;Vue 指令&lt;/h2&gt;&lt;h3 id=&quot;1、插值表达式&quot;&gt;&lt;a href=&quot;#1、插值表达式&quot;
         
       
     
@@ -249,24 +175,53 @@
   </entry>
   
   <entry>
-    <title>Hexo-Theme-Sakura</title>
-    <link href="http://fudaqiang.com/2018/12/12/Hexo-Theme-Sakura/"/>
-    <id>http://fudaqiang.com/2018/12/12/Hexo-Theme-Sakura/</id>
-    <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2019-04-08T08:18:18.484Z</updated>
+    <title>Vue的动画</title>
+    <link href="http://fudaqiang.com/2018/11/01/Vue%E7%9A%84%E5%8A%A8%E7%94%BB/"/>
+    <id>http://fudaqiang.com/2018/11/01/Vue的动画/</id>
+    <published>2018-11-01T03:47:27.000Z</published>
+    <updated>2019-04-09T05:32:22.305Z</updated>
     
     <summary type="html">
     
-      最近又一次接触到了web端全景，是在720yun上，发现有好多用户上传的全景照片。再也按捺不住那颗好奇的心，去探究了下720云是怎么实现web端全景展示的。
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h2 id=&quot;一、Vue的动画&quot;&gt;&lt;a href=&quot;#一、Vue的动画&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
       <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="http://fudaqiang.com/tags/web/"/>
+  </entry>
+  
+  <entry>
+    <title>Webpack</title>
+    <link href="http://fudaqiang.com/2018/10/12/Webpack/"/>
+    <id>http://fudaqiang.com/2018/10/12/Webpack/</id>
+    <published>2018-10-12T02:01:13.000Z</published>
+    <updated>2019-04-09T05:31:31.281Z</updated>
     
-      <category term="悦读" scheme="http://fudaqiang.com/tags/%E6%82%A6%E8%AF%BB/"/>
+    <summary type="html">
+    
+      
+      
+        
+        
+            &lt;!-- [TOC] --&gt;
+&lt;p&gt;##一、Webpack介绍&lt;/p&gt;
+&lt;p&gt;Webpack 中文官网 &lt;a href=&quot;https://www.webpackjs.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
     
   </entry>
   
@@ -311,6 +266,137 @@
         
            &lt;!--[TOC]--&gt;
 &lt;h5 id=&quot;set去重&quot;&gt;&lt;a href=&quot;#set去重&quot; class=&quot;headerlink&quot; title=&quot;set去重&quot;&gt;&lt;/a&gt;set去重&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;var arr =
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue的watch、computed、methods的区别</title>
+    <link href="http://fudaqiang.com/2018/09/09/vue%E7%9A%84watch%E3%80%81computed%E3%80%81methods%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://fudaqiang.com/2018/09/09/vue的watch、computed、methods的区别/</id>
+    <published>2018-09-09T05:47:47.000Z</published>
+    <updated>2019-04-09T05:48:53.825Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h2 id=&quot;一、Vue的watch属性&quot;&gt;&lt;a href=&quot;#一、Vue的watch属性&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp</title>
+    <link href="http://fudaqiang.com/2018/09/09/Gulp/"/>
+    <id>http://fudaqiang.com/2018/09/09/Gulp/</id>
+    <published>2018-09-09T01:24:39.000Z</published>
+    <updated>2019-04-09T05:31:04.315Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+            &lt;!-- [TOC] --&gt;
+&lt;!-- &gt;大家好，这里是「 从零开始学 Web 系列教程 」，并在下列地址同步更新......
+&gt;
+&gt; - github：https://github.com/Daotin/Web
+&gt; -
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vuex</title>
+    <link href="http://fudaqiang.com/2018/08/09/vuex/"/>
+    <id>http://fudaqiang.com/2018/08/09/vuex/</id>
+    <published>2018-08-09T05:24:15.000Z</published>
+    <updated>2019-04-09T05:49:15.579Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;p&gt;​    &lt;/p&gt;
+&lt;h2 id=&quot;一、Vuex&quot;&gt;&lt;a href=&quot;#一、Vuex&quot; class=&quot;headerlink&quot; title=&quot;一、Vuex&quot;&gt;&lt;/a&gt;一、Vuex&lt;/h2&gt;&lt;p&gt;Vuex 是一个专为 Vue.js
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>严格模式</title>
+    <link href="http://fudaqiang.com/2018/06/08/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://fudaqiang.com/2018/06/08/严格模式/</id>
+    <published>2018-06-08T14:16:33.000Z</published>
+    <updated>2019-04-09T05:32:51.158Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h3 id=&quot;一、ECMAScript-5-严格模式&quot;&gt;&lt;a href=&quot;#一、ECMAScript-5-严格模式&quot; class=&quot;headerlink&quot; title=&quot;一、ECMAScript 5 严格模式&quot;&gt;&lt;/a&gt;一、ECMAScript
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue路由</title>
+    <link href="http://fudaqiang.com/0208/12/01/vue%E8%B7%AF%E7%94%B1/"/>
+    <id>http://fudaqiang.com/0208/12/01/vue路由/</id>
+    <published>0208-12-01T05:36:46.000Z</published>
+    <updated>2019-04-09T05:42:58.609Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;p&gt;示例文件接到 &lt;strong&gt;Vue的组件&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;一、Vue路由&quot;&gt;&lt;a href=&quot;#一、Vue路由&quot; class=&quot;headerlink&quot;
         
       
     

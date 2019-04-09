@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+
+  
+  <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
+  
+
+  <title itemprop="name">vue组件 | 強い</title>
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+    /*Initial Variables*/
+    var mashiro_option = new Object();
+    var mashiro_global = new Object();
+    mashiro_option.NProgressON = true;
+    /* 
+     * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+     * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+     */
+    mashiro_option.email_domain = "";
+    mashiro_option.email_name = "";
+    mashiro_option.cookie_version_control = "";
+    mashiro_option.qzone_autocomplete = false;
+    mashiro_option.site_name = "さくら荘その強い";
+    mashiro_option.author_name = "強い";
+    mashiro_option.site_url = "http://fudaqiang.com";
+    mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+    mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+    mashiro_option.mathjax = "0";
+    mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/";
+    mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+    // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+    // mashiro_option.float_player_on = true;
+
+    /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+    var bg = "https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(8).jpg.webp".split(",");
+    var bgindex = Math.floor(Math.random() * bg.length);
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+      alert('朋友，IE浏览器未适配哦~');
+    }
+  </script>
+  <style type="text/css">
+    .hljs-ln {
+      border-collapse: collapse
+    }
+
+    .hljs-ln td {
+      padding: 0
+    }
+
+    .hljs-ln-n:before {
+      content: attr(data-line-number)
+    }
+  </style>
+  <style type="text/css">
+    .site-top .lower nav {
+      display: block !important;
+    }
+
+    .author-profile i,
+    .post-like a,
+    .post-share .show-share,
+    .sub-text,
+    .we-info a,
+    span.sitename,
+    .post-more i:hover,
+    #pagination a:hover,
+    .post-content a:hover,
+    .float-content i:hover {
+      color: #FE9600
+    }
+
+    .feature i,
+    .download,
+    .navigator i:hover,
+    .links ul li:before,
+    .ar-time i,
+    span.ar-circle,
+    .object,
+    .comment .comment-reply-link,
+    .siren-checkbox-radio:checked+.siren-checkbox-radioInput:after {
+      background: #FE9600
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FE9600
+    }
+
+    .download,
+    .navigator i:hover,
+    .link-title,
+    .links ul li:hover,
+    #pagination a:hover,
+    .comment-respond input[type='submit']:hover {
+      border-color: #FE9600
+    }
+
+    .entry-content a:hover,
+    .site-info a:hover,
+    .comment h4 a,
+    #comments-navi a.prev,
+    #comments-navi a.next,
+    .comment h4 a:hover,
+    .site-top ul li a:hover,
+    .entry-title a:hover,
+    #archives-temp h3,
+    span.page-numbers.current,
+    .sorry li a:hover,
+    .site-title a:hover,
+    i.iconfont.js-toggle-search.iconsearch:hover,
+    .comment-respond input[type='submit']:hover {
+      color: #FE9600
+    }
+
+    .comments .comments-main {
+      display: block !important;
+    }
+
+    .comments .comments-hidden {
+      display: none !important;
+    }
+
+    background-position:center center;
+    background-attachment:inherit;
+    }
+  </style>
+</head></html>
+
+<body
+  class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://fudaqiang.com">
+          <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://github.com/qiang520184" target="_blank" class="social-github" title="github">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/github.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://weibo.com/xq520184" target="_blank" class="social-github" title="sina">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/sina.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://music.163.com/#/playlist?id=2523258784" target="_blank" class="social-github" title="wangyiyun">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wangyiyun.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="mailto:199513521@qq.com" target="_blank" class="social-github" title="email">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/email.svg">
+            </a>
+          </li>
+          
+          
+          
+          <li class="wechat">
+            <a href="/#">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wechat.png">
+            </a>
+            <div class="wechatInner">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/wxgzh.jpg">
+            </div>
+          </li>
+          
+          
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <!-- <div id="video-btn" class="loadvideo videolive">
+    </div> -->
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">強い</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div class="pattern-center single-center">
+  <!-- 有配图默认渲染第一张 -->
+  <div class="pattern-attachment-img lazyload" style="background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&amp;fm=26&amp;gp=0.jpg);" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&amp;fm=26&amp;gp=0.jpg">
+  </div>
+  <header class="pattern-header single-header">
+    <h1 class="entry-title">
+      vue组件</h1>
+    <p class="entry-census">
+      <span>
+        <a href="fudaqiang.com">
+          <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif">
+        </a>
+      </span>
+      <span>
+        <a href="fudaqiang.com">強い</a>
+      </span>
+      <span class="bull">
+        ·</span>
+      2018-12-3<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+  </header>
+</div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="一、Vue组件"><a href="#一、Vue组件" class="headerlink" title="一、Vue组件"></a>一、Vue组件</h2><p>什么是组件： 组件的出现，就是为了拆分 Vue 实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；</p>
+<p><strong>组件化和模块化的不同：</strong></p>
+<ul>
+<li>模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一；</li>
+<li>组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；</li>
+</ul>
+<h2 id="二、定义组件"><a href="#二、定义组件" class="headerlink" title="二、定义组件"></a>二、定义组件</h2><h3 id="1、定义全局组件"><a href="#1、定义全局组件" class="headerlink" title="1、定义全局组件"></a>1、定义全局组件</h3><p>通过 <code>Vue.component(cname,option)</code>函数来定义</p>
+<p>其中cname为字符串类型 代表组件名；option用于配置组件相关属性。</p>
+<p>相关属性：例如:data computed methods template watch等等。</p>
+<pre><code class="js">// main.js
+import Vue from &#39;vue&#39;
+
+// 全局组件
+// 全局组件的定义一定要在new Vue之前。
+// 定义之后到处可以使用，并且不需再声明
+Vue.component(&#39;mydiv&#39;, {
+    //不能在顶层元素使用v-for，因为顶层元素只能有一个
+    template: `
+        &lt;div&gt;
+            &lt;div v-for=&quot;item in goods&quot;&gt;{{item.name}}&lt;/div&gt;
+        &lt;/div&gt;
+    `,
+    data: function() {
+        return {
+            goods: [
+                { name: &#39;Daotin&#39;, age: 18 },
+                { name: &#39;lvonve&#39;, age: 19 },
+                { name: &#39;wenran&#39;, age: 20 }
+            ]
+        }
+    }
+});
+
+new Vue({
+    el: &#39;#app&#39;,
+    data:{}
+});
+</code></pre>
+<p>全局组件的使用：</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;!--全局组件的使用--&gt;
+    &lt;my-login&gt;&lt;/my-login&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<p>0、不论是全局组件还是局部组件，组件的 template 属性指向的模板内容，必须有且只能有唯一的一个顶层元素，否则会报错。</p>
+<p>1、使用组件的时候，双标签和单标签的方式都可以。<code>&lt;my-login&gt;&lt;/my-login&gt;</code> 或者 <code>&lt;my-login /&gt;</code></p>
+<p>2、组件的内部除了有 <code>template</code>，还有data，methods，watch，computed等所有vue实例的属性。</p>
+<p>3、使用 Vue.component 定义全局组件的时候，组件名称使用了 驼峰命名（如myLogin），则在调用组件的时候，需要把大写的驼峰改为小写的字母，同时在两个单词之前，使用 - 链接（<code>&lt;my-login&gt;&lt;/my-login&gt;</code>）；如果不使用驼峰,则直接拿名称来使用即可；</p>
+<p>4、全局组件定义之后可以可以直接使用，不需要import引入</p>
+<p>5、定义组件的时候，data为一个匿名函数，其返回值为一个对象。在这个返回对象里面填写需要的数据。</p>
+<p>6、定义全局组件的时候，必须在vue初始化之前完成，也就是必须放在new Vue()代码之前。</p>
+</blockquote>
+<h3 id="2、定义局部组件"><a href="#2、定义局部组件" class="headerlink" title="2、定义局部组件"></a>2、定义局部组件</h3><p>通过components : { componentname:option} 的形式注册过一个子组件后才能在当前组件内使用该组件。</p>
+<p>定义局部组件，就是再vue实例中定义组件。</p>
+<pre><code class="js">// main.js
+import Vue from &#39;vue&#39;
+
+// 子组件定义的时候，如果提出组件的配置（比如c），那么也要放在new Vue之前。
+let c = {
+    template: `
+        &lt;div&gt;
+            &lt;div v-for=&quot;item in names&quot;&gt;{{item.name}}&lt;/div&gt;
+        &lt;/div&gt;
+    `,
+    data: function() {
+        return {
+            names: [
+                { name: &#39;good1&#39; },
+                { name: &#39;good2&#39; },
+                { name: &#39;good3&#39; }
+            ]
+        }
+    }
+};
+
+new Vue({
+    el: &#39;#app&#39;,
+    data: {
+        username: &#39;daotin&#39;
+    },
+    // 定义局部组件
+    components: { 
+        goods:c
+    }
+});
+</code></pre>
+<p>子组件的使用：</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;!--局部组件的使用--&gt;
+    &lt;goods&gt;&lt;/goods&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<p>1、局部组件要使用的话，<strong>在哪个组件使用，就要在哪个组件中定义</strong>，也叫注册。</p>
+<p>2、定义子组件的时候，如果把option提出来写，也必须放在new Vue 之前。</p>
+</blockquote>
+<h2 id="三、动态组件"><a href="#三、动态组件" class="headerlink" title="三、动态组件"></a>三、动态组件</h2><p>定义三个子组件<code>Home.js, Goods.js, Users.js</code></p>
+<blockquote>
+<p>一般组件的文件名首字母大写。</p>
+</blockquote>
+<p>然后创建一个主组件App.js。在main.js里面这样做：</p>
+<p>在main.js里面定义局部组件App，然后在main.js里面也可以定义template模板。</p>
+<p>在main.js里面定义的模板会覆盖掉index.html里面的<code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code></p>
+<p>这里main.js里面的模板就是子组件App的内容，实际上这样写的目的就是在主页显示App的内容，所有其他组件比如Home.js等在App.js引入进行显示。</p>
+<pre><code class="js">new Vue({
+    el: &#39;#app&#39;,
+    data: {},
+    template: &#39;&lt;App/&gt;&#39;,
+    components: { App }
+});
+</code></pre>
+<p>看看各个文件的内容：</p>
+<pre><code class="js">// Home.js
+export let Home = {
+    template: `
+        &lt;div&gt;
+            &lt;h2&gt;首页&lt;/h2&gt;
+        &lt;/div&gt;
+    `
+}
+
+// Goods.js
+export let Goods = {
+    template: `
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li v-for=&quot;good in goods&quot;&gt;{{good.goodsName}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    `,
+    data() {
+        return {
+            goods: [
+                { goodsName: &#39;苹果&#39; },
+                { goodsName: &#39;香蕉&#39; },
+                { goodsName: &#39;梨&#39; },
+            ]
+        }
+    },
+}
+
+//Users.js
+export let Users = {
+    template: `
+        &lt;div&gt;
+            &lt;ul&gt;
+                &lt;li v-for=&quot;user in users&quot;&gt;{{user.name}}&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    `,
+    data() {
+        return {
+            users: [
+                { name: &#39;lvonve&#39; },
+                { name: &#39;daotin&#39; },
+                { name: &#39;wenran&#39; },
+            ]
+        }
+    },
+}
+
+</code></pre>
+<p>主组件App.js：</p>
+<pre><code class="js">// 主组件
+import { Home } from &#39;./pages/Home&#39;
+import { Goods } from &#39;./pages/Goods&#39;
+import { Users } from &#39;./pages/Users&#39;
+
+export let App = {
+    template: `
+        &lt;div&gt;
+            &lt;a href=&quot;javascript:;&quot; @click=&quot;goPage(nav.name)&quot; v-for=&quot;nav in navs&quot;&gt;{{nav.text}}&lt;/a&gt;
+
+            &lt;Component :is=&quot;currentPage&quot; /&gt;
+        &lt;/div&gt;
+    `,
+    data() {
+        return {
+            currentPage: &#39;Goods&#39;,
+            navs: [
+                { text: &#39;首页&#39;, name: &#39;Home&#39; },
+                { text: &#39;商品列表&#39;, name: &#39;Goods&#39; },
+                { text: &#39;用户列表&#39;, name: &#39;Users&#39; }
+            ]
+        }
+    },
+    methods: {
+        goPage(pagename) {
+            this.currentPage = pagename;
+        }
+    },
+    components: { Home, Goods, Users }
+}
+</code></pre>
+<p>在主组件先import引入其他组件，然后使用局部组件的方式进行定义，之后使用<code>&lt;Component is=&quot;Home&quot; /&gt;</code> 类似于<code>&lt;Home /&gt;</code> ，由于这里需要动态显示，所以is可变，就成了<code>&lt;Component :is=&quot;currentPage&quot; /&gt;</code></p>
+<p>这样点击不同的a标签就会显示不同的内容（默认显示Goods组件内容）。</p>
+<h2 id="四、组件间传值"><a href="#四、组件间传值" class="headerlink" title="四、组件间传值"></a>四、组件间传值</h2><h3 id="1、父组件向子组件传值"><a href="#1、父组件向子组件传值" class="headerlink" title="1、父组件向子组件传值"></a>1、父组件向子组件传值</h3><p>有这样一个需求，我们的Home，Goods，Users组件都需要有一个相同的头部组件Header，但是需要Header里面的内容不同，这就需要父组件Home，Goods，Users传给子组件Header不同的值来显示不同的内容。</p>
+<p>定义一个Header组件。</p>
+<pre><code class="js">// Header.js
+export let Header = {
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;
+                我是Header组件
+            &lt;/h3&gt;
+
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>父组件怎么给子组件传值呢？</p>
+<p>使用<code>props</code>。</p>
+<p>父组件传递的方式：在子组件中自定义一个属性，名称随意，这里叫title，属性值为Home，</p>
+<pre><code class="js">template: `
+        &lt;div&gt;
+            &lt;Header title=&quot;Home&quot;/&gt;
+            &lt;h2&gt;首页&lt;/h2&gt;
+        &lt;/div&gt;
+    `,
+</code></pre>
+<p>然后在子组件里面接收父组件传来的数据：使用props接收来自父组件的数据，接收属性为一个数组，里面的值就是传过来的属性名。</p>
+<p>既然是数组，就可以接收多个父组件传过来的数据。</p>
+<pre><code class="js">export let Header = {
+    // 使用props接收来自父组件的数据，接收属性为一个数组，里面的值就是传过来的属性名
+    props: [&#39;title&#39;],
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<h4 id="1-1、props类型验证"><a href="#1-1、props类型验证" class="headerlink" title="1.1、props类型验证"></a>1.1、props类型验证</h4><p>我们上面props传递的都是字符串，如果不小心传递的是数组啊，对象啊什么的，显示的时候也只会以字符串的显示显示，如何对props传递的数据进行类型声明呢？</p>
+<p>我们需要在子组件里面进行props声明：</p>
+<pre><code class="js">export let Header = {
+    props: {
+        obj: Object,
+        title: String
+    },
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+            &lt;p&gt;{{obj}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>父组件传值的时候和之前一样：</p>
+<pre><code class="js">import { Header } from &#39;../components/Header&#39;
+
+export let Home = {
+    data() {
+        return {
+            title: &#39;Home&#39;,
+            obj: {
+                username: &#39;Daotin&#39;
+            }
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;Header :title=&quot;title&quot; :obj=&quot;obj&quot;/&gt;
+            &lt;h2&gt;首页&lt;/h2&gt;
+        &lt;/div&gt;
+    `,
+    components: { Header }
+}
+</code></pre>
+<h4 id="1-2、props必填验证"><a href="#1-2、props必填验证" class="headerlink" title="1.2、props必填验证"></a>1.2、props必填验证</h4><p>还有个问题是当父组件不填写title值的时候，子组件不显示，但是不会报错。</p>
+<p><strong>如何设置子组件声明的值为必填属性呢？</strong></p>
+<p>子组件这样设置：</p>
+<pre><code class="js">export let Header = {
+    props: {
+        obj: Object,
+        title: {
+            type: String,
+            required: true
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+            &lt;p&gt;{{obj}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>父组件如果不写<code>title</code>属性的话，会报以下错误：</p>
+<h4 id="1-3、props默认值"><a href="#1-3、props默认值" class="headerlink" title="1.3、props默认值"></a>1.3、props默认值</h4><p>子组件：</p>
+<pre><code class="js">export let Header = {
+    props: {
+        obj: Object,
+        title: {
+            type: String,
+            default: &#39;Home&#39;
+            // required: true
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+            &lt;p&gt;{{obj}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>当子组件设置默认属性的时候，就不需要必填属性了，因为有了默认值肯定填写了。</p>
+<h4 id="1-4、props自定义匹配规则"><a href="#1-4、props自定义匹配规则" class="headerlink" title="1.4、props自定义匹配规则"></a>1.4、props自定义匹配规则</h4><p>如果父组件传递的是个数组，我们想限制数组的长度怎么办？上面的属性都不可以限制，这时候就需要自定义匹配规则了。</p>
+<p>这里我们限制传递过来的数组长度在3-10之间长度。</p>
+<p>子组件：</p>
+<pre><code class="js">export let Header = {
+    props: {
+        obj: Object,
+        title: {
+            type: String,
+            default: &#39;Default Home&#39;
+            // required: true
+        },
+        arr: {
+            type: Array,
+            required: true,
+            validator: function(value) {
+                // value就是父组件传递过来的数组
+                if (value.length &gt;= 3 &amp;&amp; value.length &lt;= 10) {
+                    // 满足条件返回true
+                    return true;
+                } else {
+                     // 不满足条件返回false
+                    return false;
+                }
+            }
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+            &lt;p&gt;{{obj}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>父组件这时传递个空数组：</p>
+<pre><code class="js">import { Header } from &#39;../components/Header&#39;
+
+export let Home = {
+    data() {
+        return {
+            title: &#39;Home&#39;,
+            obj: {
+                username: &#39;Daotin&#39;
+            },
+            arr: []
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;Header :title=&quot;title&quot; :obj=&quot;obj&quot; :arr=&quot;arr&quot;/&gt;
+            &lt;h2&gt;首页&lt;/h2&gt;
+        &lt;/div&gt;
+    `,
+    components: { Header }
+}
+</code></pre>
+<p>会报错如下，当我们传递的数组的长度满足的时候就不会报错了。</p>
+<p>但是我觉得这个提示不明显，我们可以手动报错。</p>
+<pre><code class="js">export let Header = {
+    props: {
+        obj: Object,
+        title: {
+            type: String,
+            default: &#39;Default Home&#39;
+            // required: true
+        },
+        arr: {
+            type: Array,
+            required: true,
+            validator: function(value) {
+                // value就是父组件传递过来的数组
+                if (value.length &gt;= 3 &amp;&amp; value.length &lt;= 10) {
+                    return true;
+                } else {
+                    // return false;
+                    throw new Error(&#39;数组的长度必须在3-10之间&#39;);
+                }
+            }
+        }
+    },
+    template: `
+        &lt;div&gt;
+            &lt;h3&gt;我是Header组件&lt;/h3&gt;
+            &lt;p&gt;我来自{{title}}&lt;/p&gt;
+            &lt;p&gt;{{obj}}&lt;/p&gt;
+        &lt;/div&gt;
+    `
+}
+</code></pre>
+<p>现在报错的信息就很明显了。</p>
+<h3 id="2、子组件向父组件传值"><a href="#2、子组件向父组件传值" class="headerlink" title="2、子组件向父组件传值"></a>2、子组件向父组件传值</h3><p>在此之前先介绍个插件<code>string-loader</code> ，这个插件可以让我们组件的template属性的值提出到单独的html页面，便于书写。</p>
+<ul>
+<li>安装插件</li>
+</ul>
+<pre><code>npm i string-loader -D
+</code></pre><ul>
+<li>配置config文件</li>
+</ul>
+<pre><code class="json">module: {
+    rules: [
+        { test: /\.html$/, loader: &#39;string-loader&#39; }
+    ]
+},
+</code></pre>
+<p>这里创建一个子组件A.js和A组件的template文件A.html。</p>
+<p>A组件如何使用外部的template呢？</p>
+<pre><code class="html">&lt;!--A.html--&gt;
+&lt;div&gt;
+    &lt;h4&gt;
+        我说A组件。
+        &lt;span&gt;count = {{count}}&lt;/span&gt;
+        &lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;
+    &lt;/h4&gt;
+&lt;/div&gt;
+</code></pre>
+<p>首先要导入A.html文件才能使用，导入的方式和js一样。</p>
+<pre><code class="js">// A.js
+
+import htmlA from &#39;./A.html&#39;
+
+export let A = {
+    template: htmlA
+}
+</code></pre>
+<p>然后用相同的方式创建B.js和B.html文件。然后在父组件Home.js引入使用A组件和B组件。</p>
+<p>现在的代码结构如下：</p>
+<pre><code class="js">// A.js
+import htmlA from &#39;./A.html&#39;
+
+export let A = {
+    props: [&#39;title&#39;],
+    template: htmlA,
+    data() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        add() {
+            this.count++;
+        }
+    }
+}
+
+// B.js
+import htmlB from &#39;./B.html&#39;
+
+export let B = {
+    props: [&#39;cCount&#39;],
+    template: htmlB
+}
+
+// Home.js
+import { Header } from &#39;../components/Header&#39;
+import { A } from &#39;../components/A&#39;
+import { B } from &#39;../components/B&#39;
+
+export let Home = {
+    template: `
+        &lt;div&gt;
+            &lt;Header :title=&quot;title&quot;&gt;&lt;/Header&gt;
+            &lt;h1&gt;首页&lt;/h1&gt;
+            &lt;A&gt;&lt;/A&gt;
+            &lt;B&gt;&lt;/B&gt;
+        &lt;/div&gt;
+    `,
+    data() {
+        return {
+            title: &#39;首页的title&#39;,
+            count: 0
+        }
+    },
+    components: { Header, A, B }
+}
+</code></pre>
+<p>A.html和B.html</p>
+<pre><code class="html">&lt;!-- A.html --&gt;
+&lt;div&gt;
+    &lt;h4&gt;
+        我是A组件。
+        &lt;span&gt;count = {{count}}&lt;/span&gt;
+        &lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;
+    &lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;!-- B.html --&gt;
+&lt;div&gt;
+    &lt;h4&gt;
+        我是B组件。
+        &lt;span&gt;count = {{cCount}}&lt;/span&gt;
+    &lt;/h4&gt;
+&lt;/div&gt;
+</code></pre>
+<p>此时的需求是点击A组件的按钮，A组件的count++，然后将count值传给Home父组件。</p>
+<p>子组件传值给父组件使用：<code>子组件.$emit(事件名，发送给父组件的数据)</code></p>
+<pre><code class="js">// A.js
+import htmlA from &#39;./A.html&#39;
+
+export let A = {
+    props: [&#39;title&#39;],
+    template: htmlA,
+    data() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        add() {
+            this.count++;
+        }
+    },
+    // 监听数据的变化
+    watch: {
+        count() {
+            this.$emit(&#39;countChange&#39;, this.count);
+        }
+    }
+}
+</code></pre>
+<p>我们在watch里面监听count值的变化，然后将count值使用<code>this.$emit(&#39;countChange&#39;, this.count);</code>发送给父组件，一旦count值发生变化，就会触发countChange事件，然后将this.count发送给父组件。</p>
+<p>这时候在父组件监听这个countChange事件，拿到子组件传过来的count：</p>
+<pre><code class="js">import { Header } from &#39;../components/Header&#39;
+import { A } from &#39;../components/A&#39;
+import { B } from &#39;../components/B&#39;
+
+export let Home = {
+    template: `
+        &lt;div&gt;
+            &lt;Header :title=&quot;title&quot;&gt;&lt;/Header&gt;
+            &lt;h1&gt;首页&lt;/h1&gt;
+            &lt;A @countChange=&quot;change&quot;&gt;&lt;/A&gt;
+            &lt;B&gt;&lt;/B&gt;
+        &lt;/div&gt;
+    `,
+    data() {
+        return {
+            title: &#39;首页的title&#39;,
+            count: 0
+        }
+    },
+    methods: {
+        change(count) {
+            console.log(count); // 打印得到的子组件count值
+            this.count = count;
+        }
+    },
+    components: { Header, A, B }
+}
+</code></pre>
+<p>如果想要change事件传多个值，比如还想传个一个参数为123，在第一个参数的位置，那么模板的写法就要修改：</p>
+<p><code>&lt;A @countChange=&quot;change(123, $event)&quot;&gt;&lt;/A&gt;</code> ，第二个参数<code>$event</code> 就相当于子组件传来的数据。</p>
+<p>其实之前不写参数的时候，就类似与<code>&lt;A @countChange=&quot;change($event)&quot;&gt;&lt;/A&gt;</code>这种写法。</p>
+<h3 id="3、子组件之间相互传值"><a href="#3、子组件之间相互传值" class="headerlink" title="3、子组件之间相互传值"></a>3、子组件之间相互传值</h3><p><strong>方式一：中间人模式</strong></p>
+<p>通过父组件间接传值（通过props的方式传值。）</p>
+<blockquote>
+<p>子组件A –&gt; 父组件 –&gt; 子组件B，</p>
+</blockquote>
+<p><strong>方式二：中央事件总线</strong></p>
+<p>创建新的vue实例做中间人传话，分别调用emit()进行触发和on()进行监听。</p>
+<p>创建一个<code>toolVue.js</code>文件：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+export let media = new Vue();
+</code></pre>
+<p>toolVue文件只负责创建一个vue实例，然后导出组件。</p>
+<p>A，B组件引入toolVue组件。然后A的count变化的时候触发countChange函数，在B里面调用countChange函数得到A传递的数据。</p>
+<pre><code class="js">// A.js
+import { media } from &#39;../toolVue&#39;
+import htmlA from &#39;./A.html&#39;
+
+export let A = {
+    props: [&#39;title&#39;],
+    template: htmlA,
+    data() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        add() {
+            this.count++;
+        }
+    },
+    watch: {
+        count() {
+            // 通过media组件，当count变化时触发countChange，并传入count值
+            media.$emit(&#39;countChange&#39;, this.count);
+        }
+    },
+    components: { media }
+}
+</code></pre>
+<pre><code class="js">// B.js
+import { media } from &#39;../toolVue&#39;
+import htmlB from &#39;./B.html&#39;
+
+export let B = {
+    // props: [&#39;cCount&#39;],
+    template: htmlB,
+    data() {
+        return {
+            cCount: 0
+        }
+    },
+    components: { media },
+    mounted() {
+        // 通过media，调用countChange函数，得到A的count值
+        // 注意这里面的this是media并不是B，所以要用箭头函数
+        media.$on(&#39;countChange&#39;, count =&gt; {
+            this.cCount = count;
+        })
+    },
+}
+</code></pre>
+<p>完成子组件A的count传递到子组件B。</p>
+<blockquote>
+<p>// 注意这里面的this是media并不是B，所以要用箭头函数<br>media.$on(‘countChange’, count =&gt; {<br>​    this.cCount = count;<br>})</p>
+</blockquote>
+<h4 id="3-1、Tips"><a href="#3-1、Tips" class="headerlink" title="3.1、Tips"></a>3.1、Tips</h4><p><strong>需要注意的是：如果是同一个页面的两个组件传递数据的时候，可能会发生接收的组件先监听事件，而后发送组件才发送数据，这样接收组件就接收不到数据了。</strong></p>
+<p>解决办法：<strong>给发送组件加个延时。</strong></p>
+<pre><code class="js">// 发送组件
+setTimeout(() =&gt; {
+    media.$emit(&#39;hasUser&#39;, this.user);
+}, 50);
+</code></pre>
+<pre><code class="js">// 接收组件
+media.$on(&#39;hasUser&#39;, user =&gt; {
+    this.user = user;
+});
+</code></pre>
+<hr>
+<p>(———下面是旧笔记———)</p>
+<h2 id="三、组件切换"><a href="#三、组件切换" class="headerlink" title="三、组件切换"></a>三、组件切换</h2><p>我们在登录注册一个网站的时候，经常看到两个按钮，一个登录，一个注册，如果你没有账号的话，需要先注册才能登录。我们在点击登录和注册的时候，网页会相应的切换，登录页面就是登陆组件，注册页面就是注册组件，那么点击登录和注册，如何实现组件的切换呢？</p>
+<h3 id="1、方式一"><a href="#1、方式一" class="headerlink" title="1、方式一"></a>1、方式一</h3><p><strong>使用<code>flag</code>标识符结合<code>v-if</code>和<code>v-else</code>切换组件</strong></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;!-- 给a注册点击事件，切换flag状态 --&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;flag=true&quot;&gt;登录&lt;/a&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;flag=false&quot;&gt;注册&lt;/a&gt;
+    &lt;!-- 使用v-if v-else切换组件 --&gt;
+    &lt;login v-if=&quot;flag&quot;&gt;
+    &lt;/login&gt;
+    &lt;register v-else=&quot;flag&quot;&gt;
+    &lt;/register&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    Vue.component(&#39;login&#39;, {
+      template: &#39;&lt;h3&gt;登录组件&lt;/h3&gt;&#39;
+    });
+    Vue.component(&#39;register&#39;, {
+      template: &#39;&lt;h3&gt;注册组件&lt;/h3&gt;&#39;
+    });
+
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        flag: true
+      },
+      methods: {}
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p><strong>缺陷：</strong>由于flag的值只有true和false，所以只能用于两个组件间 的切换，当大于两个组件的切换就不行了。</p>
+<h3 id="2、方式二"><a href="#2、方式二" class="headerlink" title="2、方式二"></a>2、方式二</h3><p><strong>使用 component元素的<code>:is</code>属性来切换不同的子组件</strong></p>
+<p>使用 <code>&lt;component :is=&quot;componentId&quot;&gt;&lt;/component&gt;</code>  来指定要切换的组件。</p>
+<p>componentId：为需要显示的组件名称，为一个字符串，可以使用变量指定。</p>
+<p><code>componentId: &#39;login&#39;</code>   // 默认显示登录组件。</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;!-- 给a注册点击事件，切换flag状态 --&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;componentId=&#39;login&#39;&quot;&gt;登录&lt;/a&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;componentId=&#39;register&#39;&quot;&gt;注册&lt;/a&gt;
+    &lt;component :is=&quot;componentId&quot;&gt;&lt;/component&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    Vue.component(&#39;login&#39;, {
+      template: &#39;&lt;h3&gt;登录组件&lt;/h3&gt;&#39;
+    });
+    Vue.component(&#39;register&#39;, {
+      template: &#39;&lt;h3&gt;注册组件&lt;/h3&gt;&#39;
+    });
+
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        componentId: &#39;login&#39;   // 默认显示登录
+      },
+      methods: {}
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p><strong>为组件切换添加过渡：</strong></p>
+<p>很简单，只需要<strong>用 transition 将 component 包裹起来</strong>即可。</p>
+<pre><code class="html">&lt;transition&gt;
+  &lt;component :is=&quot;componentId&quot;&gt;&lt;/component&gt;
+&lt;/transition&gt;
+</code></pre>
+<p>示例：</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;./lib/animate.css&quot;&gt;
+
+  &lt;style&gt;
+    .loginDiv {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+
+    .registerDiv {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;!-- 给a注册点击事件，切换flag状态 --&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;componentId=&#39;login&#39;&quot;&gt;登录&lt;/a&gt;
+    &lt;a href=&quot;javascript:;&quot; @click.prevent=&quot;componentId=&#39;register&#39;&quot;&gt;注册&lt;/a&gt;
+    &lt;transition mode=&quot;out-in&quot; enter-active-class=&quot;animated bounceInRight&quot; leave-active-class=&quot;animated bounceOutRight&quot;&gt;
+      &lt;component :is=&quot;componentId&quot;&gt;&lt;/component&gt;
+    &lt;/transition&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;login&quot;&gt;
+    &lt;div class=&quot;loginDiv&quot;&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+
+  &lt;template id=&quot;register&quot;&gt;
+    &lt;div class=&quot;registerDiv&quot;&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    Vue.component(&#39;login&#39;, {
+      template: &#39;#login&#39;
+    });
+    Vue.component(&#39;register&#39;, {
+      template: &#39;#register&#39;
+    });
+
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        componentId: &#39;login&#39;
+      },
+      methods: {}
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p><code>mode=&quot;out-in&quot;</code>：可以设置切换组件的模式为先退出再进入。</p>
+</blockquote>
+<h2 id="四、组件传值"><a href="#四、组件传值" class="headerlink" title="四、组件传值"></a>四、组件传值</h2><h3 id="1、父组件向子组件传值-1"><a href="#1、父组件向子组件传值-1" class="headerlink" title="1、父组件向子组件传值"></a>1、父组件向子组件传值</h3><p>我们先通过一个例子看看子组件可不可以直接访问父组件的数据：</p>
+<pre><code class="html">&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;mycom&gt;&lt;/mycom&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;temp&quot;&gt;
+    &lt;h3&gt;子组件 --- {{msg}}&lt;/h3&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        msg: &#39;父组件的msg&#39;
+      },
+      methods: {},
+      components: {
+        mycom: {
+          template: &#39;#temp&#39;
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>由于 components 定义的是私有组件，我们直接在子组件中调用父组件的msg会报错。</p>
+<p>那么，怎么让子组件使用父组件的数据呢？</p>
+<p><strong>父组件可以在引用子组件的时候， 通过 属性绑定（v-bind:） 的形式, 把需要传递给子组件的数据，以属性绑定的形式，传递到子组件内部，供子组件使用 。</strong></p>
+<pre><code class="html">&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;mycom v-bind:parentmsg=&quot;msg&quot;&gt;&lt;/mycom&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;temp&quot;&gt;
+    &lt;h3&gt;子组件 --- 父组件：{{parentmsg}}&lt;/h3&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        msg: &#39;父组件的msg&#39;
+      },
+      methods: {},
+      components: {
+        mycom: {
+          template: &quot;#temp&quot;,
+          // 对传递给子组件的数据进行声明，子组件才能使用 
+          props: [&#39;parentmsg&#39;]
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>注意：父组件绑定的<strong>属性名称不能有大写字母</strong>，否则不会显示，并且在命令行会有提示：</p>
+<p><strong>组件data数据和props数据的区别：</strong></p>
+<ul>
+<li>data数据是子组件私有的，可读可写；</li>
+<li>props数据是父组件传递给子组件的，只能读，不能写。</li>
+</ul>
+<p><strong>案例：发表评论功能</strong></p>
+<p>父组件为评论列表，子组件为ID，评论者，内容和按钮的集合，在输入ID，评论者等内容，然后点击添加的时候，需要首先获取子组件的list列表，然后再添加新的列表项到列表中。</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;mycom :plist=&quot;list&quot;&gt;&lt;/mycom&gt;
+
+    &lt;ul&gt;
+      &lt;li v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+        ID:{{item.id}} --- 内容：{{item.content}} --- 评论人：{{item.user}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;tmp1&quot;&gt;
+    &lt;div&gt;
+      &lt;label&gt;
+        ID:
+        &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
+      &lt;/label&gt;
+      &lt;br&gt;
+      &lt;label&gt;
+        评论者:
+        &lt;input type=&quot;text&quot; v-model=&quot;user&quot;&gt;
+      &lt;/label&gt;
+      &lt;br&gt;
+      &lt;label&gt;
+        内容:
+        &lt;textarea v-model=&quot;content&quot;&gt;&lt;/textarea&gt;
+      &lt;/label&gt;
+      &lt;br&gt;
+      &lt;!-- 把父组件的数据作为子组件的函数参数传入 --&gt;
+      &lt;input type=&quot;button&quot; value=&quot;添加评论&quot; @click=&quot;addContent(plist)&quot;&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        list: [{
+          id: Date.now(),
+          user: &#39;user1&#39;,
+          content: &#39;what&#39;
+        }, {
+          id: Date.now(),
+          user: &#39;user2&#39;,
+          content: &#39;are&#39;
+        }]
+      },
+      methods: {},
+      components: {
+        mycom: {
+          template: &#39;#tmp1&#39;,
+          data: function () {
+            return {
+              id: &#39;&#39;,
+              user: &#39;&#39;,
+              content: &#39;&#39;,
+            }
+          },
+          methods: {
+            addContent(plist) {
+              plist.unshift({
+                id: this.id,
+                user: this.user,
+                content: this.content
+              });
+            }
+          },
+          props: [&#39;plist&#39;]
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>把添加ID，评论人，内容作为子组件，把列表作为父组件，然后把添加的数据放到父组件列表上，由于要获取到父组件列表的数据，所以必然涉及到父组件向子组件传值的过程。这里还通过子组件方法参数来保存父组件的数据到子组件的数据中。</p>
+<h3 id="2、父组件向子组件传方法"><a href="#2、父组件向子组件传方法" class="headerlink" title="2、父组件向子组件传方法"></a>2、父组件向子组件传方法</h3><p>既然父组件可以向子组件传递数据，那么也可以向子组件传递方法。</p>
+<pre><code class="html">&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;mycom v-bind:parentmsg=&quot;msg&quot; @parentfunc=&quot;show&quot;&gt;&lt;/mycom&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;temp&quot;&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;button&quot; value=&quot;调用父组件方法&quot; @click=&quot;sonClick&quot;&gt;
+      &lt;h3&gt;子组件 --- 父组件：{{parentmsg}}&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        msg: &#39;父组件的msg&#39;
+      },
+      methods: {
+        show(data1, data2) {
+          console.log(&quot;这是父组件的show方法&quot; + data1 + data2);
+        }
+      },
+      components: {
+        mycom: {
+          template: &quot;#temp&quot;,
+          // 对传递给子组件的数据进行声明，子组件才能使用 
+          props: [&#39;parentmsg&#39;],
+          methods: {
+            sonClick() {
+              // 调用父组件的show方法
+              this.$emit(&quot;parentfunc&quot;, 111, 222);
+            }
+          }
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<blockquote>
+<p>1、<code>@parentfunc=&quot;show&quot;</code> 绑定父组件的show方法。</p>
+<p>2、<code>&lt;input type=&quot;button&quot; value=&quot;调用父组件方法&quot; @click=&quot;sonClick&quot;&gt;</code> 点击按钮调用父组件的show方法</p>
+<p>3、在 子组件的 sonClick 方法中使用 <code>this.$emit(&quot;parentfunc&quot;);</code> 来调用父组件的show方法</p>
+<p>4、父组件的show方法也可以传参，在调用的时候，实参从 this.$emit 的第二个参数开始传入。</p>
+<p><strong>5、如果 this.$emit 的第二个参数传的是子组件的data数据，那么父组件的方法就可以获得子组件的数据，这也是把子组件的数据传递给父组件的方式。</strong></p>
+</blockquote>
+<h3 id="3、使用-ref-获取DOM和组件的引用"><a href="#3、使用-ref-获取DOM和组件的引用" class="headerlink" title="3、使用 ref 获取DOM和组件的引用"></a>3、使用 ref 获取DOM和组件的引用</h3><p>我们知道Vue不推荐直接获取DOM元素，那么在Vue里面怎么获取DOM及组件元素呢？</p>
+<p>我们呢可以在元素上使用 <code>ref</code> 属性来获取元素。</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;获取元素&quot; @click=&quot;getrefs&quot; ref=&quot;mybtn&quot;&gt;
+    &lt;h3 ref=&quot;myh3&quot;&gt;这是H3&lt;/h3&gt;
+    &lt;mycom ref=&quot;mycom&quot;&gt;&lt;/mycom&gt;
+  &lt;/div&gt;
+
+  &lt;template id=&quot;tmp1&quot;&gt;
+  &lt;/template&gt;
+
+  &lt;script&gt;
+    // 定义组件
+    Vue.component(&#39;mycom&#39;, {
+      template: &#39;#tmp1&#39;,
+      data: function () {
+        return {
+          msg: &#39;子组件的msg&#39;,
+          pmsg: &#39;&#39;
+        }
+      },
+      methods: {
+        show(data) {
+          console.log(&#39;调用子组件的show&#39;);
+          this.pmsg = data;
+          console.log(this.pmsg);
+        },
+
+      }
+    });
+
+    var vm = new Vue({
+      el: &quot;#box&quot;,
+      data: {
+        parentmsg: &#39;父组件的msg&#39;
+      },
+      methods: {
+        getrefs() {
+          console.log(this.$refs.myh3);
+          console.log(this.$refs.mycom.msg);
+          this.$refs.mycom.show(this.parentmsg);
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p><strong>总结：</strong></p>
+<p>1、ref 属性不仅可以获取DOM元素，也可以获取组件（无论全局还是私有组件）元素。</p>
+<p>2、获取到组件元素后，就可以获取组件元素的data数据和methods方法。</p>
+<p><strong>3、获取到组件中的方法后，可以传入VM的data数据，就可以把VM的data数据传入组件中。</strong></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/WeChatQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent">
+        </div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>
+              知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+        <div class="post-nepre half previous">
+          
+            <a href="/2019/02/09/节流throttle/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+                Previous Post</span>
+              <div class="info">
+                <h3>
+                  节流throttle</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+          
+          
+          
+          <div class="post-nepre half next">
+            
+              <a href="/2018/11/09/grunt/" rel="next">
+                <div class="background">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555385301&di=314b61c9bc8861bd35e243ec88f49252&imgtype=jpg&er=1&src=http%3A%2F%2Fke.atguigu.com%2Ffiles%2Fdefault%2F2017%2F12-29%2F154953120519335731.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                </div>
+                <span class="label">
+                  Next Post</span>
+                <div class="info">
+                  <h3>
+                    grunt</h3>
+                  <hr>
+                </div>
+              </a>
+            </div>
+            
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 強い<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+      <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/qiang520184/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="http://www.fudaqiang.com/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">qiang</a>, Powered by Hexo,
+          Hosted by Coding Pages
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "close"
+      },
+      "windowheight": "fixed",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  } else {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "open"
+      },
+      "windowheight": "auto",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  }
+  /* ]]> */
+</script>
+<script>
+  $(document).ready(function () {
+    if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+      if ($(".pattern-center").length > 0) { //有图的情况
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+        });
+      } else {
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+        });
+      }
+      var offsetTop = $('.toc').offset().top - 95;
+      window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop >= offsetTop) {
+          $('.toc').addClass('toc-fixed');
+        } else {
+          $('.toc').removeClass('toc-fixed');
+        }
+      }
+    }
+  });
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その強い</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/qiang520184" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/xq520184" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=199513521&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .lrc-show {
+    display: block !important;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="2523258784" data-server="netease" data-type="playlist" data-fixed="true" data-order="random">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+
+</html>
