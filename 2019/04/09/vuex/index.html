@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+
+  
+  <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
+  
+
+  <title itemprop="name">vuex | 強い</title>
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+    /*Initial Variables*/
+    var mashiro_option = new Object();
+    var mashiro_global = new Object();
+    mashiro_option.NProgressON = true;
+    /* 
+     * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+     * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+     */
+    mashiro_option.email_domain = "";
+    mashiro_option.email_name = "";
+    mashiro_option.cookie_version_control = "";
+    mashiro_option.qzone_autocomplete = false;
+    mashiro_option.site_name = "さくら荘その強い";
+    mashiro_option.author_name = "強い";
+    mashiro_option.site_url = "http://fudaqiang.com";
+    mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+    mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+    mashiro_option.mathjax = "0";
+    mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/";
+    mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+    // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+    // mashiro_option.float_player_on = true;
+
+    /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+    var bg = "https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(8).jpg.webp".split(",");
+    var bgindex = Math.floor(Math.random() * bg.length);
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+      alert('朋友，IE浏览器未适配哦~');
+    }
+  </script>
+  <style type="text/css">
+    .hljs-ln {
+      border-collapse: collapse
+    }
+
+    .hljs-ln td {
+      padding: 0
+    }
+
+    .hljs-ln-n:before {
+      content: attr(data-line-number)
+    }
+  </style>
+  <style type="text/css">
+    .site-top .lower nav {
+      display: block !important;
+    }
+
+    .author-profile i,
+    .post-like a,
+    .post-share .show-share,
+    .sub-text,
+    .we-info a,
+    span.sitename,
+    .post-more i:hover,
+    #pagination a:hover,
+    .post-content a:hover,
+    .float-content i:hover {
+      color: #FE9600
+    }
+
+    .feature i,
+    .download,
+    .navigator i:hover,
+    .links ul li:before,
+    .ar-time i,
+    span.ar-circle,
+    .object,
+    .comment .comment-reply-link,
+    .siren-checkbox-radio:checked+.siren-checkbox-radioInput:after {
+      background: #FE9600
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FE9600
+    }
+
+    .download,
+    .navigator i:hover,
+    .link-title,
+    .links ul li:hover,
+    #pagination a:hover,
+    .comment-respond input[type='submit']:hover {
+      border-color: #FE9600
+    }
+
+    .entry-content a:hover,
+    .site-info a:hover,
+    .comment h4 a,
+    #comments-navi a.prev,
+    #comments-navi a.next,
+    .comment h4 a:hover,
+    .site-top ul li a:hover,
+    .entry-title a:hover,
+    #archives-temp h3,
+    span.page-numbers.current,
+    .sorry li a:hover,
+    .site-title a:hover,
+    i.iconfont.js-toggle-search.iconsearch:hover,
+    .comment-respond input[type='submit']:hover {
+      color: #FE9600
+    }
+
+    .comments .comments-main {
+      display: block !important;
+    }
+
+    .comments .comments-hidden {
+      display: none !important;
+    }
+
+    background-position:center center;
+    background-attachment:inherit;
+    }
+  </style>
+</head></html>
+
+<body
+  class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://fudaqiang.com">
+          <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://github.com/qiang520184" target="_blank" class="social-github" title="github">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/github.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://weibo.com/xq520184" target="_blank" class="social-github" title="sina">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/sina.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://music.163.com/#/playlist?id=2523258784" target="_blank" class="social-github" title="wangyiyun">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wangyiyun.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="mailto:199513521@qq.com" target="_blank" class="social-github" title="email">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/email.svg">
+            </a>
+          </li>
+          
+          
+          
+          <li class="wechat">
+            <a href="/#">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wechat.png">
+            </a>
+            <div class="wechatInner">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/wxgzh.jpg">
+            </div>
+          </li>
+          
+          
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <!-- <div id="video-btn" class="loadvideo videolive">
+    </div> -->
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">強い</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <header class="entry-header">
+          <h1 class="entry-title">vuex</h1>
+          <p class="entry-census">強い&nbsp;·&nbsp;2019-4-9&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p>
+          <p></p>
+
+          <hr>
+        </header>
+        
+        <div class="entry-content">
+          <!-- [TOC] -->
+<p>​    </p>
+<h2 id="一、Vuex"><a href="#一、Vuex" class="headerlink" title="一、Vuex"></a>一、Vuex</h2><p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态（意思就是数据），并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<p>简单来说，vuex就是用来集中管理组件的数据的。</p>
+<h2 id="二、Vuex使用场合"><a href="#二、Vuex使用场合" class="headerlink" title="二、Vuex使用场合"></a>二、Vuex使用场合</h2><p>如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的 store 模式就足够您所需了。但是，如果您需要构建一个中大型单页应用，您很可能会考虑如何更好地在组件外部管理状态，Vuex 将会成为自然而然的选择。引用 Redux 的作者 Dan Abramov 的话说就是：</p>
+<blockquote>
+<p>Flux 架构就像眼镜：您自会知道什么时候需要它。</p>
+</blockquote>
+<h3 id="1、store模式"><a href="#1、store模式" class="headerlink" title="1、store模式"></a>1、store模式</h3><p>安装vuex</p>
+<pre><code>npm i vuex -S
+</code></pre><p>我们在原有项目下新建一个store.js管理Home，Goods，Users组件的数据。</p>
+<p>其中state属性就是保存Home，Goods，Users组件所有的数据。</p>
+<pre><code class="js">// store.js
+import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        title: &#39;首页&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    }
+});
+
+export { store }
+</code></pre>
+<blockquote>
+<p>注意：将store.js文件导入到vue实例中：</p>
+<pre><code>new Vue({
+    el: &quot;#app&quot;,
+    components: { App },
+    template: `&lt;App /&gt;`,
+    router,
+    store
+})
+</code></pre></blockquote>
+<p>然后各个组件在获取数据的时候，是在<code>computed</code>属性中获取的，例如User组件（我们在user组件也把所有的数据都显示出来吧）：</p>
+<p>获取的方式通过<code>this.$store.state</code> 的方式获取。</p>
+<pre><code class="js">export let Users = {
+    template: require(&#39;./index.html&#39;),
+    // data() {
+    //     return {
+    //         users: [
+    //             { name: &#39;lvonve&#39; },
+    //             { name: &#39;daotin&#39; },
+    //             { name: &#39;wenran&#39; },
+    //         ]
+    //     }
+    // },
+    computed: {
+        // 这个userList就是获取到的state中的userList
+        title: function() {
+            return this.$store.state.title;
+        },
+        userList: function() {
+            return this.$store.state.userList;
+        },
+        goodsList: function() {
+            return this.$store.state.goodsList;
+        }
+    }
+}
+</code></pre>
+<p>然后在user组件进行显示：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;h4&gt;用户列表&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;user in userList&quot;&gt;{{user.userName}}+{{user.age}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h4&gt;商品列表&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;goods in goodsList&quot;&gt;{{goods.goodsName}}+{{goods.price}}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>但是现在有个不好的地方就是，每个组件都需要使用<code>this.$store.state</code>来获取其中的数据，显得有些麻烦，有没有简单的办法呢？</p>
+<h3 id="2、mapState"><a href="#2、mapState" class="headerlink" title="2、mapState"></a>2、mapState</h3><p>vuex提供了一个工具叫做<code>mapState</code>，通过它可以简化我们获取数据的方式。</p>
+<p>mapState的作用就是返回一个对象，这个对象可以直接丢给computed。所以上面获取state的数据的方式可以写成下面的方式：</p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    // computed: {
+    //     userList: function() {
+    //         return this.$store.state.userList;
+    //     },
+    //     goodsList: function() {
+    //         return this.$store.state.goodsList;
+    //     }
+    // }
+    computed: mapState({
+        title(state) {
+            return state.title;
+        },
+        userList(state) {
+            return state.userList;
+        },
+        goodsList(state) {
+            return state.goodsList;
+        }
+    }),
+}
+</code></pre>
+<p>或者你想要更简单，可以使用ES6的解构赋值：</p>
+<pre><code class="json">computed: mapState({
+    title: ({ title }) =&gt; title,
+    userList: ({ userList }) =&gt; userList,
+    goodsList: ({ goodsList }) =&gt; goodsList,
+}),
+</code></pre>
+<p>还有更简单的写法：如果state上有某个属性，可以直接赋值：</p>
+<pre><code class="json">computed: mapState({
+    title: &#39;title&#39;,
+    userList: &#39;userList&#39;,
+    goodsList: &#39;goodsList&#39;
+}),
+</code></pre>
+<p>终极写法，就是如果mapState属性的名字和state中属性的名字相同的话，就可以采用下面更简单的写法：</p>
+<p>（我们上面的例子就是mapState属性的名字和state中属性的名字相同）</p>
+<pre><code class="js">computed: mapState([&#39;title&#39;, &#39;goodsList&#39;, &#39;userList&#39;])
+</code></pre>
+<p><strong>mapState使用展开符写法</strong></p>
+<p>一个项目中，有些时候有些mapState属性的名字和state中属性的名字相同，有些又不相同，比如下面的例子：</p>
+<pre><code class="js">computed: mapState({
+    title: &#39;title&#39;,
+    users: &#39;userList&#39;,
+    goods: &#39;goodsList&#39;
+}),
+</code></pre>
+<p>受到users和goods的拖累，title也不能写成终极进化版，这时候可以使用展开符。</p>
+<pre><code class="js">...mapState([&#39;title&#39;])
+
+// 就类似于
+
+mapState({
+    title:&#39;title&#39;
+})
+</code></pre>
+<p>所以上面的例子的最终写法为：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;]),
+    ...mapState({
+        users: &#39;userList&#39;,
+        goods: &#39;goodsList&#39;
+    })
+},
+</code></pre>
+<p>由于我们的babel只能编译基础的ES6语法，展开符是高级ES6语法，所以还要安装一个模块：</p>
+<pre><code class="js">npm i babel-preset-stage-2 -D
+</code></pre>
+<p>然后在<code>.babelrc</code> 里面添加：</p>
+<pre><code class="json">{
+    &quot;presets&quot;: [
+        &quot;env&quot;, &quot;stage-2&quot;
+    ]
+}
+</code></pre>
+<p>使用展开符的写法还有一个好处就是可以写自己的computed计算属性，而终极写法是没办法加自己的计算属性的。所以展开符的写法是最灵活的写法。</p>
+<h3 id="3、mutations"><a href="#3、mutations" class="headerlink" title="3、mutations"></a>3、mutations</h3><h4 id="修改state"><a href="#修改state" class="headerlink" title="修改state"></a>修改state</h4><p>现在有个新需求，在user组件，点击按钮，添加一个新用户（先把没用的商品列表去掉），我门一般的想法是直接操作state数据，如下：</p>
+<pre><code class="json">methods: {
+    addUser() {
+        this.$store.state.userList.push({userName: &#39;aaa&#39;,age: 9})
+    }
+}
+</code></pre>
+<p>但是这种写法是不符合store架构规范的，只能通过store提供的<code>mutations</code>来操作自己的state。所以我们在store中定义一个mutations属性，然后这个属性中定义一个addUser方法来添加用户，这个方法的参数指向的就是store的state属性：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        title: &#39;我是title&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    // 添加mutations属性用来操作state数据
+    mutations: {
+        addUser(state) {
+            state.userList.push({ userName: &#39;aaa&#39;, age: 10 });
+        }
+    }
+});
+
+export { store }
+</code></pre>
+<p>然后在User.js中怎么调用这个addList方法呢？</p>
+<p>使用<code>this.$store.commit(&#39;mutations的属性名&#39;)</code>来调用：</p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;])
+    },
+    methods: {
+        addUser() {
+            // 使用commit的方式调用
+            this.$store.commit(&#39;addUser&#39;);
+        }
+    },
+
+}
+</code></pre>
+<p>这样就可以点击按钮添加用户了。</p>
+<blockquote>
+<p>整个应用程序，只有mutations才可以操作state状态。</p>
+<p>但是注意：</p>
+<p><strong>mutations中的属性，必须为纯函数，必须为同步代码。</strong></p>
+<p>纯函数就是传入相同的参数，得到相同的结果。</p>
+<p>同步代码就不能是异步的，比如ajax，比如setTimeout等。</p>
+</blockquote>
+<h4 id="修改state时传参"><a href="#修改state时传参" class="headerlink" title="修改state时传参"></a>修改state时传参</h4><p>我们现在希望添加的用户信息自定义怎么向addUser传递参数呢？</p>
+<p><strong>我们在commit的第二个参数传递数据。这里有个专业的术语叫做【载荷】</strong></p>
+<pre><code class="js">import { mapState } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;])
+    },
+    methods: {
+        addUser() {
+            // commit的第二个参数填写传递的载荷
+            this.$store.commit(&#39;addUser&#39;, {
+                name: this.name,
+                age: this.age
+            });
+        }
+    },
+}
+</code></pre>
+<p>在store里面addUser的第二个参数接收数据：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        title: &#39;我是title&#39;,
+        goodsList: [
+            { goodsName: &#39;苹果&#39;, price: 20 },
+            { goodsName: &#39;橘子&#39;, price: 22 },
+            { goodsName: &#39;香蕉&#39;, price: 50 },
+            { goodsName: &#39;菠萝&#39;, price: 43 },
+        ],
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    mutations: {
+        // data接收commit的载荷
+        addUser(state, data) {
+            state.userList.push({
+                userName: data.name,
+                age: data.age
+            });
+        }
+    }
+});
+
+export { store }
+</code></pre>
+<h3 id="3、actions"><a href="#3、actions" class="headerlink" title="3、actions"></a>3、actions</h3><p>除了state和mutations，store还有一个属性叫做<code>actions</code>。</p>
+<p>actions里面放的就是mutations不能放的非纯函数，异步函数等。</p>
+<p>actions里面的方法，<strong>第一个参数不是指向state，而知指向store</strong>，第二个参数还是载荷。</p>
+<blockquote>
+<p>需要注意的是，能操作state的只有mutations，actions也不行。只能调用mutations去操作state。</p>
+</blockquote>
+<p>举个例子，这里我们还是添加user，不过是间隔3s才写入state。</p>
+<pre><code class="json">actions: {
+    // 第一个参数指向store
+    // 第二个参数还是载荷
+    addUserTimeout(cStore, data) {
+        setTimeout(() =&gt; {
+            cStore.commit(&#39;addUser&#39;, data);
+        }, 3000);
+    }
+}
+</code></pre>
+<p>然后在调用的时候就不能使用commit了，而是使用<code>dispatch</code> ：</p>
+<pre><code class="json">methods: {
+    addUser() {
+        this.$store.commit(&#39;addUser&#39;, {
+            name: this.name,
+            age: this.age
+        });
+    },
+    addUserTimeout() {
+        // 使用dispatch调用actions的属性
+        this.$store.dispatch(&#39;addUserTimeout&#39;, {
+            name: this.name,
+            age: this.age
+        });
+    }
+},
+</code></pre>
+<blockquote>
+<p><strong>总结mutations与actiosn的区别：</strong></p>
+<p>1、commit方法用于调用mutation；dispatch 方法用于调用action；</p>
+<p>2、mutation 函数必须是纯函数，而且不能有异步代码；action 可以不是纯函数，也可以有异步代码；</p>
+<p>3、按照上述规则，可以用mutation完成的事情，可以直接调用mutation，mutation不能实现的事情丢给action来完成。</p>
+<p>4、在action中，当完成异步操作，最终需要修改数据模型时，还是需要通过mutation来完成对数据模型的操作。action不允许直接操作数据模型。</p>
+</blockquote>
+<h3 id="4、getters"><a href="#4、getters" class="headerlink" title="4、getters"></a>4、getters</h3><p>store还有一个属性<code>getters</code>，相当于store的一个计算属性，就是对state的数据进行计算，当组件需要取到state的属性然后进行计算得到想要的结果的时候，计算的过程可以在<code>getters</code> 中进行，组件从getters中就可以直接拿到计算好的值。</p>
+<p>这样还有一个好处就是，不仅当前组件可以拿个计算好的值，所有组件都可以拿到，如果所有组件都需要这个计算的话，那就方便多了。</p>
+<p>举个例子：我们获取所有用户age之和：</p>
+<pre><code class="json">getters: {
+    countAge(state) {
+        let num = 0;
+        state.userList.map(user =&gt; {
+            num += user.age;
+        })
+        return num;
+    }
+}
+</code></pre>
+<p>然后在user组件里面：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+    // 直接调用getters的countAge属性即可
+    allAge() {
+        return this.$store.getters.countAge
+    }
+},
+</code></pre>
+<p>然后页面：<code>&lt;div&gt;age之和：&lt;/div&gt;</code> 就会显示所有用户age之和。</p>
+<p>和获取state值一样类似，每次获取getters的值都要使用<code>this.$store.getters</code> 的方式很麻烦，所以类似mapState还有mapGetters,写法和mapState一样：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+    ...mapGetters({ allAge: &#39;countAge&#39; }),
+    // allAge() {
+    //     return this.$store.getters.countAge
+    // }
+},
+</code></pre>
+<blockquote>
+<p>实际上，除了有mapState，mapActions，mapMutations，mapGetters都有，且用法相同。</p>
+</blockquote>
+<p>我们将user组件进行进行改造：</p>
+<pre><code class="json">methods: {
+    // addUser() {
+    //     this.$store.commit(&#39;addUser&#39;, {
+    //         name: this.name,
+    //         age: this.age
+    //     });
+    // },
+    // addUserTimeout() {
+    //     console.log(&#39;user&#39;, this.name, this.age);
+    //     this.$store.dispatch(&#39;addUserTimeout&#39;, {
+    //         name: this.name,
+    //         age: this.age
+    //     });
+    // },
+    // 改造一
+    ...mapMutations({ addUser: &#39;addUser&#39; }),
+    ...mapActions({ addUserTimeout: &#39;addUserTimeout&#39; }),
+    // 改造二
+    ...mapMutations([&#39;addUser&#39;]),
+    ...mapActions([&#39;addUserTimeout&#39;]),
+},
+</code></pre>
+<p>上面的写法有个问题就是没法传递载荷？</p>
+<p>那么载荷在哪里传递呢？在视图中绑定点击事件时传递：</p>
+<p><strong>给事件加上参数，这个参数就是载荷。</strong></p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;h4&gt;用户列表&lt;/h4&gt;
+    &lt;div&gt;用户名：&lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;&lt;/div&gt;
+    &lt;div&gt;年龄：&lt;input type=&quot;text&quot; v-model.number=&quot;age&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- 原始的只有函数名 --&gt;
+    &lt;!-- &lt;button @click=&#39;addUser&#39;&gt;添加用户&lt;/button&gt; --&gt;
+    &lt;!-- &lt;button @click=&#39;addUserTimeout&#39;&gt;间隔3s添加用户&lt;/button&gt; --&gt;
+
+    &lt;!-- 改造一 --&gt;
+    &lt;!-- &lt;button @click=&#39;addUser({name:name,age:age})&#39;&gt;添加用户&lt;/button&gt;
+    &lt;button @click=&#39;addUserTimeout({name:name,age:age})&#39;&gt;间隔3s添加用户&lt;/button&gt; --&gt;
+
+    &lt;!-- 改造二 --&gt;
+    &lt;button @click=&#39;addUser({name,age})&#39;&gt;添加用户&lt;/button&gt;
+    &lt;button @click=&#39;addUserTimeout({name,age})&#39;&gt;间隔3s添加用户&lt;/button&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;user in userList&quot;&gt;{{user.userName}}+{{user.age}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div&gt;age之和：{{allAge}}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="三、store拆分"><a href="#三、store拆分" class="headerlink" title="三、store拆分"></a>三、store拆分</h2><p>如果组件特别多，每个组件的数据也就特别多，我们希望对这些数据根据不同的组件进行拆分方便管理。</p>
+<p>现在有Home和User组件，Home组件的数据放在Home的store里面，User的数据放在User的store里面。</p>
+<p>分别为homeStore.js和userStore.js，然后还有一个合并一起的主store叫index.js。</p>
+<p>我们在home组件就显示一个title，user组件还是显示之前的内容。</p>
+<pre><code class="js">// homeStore.js
+export default {
+    state: {
+        title: &#39;我是首页&#39;,
+    }
+}
+
+// userStore.js
+export default {
+    state: {
+        title: &#39;我是用户页&#39;,
+        userList: [
+            { userName: &#39;lvonve&#39;, age: 18 },
+            { userName: &#39;daotin&#39;, age: 19 },
+            { userName: &#39;wenran&#39;, age: 17 },
+        ]
+    },
+    mutations: {
+        addUser(state, data) {
+            state.userList.push({
+                userName: data.name,
+                age: data.age
+            });
+        }
+    },
+    actions: {
+        // 第一个参数指向store
+        // 第二个参数还是载荷
+        addUserTimeout(cStore, data) {
+            setTimeout(() =&gt; {
+                cStore.commit(&#39;addUser&#39;, data);
+            }, 3000);
+        }
+    },
+    getters: {
+        countAge(state) {
+            let num = 0;
+            state.userList.map(user =&gt; {
+                num += user.age;
+            })
+            return num;
+        }
+    }
+}
+</code></pre>
+<p>然后主store，index.js：</p>
+<p>通过<code>modules</code>属性来注入各个子store</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+import homeStore from &#39;./homeStore&#39;
+import userStore from &#39;./userStore&#39;
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    modules: {
+        home: homeStore,
+        user: userStore
+    }
+});
+
+export { store }
+</code></pre>
+<p>然后在main.js里面vue实例中注入的就不是原先的store.js而是index.js。</p>
+<p>由于store下的主store名字是index.js，所以不需要修改，但是要重启服务。</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+
+import { router } from &#39;./router&#39;
+import { store } from &#39;./store&#39;
+import { App } from &#39;./App&#39;
+
+
+new Vue({
+    el: &#39;#app&#39;,
+    template: &#39;&lt;App/&gt;&#39;,
+    components: { App },
+    router,
+    store
+});
+</code></pre>
+<p>然后在Home.js和User.js显示这些数据：</p>
+<pre><code class="js">// Home.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Home = {
+    template: require(&#39;./index.html&#39;),
+    computed: {
+        ...mapState([&#39;title&#39;])
+    }
+}
+
+//User.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState([&#39;title&#39;, &#39;userList&#39;, &#39;goodsList&#39;]),
+        ...mapGetters({ allAge: &#39;countAge&#39; }),
+    },
+    methods: {
+        ...mapMutations([&#39;addUser&#39;]),
+        ...mapActions([&#39;addUserTimeout&#39;]),
+    },
+}
+</code></pre>
+<p>但是我们发现一个问题就是Home.js中的：</p>
+<pre><code class="json">computed: {
+    ...mapState([&#39;title&#39;])
+}
+</code></pre>
+<p>拿不到title的值，为什么呢？上面的写法相当于：</p>
+<pre><code class="js">computed: {
+    ...mapState({
+        //title:&#39;title&#39;
+        title: (state)=&gt;state.title;
+    })
+}
+</code></pre>
+<p>但是我们现在state里面还title吗，没有了state.home下才有title。</p>
+<p>所以，令人沮丧的是，如果使用了store拆分，就不能使用展开符的写法了。</p>
+<p>正确的写法是：</p>
+<pre><code class="json">computed: {
+    ...mapState({
+        title: (state) =&gt; state.home.title;
+    })
+}
+</code></pre>
+<p>User.js也是一样的。</p>
+<blockquote>
+<p>注意：</p>
+<p>但是对于mutations，actions，getters不会区分home和user，都会集合到一起，类似于全局的属性，所欲的组件都可以访问到，所以也就不需要加home和user前缀。</p>
+</blockquote>
+<h3 id="1、namespaced命名空间"><a href="#1、namespaced命名空间" class="headerlink" title="1、namespaced命名空间"></a>1、namespaced命名空间</h3><p>但是可能会存在这样一个问题，就是home和user下的mutations或者actions或者getters都有一个叫做add的方法，那么在调用的时候，调用的是谁的add呢？命名会冲突吗？</p>
+<p>我们可以在子store里面加一句话：</p>
+<p><code>namespaced:true</code> 开启命名空间。</p>
+<pre><code class="js">// homeStore.js
+export default {
+    // 开启命名空间
+    namespaced: true,
+    state: {
+        title: &#39;我是首页&#39;,
+    }
+}
+</code></pre>
+<p>然后获取的这些方法的时候就要加前缀home或者user：</p>
+<pre><code class="js">// User.js
+import { mapState, mapMutations, mapActions, mapGetters } from &#39;vuex&#39;
+
+export let Users = {
+    template: require(&#39;./index.html&#39;),
+    data() {
+        return {
+            name: &#39;&#39;,
+            age: 0
+        }
+    },
+    computed: {
+        ...mapState({
+            title: (state) =&gt; state.user.title,
+            userList: (state) =&gt; state.user.userList
+        }),
+        // 加user前缀
+        ...mapGetters({ allAge: &#39;user/countAge&#39; }),
+    },
+    methods: {
+        // 加user前缀
+        ...mapMutations({ addUser: &#39;user/addUser&#39; }),
+        ...mapActions({ addUserTimeout: &#39;user/addUserTimeout&#39; }),
+    },
+}
+</code></pre>
+<p>然后还有一种写法如下，效果一样：</p>
+<p>就是把前缀路径‘user/’提到第一个参数的位置，后面的写法和以前相同。</p>
+<pre><code class="json">computed: {
+    ...mapState({
+        title: (state) =&gt; state.user.title,
+        userList: (state) =&gt; state.user.userList
+    }),
+    // &#39;user/&#39;提前
+    ...mapGetters(&#39;user/&#39;, { allAge: &#39;countAge&#39; }),
+},
+methods: {
+    // &#39;user/&#39;提前
+    ...mapMutations(&#39;user/&#39;, [&#39;addUser&#39;]),
+    ...mapActions(&#39;user/&#39;, [&#39;addUserTimeout&#39;]),
+},
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/WeChatQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent">
+        </div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>
+              知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+          
+            <div class="post-nepre full next">
+              
+              <a href="/2019/04/09/Vue的动画/" rel="next">
+                <div class="background">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                </div>
+                <span class="label">
+                  Next Post</span>
+                <div class="info">
+                  <h3>
+                    Vue的动画</h3>
+                  <hr>
+                </div>
+              </a>
+            </div>
+            
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 強い<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+      <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/qiang520184/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="http://www.fudaqiang.com/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">qiang</a>, Powered by Hexo,
+          Hosted by Coding Pages
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "close"
+      },
+      "windowheight": "fixed",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  } else {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "open"
+      },
+      "windowheight": "auto",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  }
+  /* ]]> */
+</script>
+<script>
+  $(document).ready(function () {
+    if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+      if ($(".pattern-center").length > 0) { //有图的情况
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+        });
+      } else {
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+        });
+      }
+      var offsetTop = $('.toc').offset().top - 95;
+      window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop >= offsetTop) {
+          $('.toc').addClass('toc-fixed');
+        } else {
+          $('.toc').removeClass('toc-fixed');
+        }
+      }
+    }
+  });
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その強い</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/qiang520184" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/xq520184" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=199513521&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .lrc-show {
+    display: block !important;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="2523258784" data-server="netease" data-type="playlist" data-fixed="true" data-order="random">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+
+  
+  <meta name="keywords" content="付大强,关于付大强,付大强个人简历,web付大强,前端付大强,大强,小强,小强精神,付大强的个人博客,前端小强,付大强的个人首页,付大强的个人中心,付大强的个人主页,打不死的小强,fudaqiang,FUDAQIANG,FDQ,小强强,强强,小鬼,淙淙">
+  
+
+  <title itemprop="name">Gulp | 強い</title>
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+    /*Initial Variables*/
+    var mashiro_option = new Object();
+    var mashiro_global = new Object();
+    mashiro_option.NProgressON = true;
+    /* 
+     * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+     * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+     */
+    mashiro_option.email_domain = "";
+    mashiro_option.email_name = "";
+    mashiro_option.cookie_version_control = "";
+    mashiro_option.qzone_autocomplete = false;
+    mashiro_option.site_name = "さくら荘その強い";
+    mashiro_option.author_name = "強い";
+    mashiro_option.site_url = "http://fudaqiang.com";
+    mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+    mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+    mashiro_option.mathjax = "0";
+    mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/";
+    mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+    // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+    // mashiro_option.float_player_on = true;
+
+    /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+    var bg = "https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/cover/(8).jpg.webp".split(",");
+    var bgindex = Math.floor(Math.random() * bg.length);
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+      alert('朋友，IE浏览器未适配哦~');
+    }
+  </script>
+  <style type="text/css">
+    .hljs-ln {
+      border-collapse: collapse
+    }
+
+    .hljs-ln td {
+      padding: 0
+    }
+
+    .hljs-ln-n:before {
+      content: attr(data-line-number)
+    }
+  </style>
+  <style type="text/css">
+    .site-top .lower nav {
+      display: block !important;
+    }
+
+    .author-profile i,
+    .post-like a,
+    .post-share .show-share,
+    .sub-text,
+    .we-info a,
+    span.sitename,
+    .post-more i:hover,
+    #pagination a:hover,
+    .post-content a:hover,
+    .float-content i:hover {
+      color: #FE9600
+    }
+
+    .feature i,
+    .download,
+    .navigator i:hover,
+    .links ul li:before,
+    .ar-time i,
+    span.ar-circle,
+    .object,
+    .comment .comment-reply-link,
+    .siren-checkbox-radio:checked+.siren-checkbox-radioInput:after {
+      background: #FE9600
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FE9600
+    }
+
+    .download,
+    .navigator i:hover,
+    .link-title,
+    .links ul li:hover,
+    #pagination a:hover,
+    .comment-respond input[type='submit']:hover {
+      border-color: #FE9600
+    }
+
+    .entry-content a:hover,
+    .site-info a:hover,
+    .comment h4 a,
+    #comments-navi a.prev,
+    #comments-navi a.next,
+    .comment h4 a:hover,
+    .site-top ul li a:hover,
+    .entry-title a:hover,
+    #archives-temp h3,
+    span.page-numbers.current,
+    .sorry li a:hover,
+    .site-title a:hover,
+    i.iconfont.js-toggle-search.iconsearch:hover,
+    .comment-respond input[type='submit']:hover {
+      color: #FE9600
+    }
+
+    .comments .comments-main {
+      display: block !important;
+    }
+
+    .comments .comments-hidden {
+      display: none !important;
+    }
+
+    background-position:center center;
+    background-attachment:inherit;
+    }
+  </style>
+</head></html>
+
+<body
+  class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://fudaqiang.com">
+          <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://github.com/qiang520184" target="_blank" class="social-github" title="github">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/github.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://weibo.com/xq520184" target="_blank" class="social-github" title="sina">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/sina.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://music.163.com/#/playlist?id=2523258784" target="_blank" class="social-github" title="wangyiyun">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wangyiyun.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="mailto:199513521@qq.com" target="_blank" class="social-github" title="email">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/email.svg">
+            </a>
+          </li>
+          
+          
+          
+          <li class="wechat">
+            <a href="/#">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/social/wechat.png">
+            </a>
+            <div class="wechatInner">
+              <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/wxgzh.jpg">
+            </div>
+          </li>
+          
+          
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <!-- <div id="video-btn" class="loadvideo videolive">
+    </div> -->
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">強い</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div class="pattern-center single-center">
+  <!-- 有配图默认渲染第一张 -->
+  <div class="pattern-attachment-img lazyload" style="background-image: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1744739979,1473444329&amp;fm=26&amp;gp=0.jpg);" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1744739979,1473444329&amp;fm=26&amp;gp=0.jpg">
+  </div>
+  <header class="pattern-header single-header">
+    <h1 class="entry-title">
+      Gulp</h1>
+    <p class="entry-census">
+      <span>
+        <a href="fudaqiang.com">
+          <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif">
+        </a>
+      </span>
+      <span>
+        <a href="fudaqiang.com">強い</a>
+      </span>
+      <span class="bull">
+        ·</span>
+      2019-4-9<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+  </header>
+</div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+            <!-- [TOC] -->
+<!-- >大家好，这里是「 从零开始学 Web 系列教程 」，并在下列地址同步更新......
+>
+> - github：https://github.com/Daotin/Web
+> - 微信公众号：[Web前端之巅](https://github.com/Daotin/pic/raw/master/wx.jpg)
+> - 博客园：http://www.cnblogs.com/lvonve/
+> - CSDN：https://blog.csdn.net/lvonve/
+>
+> 在这里我会从 Web 前端零基础开始，一步步学习 Web 相关的知识点，期间也会分享一些好玩的项目。现在就让我们一起进入 Web 前端学习的探索之旅吧！ -->
+<p><img src="https://github.com/Daotin/pic/raw/master/fgx.png" alt></p>
+<h2 id="一、Gulp介绍"><a href="#一、Gulp介绍" class="headerlink" title="一、Gulp介绍"></a>一、Gulp介绍</h2><p>Gulp 中文主页: <a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/</a></p>
+<p>gulp是与grunt功能类似的<strong>前端项目构建</strong>工具, 也是基于Nodejs的<strong>自动任务运行器</strong> 。能自动化地完成 javascript/coffee/sass/less/html/image/css 等文件的合并、压缩、检查、监听文件变化、浏览器自动刷新、测试等任务。</p>
+<p>gulp比Grunt更加高效，Gulp是基于<strong>异步多任务</strong>的处理方式，而 Grunt 则是同步的任务处理方式。使得Gulp 更易于使用。</p>
+<p><strong>注意：Gulp 也不支持 ES6 语法。</strong></p>
+<h2 id="二、Gulp使用步骤"><a href="#二、Gulp使用步骤" class="headerlink" title="二、Gulp使用步骤"></a>二、Gulp使用步骤</h2><p>由于 Gulp 也是基于 node.js 的，所以首先要确保安装了 node.js.</p>
+<p><strong>1、安装 nodejs,</strong></p>
+<p>查看版本: <code>node -v</code></p>
+<p><strong>2、创建一个简单的应用 gulp_test</strong></p>
+<p>下面为gulp_test项目的目录结构：</p>
+<pre><code>|- dist   ---- 存放项目上线的文件
+|- src
+  |- js
+  |- css
+  |- less
+|- index.html
+|- gulpfile.js-----gulp配置文件
+|- package.json
+  {
+    &quot;name&quot;: &quot;gulp_test&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  } 
+</code></pre><p><strong>3、安装gulp</strong></p>
+<ul>
+<li>全局安装gulp<pre><code>npm install gulp -g
+</code></pre></li>
+<li>局部安装gulp<pre><code>npm install gulp --save-dev
+</code></pre></li>
+</ul>
+<p><strong>4、配置编码:gulpfile.js</strong></p>
+<blockquote>
+<p>注意：gulpfile.js 不需要首字母大写，而 Gruntfile.js 需要首字母大写。</p>
+</blockquote>
+<pre><code class="js">//引入gulp模块
+var gulp = require(&#39;gulp&#39;);
+//定义默认任务
+gulp.task(&#39;任务名&#39;, function() {
+  // 将你的任务的任务代码放在这
+});
+gulp.task(&#39;default&#39;, [&#39;任务&#39;])//异步执行
+</code></pre>
+<p><strong>5、构建命令</strong></p>
+<pre><code>gulp 任务名
+</code></pre><h2 id="三、Gulp插件"><a href="#三、Gulp插件" class="headerlink" title="三、Gulp插件"></a>三、Gulp插件</h2><p>Gulp 同 Grunt 一样，Culp 本身是不会执行任务的，执行任务的都是小弟，也就是gulp下的插件。</p>
+<p>注意：查找gulp的插件，需要<strong>切换到gulp国外官网</strong>，然后点击 <code>plugins</code> 选项，才可以查看查找相关插件。</p>
+<p><strong>相关插件:</strong></p>
+<ul>
+<li><code>gulp-concat</code> : 合并文件(js/css)</li>
+<li><code>gulp-uglify</code> : 压缩js文件</li>
+<li><code>gulp-rename</code>: 文件重命名</li>
+<li><code>gulp-less</code> : 编译less</li>
+<li><code>gulp-clean-css</code> : 压缩css</li>
+<li><code>gulp-livereload</code> : 实时自动编译刷新</li>
+</ul>
+<p><strong>重要API</strong></p>
+<ul>
+<li><code>gulp.src(filePath/pathArr)</code> : 指向指定路径的所有文件, 返回文件流对象。用于读取文件。</li>
+<li><code>gulp.dest(dirPath/pathArr)</code> ：指向指定的所有文件夹。用于向文件夹中输出文件。</li>
+<li><code>gulp.task(name, [deps], fn)</code> ：定义一个任务</li>
+<li><code>gulp.watch()</code> ：监视文件的变化</li>
+</ul>
+<h2 id="四、插件使用"><a href="#四、插件使用" class="headerlink" title="四、插件使用"></a>四、插件使用</h2><h3 id="1、合并压缩js"><a href="#1、合并压缩js" class="headerlink" title="1、合并压缩js"></a>1、合并压缩js</h3><p><strong>1、创建js文件</strong></p>
+<ul>
+<li>src/js/test1.js<pre><code class="js">(function () {
+  function add(num1, num2) {
+    return num1 + num2;
+  }
+  console.log(add(10, 30));
+})();
+</code></pre>
+</li>
+<li>src/js/test2.js<pre><code class="js">(function () {
+  var arr = [2,3,4].map(function (item, index) {
+      return item+1;
+  });
+  console.log(arr);
+})();
+</code></pre>
+</li>
+</ul>
+<p><strong>2、下载相应插件:</strong></p>
+<pre><code>npm install gulp-concat gulp-uglify gulp-rename --save-dev
+</code></pre><p><strong>3、配置 gulpfile.js</strong></p>
+<pre><code class="js">// 引入gulp模块
+var gulp = require(&quot;gulp&quot;);
+//引入gulp插件
+var concat = require(&quot;gulp-concat&quot;);
+var uglify = require(&quot;gulp-uglify&quot;);
+var rename = require(&quot;gulp-rename&quot;);
+
+gulp.task(&#39;js&#39;, function () {
+  return gulp.src(&#39;src/js/*.js&#39;)  // 引入js源文件
+    .pipe(concat(&#39;build.js&#39;))      // 合并为临时js文件build.js
+    .pipe(gulp.dest(&#39;dist/js/&#39;))   // 输出到dist/js目录下
+    .pipe(uglify())               // 将临时js文件压缩
+    .pipe(rename({                // 将压缩后的js文件添加.min后缀（重命名为build.min.js）
+      suffix: &#39;.min&#39;
+    }))
+    .pipe(gulp.dest(&#39;dist/js/&#39;));  // 再将最终的build.min.js输出到dist/js目录下
+});
+
+gulp.task(&#39;default&#39;, [&#39;js&#39;]);
+</code></pre>
+<blockquote>
+<p>1、插件的引入不同于gulp模块的引入，gulp 的引入之后，gulp是个对象，可以点出task等任务，但是插件引入之后是个方法，既然是方法，就可以直接加括号来调用，此为区别，需要注意。</p>
+<p>2、gulp.src 引入源文件的时候，如果 js目录 下面还有目录，这个目录里面也有js文件，如果想递归引入src里面所有的js可以这样写：<code>src/js/**/*.js</code> ，给 js 目录下面套上一个 <code>**</code> 目录就递归查找 js目录下所有的js文件。</p>
+<p>3、<code>.pipe</code> 是管道操作，用来链接任务的执行流。</p>
+<p>4、rename 方法里面可以直接填写 <code>build.min.js</code>  来指定文件名，也可以使用一个对象，其键为 <code>suffix</code> 表示后缀名的意思，值为 <code>.min</code> 表示后缀名为 .min，但是这里面的后缀名是除开 <code>.js</code> 后缀的，最后在文件名的最后还会加上<code>.js</code>的。</p>
+<p><strong>5、return 的作用：使得grup的任务执行为异步的，就这一点，非常重要。</strong></p>
+</blockquote>
+<p><strong>4、页面引入 js 浏览测试</strong> </p>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;dist/js/built.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="2、合并压缩css-less"><a href="#2、合并压缩css-less" class="headerlink" title="2、合并压缩css/less"></a>2、合并压缩css/less</h3><p><strong>1、创建less/css文件</strong></p>
+<ul>
+<li>src/css/test1.css<pre><code class="css">#div1 {
+  width: 100px;
+  height: 100px;
+  background: green;
+}
+</code></pre>
+</li>
+<li>src/css/test2.css<pre><code class="css">#div2 {
+  width: 200px;
+  height: 200px;
+  background: blue;
+}
+</code></pre>
+</li>
+<li>src/less/test3.less<pre><code class="less">@base: yellow;
+.index1 { color: @base; }
+.index2 { color: green; }
+</code></pre>
+</li>
+</ul>
+<p><strong>2、下载插件</strong></p>
+<pre><code>npm install gulp-less gulp-clean-css --save-dev 
+</code></pre><p><strong>3、配置gulpfile.js</strong></p>
+<pre><code class="js">  var less = require(&#39;gulp-less&#39;);
+  var cleanCSS = require(&#39;gulp-clean-css&#39;);
+
+  //less处理任务
+  gulp.task(&#39;lessTask&#39;, function () {
+    return gulp.src(&#39;src/less/*.less&#39;)
+        .pipe(less()) 
+        .pipe(gulp.dest(&#39;src/css/&#39;));
+  })
+  //css处理任务, 指定依赖的任务
+  gulp.task(&#39;cssTask&#39;,[&#39;lessTask&#39;], function () {
+    return gulp.src(&#39;src/css/*.css&#39;)
+        .pipe(concat(&#39;built.css&#39;))
+        .pipe(gulp.dest(&#39;dist/css/&#39;))
+        .pipe(rename({suffix: &#39;.min&#39;}))
+        .pipe(cleanCSS({compatibility: &#39;ie8&#39;})) // 为了兼容IE8浏览器
+        .pipe(gulp.dest(&#39;dist/css/&#39;));
+  });
+
+  gulp.task(&#39;default&#39;, [&#39;minifyjs&#39;, &#39;cssTask&#39;]);
+</code></pre>
+<blockquote>
+<p>有个问题：</p>
+<p>1、我们知道，grup是异步执行的，那么上面的 less任务和 css任务会异步执行，但是有这个情况就是 less任务量非常大，事件消耗长，而css任务很小，那么有可能 css执行完了 less还没有执行完，也就没有生成 css 任务需要的 css文件，这个时候 css的任务执行就没有包括 less生成的 css文件，相当于 less的任务白做了。</p>
+<p>2、所以，为了保证任务的执行先后，grup也可以同步执行，在gulp.task中传入一个数组，里面是处理当前任务所要依赖的任务，只有依赖的任务完成之后，才会执行当前任务。</p>
+<p>3、所以，grup其实可以同步可以异步，但是它的异步才是它最大的卖点。</p>
+</blockquote>
+<p><strong>4、页面引入css测试</strong></p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/built.min.css&quot;&gt;
+&lt;div id=&quot;div1&quot; class=&quot;index1&quot;&gt;div1111111&lt;/div&gt;
+&lt;div id=&quot;div2&quot; class=&quot;index2&quot;&gt;div2222222&lt;/div&gt;
+</code></pre><h3 id="3、压缩html"><a href="#3、压缩html" class="headerlink" title="3、压缩html"></a>3、压缩html</h3><p><strong>1、下载插件</strong></p>
+<pre><code>npm install gulp-htmlmin --save-dev
+</code></pre><p><strong>2、配置gulpfile.js</strong></p>
+<pre><code class="js">var htmlmin = require(&#39;gulp-htmlmin&#39;);
+//压缩html任务
+gulp.task(&#39;htmlMinify&#39;, function() {
+    return gulp.src(&#39;index.html&#39;)
+        .pipe(htmlmin({collapseWhitespace: true})) // 去除多余的空格
+        .pipe(gulp.dest(&#39;dist/&#39;));
+});
+gulp.task(&#39;default&#39;, [&#39;minifyjs&#39;, &#39;cssTask&#39;, &#39;htmlMinify&#39;]);
+</code></pre>
+<p><strong>3、修改页面引入路径</strong></p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/built.min.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/built.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="4、半自动编译"><a href="#4、半自动编译" class="headerlink" title="4、半自动编译"></a>4、半自动编译</h3><p>我们在 grunt 中有个watch插件，可以实时监视源文件的变化，那么在 gulp中也有类似的插件，叫做<code>gulp-livereload</code> 。</p>
+<p><strong>1、下载插件</strong></p>
+<pre><code>npm install gulp-livereload --save-dev
+</code></pre><p><strong>2、配置gulpfile.js</strong></p>
+<pre><code class="js">var livereload = require(&#39;gulp-livereload&#39;);
+
+//每个任务的最后都应该加上下面这一句
+.pipe(livereload());
+
+gulp.task(&#39;watch&#39;, [&#39;default&#39;], function () {
+  //开启监视
+  livereload.listen();
+  //监视指定的文件, 并指定对应的处理任务
+  gulp.watch(&#39;src/js/*.js&#39;, [&#39;minifyjs&#39;])
+  gulp.watch([&#39;src/css/*.css&#39;,&#39;src/less/*.less&#39;], [&#39;cssTask&#39;,&#39;lessTask&#39;]);
+});
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<p>1、watch 任务执行代码，一定要先执行  default 任务，也就是要把 default 作为 watch 任务的依赖。</p>
+<p>2、在default里的每个任务的最后要接一个管道<code>.pipe(livereload());</code>来保证源文件修改后执行watch任务后，重新刷新到页面。</p>
+</blockquote>
+<h3 id="5、全自动编译"><a href="#5、全自动编译" class="headerlink" title="5、全自动编译"></a>5、全自动编译</h3><p>上面半自动编译的过程，我们可以看到在我们对源码编译保存后，还需要手动刷新浏览器，能不能在我修改源文件保存后自动刷新到浏览器显示呢？</p>
+<p><strong>1、下载插件gulp-connect</strong></p>
+<pre><code>npm install gulp-connect --save-dev
+</code></pre><p><strong>2、配置 gulpfile.js</strong></p>
+<pre><code class="js">var connect = require(&quot;gulp-connect&quot;);
+
+//每个任务的最后都应该加上下面这一句
+.pipe(connect.reload());
+
+// 全自动任务
+gulp.task(&#39;server&#39;, [&#39;default&#39;], function () {
+  connect.server({
+    // 最后要生成的源文件的路径
+    root: &#39;dist/&#39;,
+    // 开启实时刷新
+    livereload: true,
+    // 开启服务器的端口号
+    port: 1000
+  });
+
+  // 监视的源文件
+  gulp.watch(&#39;src/js/*.js&#39;, [&#39;js&#39;]);
+  gulp.watch([&#39;src/css/*.css&#39;, &#39;src/less/*.less&#39;], [&#39;css&#39;]);
+});
+</code></pre>
+<p>问题：每次我还是要复制链接<code>http://localhost:1000/</code> 到浏览器打开网页查看，还是很麻烦哦，能不能自动打开网页？^_^</p>
+<p>0.o 额你也太懒了….不过我还是有办法解决的。</p>
+<p><strong>1、下载插件：open</strong></p>
+<pre><code>npm install open --save-dev
+</code></pre><p><strong>2、配置（只需要加上一句open(你的链接);）</strong></p>
+<pre><code class="js">var open = require(&quot;open&quot;);
+
+gulp.task(&#39;server&#39;, [&#39;default&#39;], function () {
+  connect.server({
+    // 最后要生成的源文件的路径
+    root: &#39;dist/&#39;,
+    // 开启实时刷新
+    livereload: true,
+    // 开启服务器的端口号
+    port: 1000
+  });
+
+  // 自动打开链接
+  open(&quot;http://localhost:1000/&quot;);
+
+  // 监视的源文件
+  gulp.watch(&#39;src/js/*.js&#39;, [&#39;js&#39;]);
+  gulp.watch([&#39;src/css/*.css&#39;, &#39;src/less/*.less&#39;], [&#39;css&#39;]);
+
+});
+</code></pre>
+<h2 id="五、插件打包加载"><a href="#五、插件打包加载" class="headerlink" title="五、插件打包加载"></a>五、插件打包加载</h2><p>插件打包加载的好处是，我们不需要每次在 gulpfile.js 的开始定义插件的方法，而是用一个对象，这个对象的属性中包含所有用到的插件的方法。</p>
+<p><strong>1、将所有需要的插件都下载好。</strong></p>
+<pre><code>npm install gulp-concat gulp-uglify gulp-rename gulp-clean-css gulp-connect gulp-htmlmin gulp-less gulp-livereload open --save-dev
+</code></pre><p><strong>2、下载打包插件： gulp-load-plugins</strong></p>
+<pre><code>npm install gulp-load-plugins --save-dev
+</code></pre><p><strong>3、在gulpfile.js引入</strong></p>
+<pre><code class="js">var $ = require(&#39;gulp-load-plugins&#39;)();
+</code></pre>
+<p>注意：引入的插件是个方法，调用之后的返回值就是我们需要的对象，这个对象中包含之前引入的所有插件的方法，以后用到哪个插件的方法，直接使用 <code>$.方法</code> 的方式即可。</p>
+<pre><code class="js">var gulp = require(&quot;gulp&quot;);
+var $ = require(&quot;gulp-load-plugins&quot;)();
+
+// var concat = require(&quot;gulp-concat&quot;);
+// var uglify = require(&quot;gulp-uglify&quot;);
+// var rename = require(&quot;gulp-rename&quot;);
+// var less = require(&quot;gulp-less&quot;);
+// var cleanCss = require(&quot;gulp-clean-css&quot;);
+// var htmlmin = require(&quot;gulp-htmlmin&quot;);
+// var livereload = require(&quot;gulp-livereload&quot;);
+// var connect = require(&quot;gulp-connect&quot;);
+var open = require(&quot;open&quot;);
+
+// 合并压缩js
+gulp.task(&#39;js&#39;, function () {
+  return gulp.src(&#39;src/js/*.js&#39;)
+    .pipe($.concat(&#39;build.js&#39;))
+    .pipe(gulp.dest(&#39;dist/js/&#39;))
+    .pipe($.uglify())
+    .pipe($.rename({
+      suffix: &#39;.min&#39;
+    }))
+    .pipe(gulp.dest(&#39;dist/js/&#39;))
+    .pipe($.livereload())
+    .pipe($.connect.reload());
+});
+
+// less编译为css
+gulp.task(&#39;less&#39;, function () {
+  return gulp.src(&quot;src/less/*.less&quot;)
+    .pipe($.less())
+    .pipe(gulp.dest(&quot;src/css/&quot;))
+    .pipe($.livereload())
+    .pipe($.connect.reload());
+});
+
+// css合并压缩
+gulp.task(&#39;css&#39;, [&#39;less&#39;], function () {
+  return gulp.src(&#39;src/css/*.css&#39;)
+    .pipe($.concat(&quot;build.css&quot;))
+    .pipe(gulp.dest(&#39;dist/css/&#39;))
+    .pipe($.cleanCss({
+      compatibility: &#39;ie8&#39;
+    }))
+    .pipe($.rename({
+      suffix: &#39;.min&#39;
+    }))
+    .pipe(gulp.dest(&#39;dist/css/&#39;))
+    .pipe($.livereload())
+    .pipe($.connect.reload());
+});
+
+// html压缩
+gulp.task(&#39;html&#39;, function () {
+  return gulp.src(&#39;index.html&#39;)
+    .pipe($.htmlmin({
+      collapseWhitespace: true
+    }))
+    .pipe(gulp.dest(&#39;dist/&#39;))
+    .pipe($.livereload())
+    .pipe($.connect.reload());
+});
+
+// 半自动编译
+gulp.task(&#39;watch&#39;, [&#39;default&#39;], function () {
+  $.livereload.listen();
+  gulp.watch(&#39;src/js/*.js&#39;, [&#39;js&#39;]);
+  gulp.watch([&#39;src/css/*.css&#39;, &#39;src/less/*.less&#39;], [&#39;css&#39;]);
+});
+
+// 全自动编译
+gulp.task(&#39;server&#39;, [&#39;default&#39;], function () {
+  $.connect.server({
+    // 最后要生成的源文件的路径
+    root: &#39;dist/&#39;,
+    // 开启实时刷新
+    livereload: true,
+    // 开启服务器的端口号
+    port: 1000
+  });
+
+  // 自动打开链接
+  open(&quot;http://localhost:1000/&quot;);
+
+  // 监视的源文件
+  gulp.watch(&#39;src/js/*.js&#39;, [&#39;js&#39;]);
+  gulp.watch([&#39;src/css/*.css&#39;, &#39;src/less/*.less&#39;], [&#39;css&#39;]);
+
+});
+
+gulp.task(&#39;default&#39;, [&#39;js&#39;, &#39;less&#39;, &#39;css&#39;, &#39;html&#39;]);
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<p>1、gulp-load-plugins 中没有 open 方法，open插件需要单独引入。</p>
+<p>2、<code>$</code> 包含的方法有个规律，就是它的方法的命名一般都是插件的除去grup的剩下单词的组合，比如 gulp-rename 插件对应的方法，在<code>$</code>对象中就是 <code>$.less</code>  ，gulp-clean-css 插件比较特殊，因为后面两个单词，所以在 <code>$</code> 中的方法遵循驼峰命名法，就是 <code>$.cleanCss</code> 。</p>
+</blockquote>
+<p><img src="https://github.com/Daotin/pic/raw/master/fgx.png" alt></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/custom/donate/WeChatQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent">
+        </div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>
+              知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+        <div class="post-nepre half previous">
+          
+            <a href="/2019/04/09/Webpack/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791497792,811190966&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+                Previous Post</span>
+              <div class="info">
+                <h3>
+                  Webpack</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+          
+          
+          
+          <div class="post-nepre half next">
+            
+              <a href="/2019/04/08/Vue指令/" rel="next">
+                <div class="background">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=772341069,4286210882&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                </div>
+                <span class="label">
+                  Next Post</span>
+                <div class="info">
+                  <h3>
+                    Vue指令</h3>
+                  <hr>
+                </div>
+              </a>
+            </div>
+            
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="fudaqiang.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3/images/donate/rooon.gif" itemprop="image" alt="強い" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+              <a href="fudaqiang.com" itemprop="url" rel="author">強い</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 強い<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+      <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/qiang520184/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="http://www.fudaqiang.com/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">qiang</a>, Powered by Hexo,
+          Hosted by Coding Pages
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "close"
+      },
+      "windowheight": "fixed",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  } else {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "false",
+        "name": "Unbroken.mp4",
+        "live": "open"
+      },
+      "windowheight": "auto",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  }
+  /* ]]> */
+</script>
+<script>
+  $(document).ready(function () {
+    if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+      if ($(".pattern-center").length > 0) { //有图的情况
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+        });
+      } else {
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+        });
+      }
+      var offsetTop = $('.toc').offset().top - 95;
+      window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop >= offsetTop) {
+          $('.toc').addClass('toc-fixed');
+        } else {
+          $('.toc').removeClass('toc-fixed');
+        }
+      }
+    }
+  });
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/qiang520184/cdn@1.3.2/images/donate/rooon.gif">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その強い</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/qiang520184" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/xq520184" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=199513521&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .lrc-show {
+    display: block !important;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="2523258784" data-server="netease" data-type="playlist" data-fixed="true" data-order="random">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>強い</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://fudaqiang.com/"/>
+  <updated>2019-04-09T05:25:26.033Z</updated>
+  <id>http://fudaqiang.com/</id>
+  
+  <author>
+    <name>強い</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vuex</title>
+    <link href="http://fudaqiang.com/2019/04/09/vuex/"/>
+    <id>http://fudaqiang.com/2019/04/09/vuex/</id>
+    <published>2019-04-09T05:24:15.000Z</published>
+    <updated>2019-04-09T05:25:26.033Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;p&gt;​    &lt;/p&gt;
+&lt;h2 id=&quot;一、Vuex&quot;&gt;&lt;a href=&quot;#一、Vuex&quot; class=&quot;headerlink&quot; title=&quot;一、Vuex&quot;&gt;&lt;/a&gt;一、Vuex&lt;/h2&gt;&lt;p&gt;Vuex 是一个专为 Vue.js
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue的动画</title>
+    <link href="http://fudaqiang.com/2019/04/09/Vue%E7%9A%84%E5%8A%A8%E7%94%BB/"/>
+    <id>http://fudaqiang.com/2019/04/09/Vue的动画/</id>
+    <published>2019-04-09T03:47:27.000Z</published>
+    <updated>2019-04-09T05:25:42.503Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h2 id=&quot;一、Vue的动画&quot;&gt;&lt;a href=&quot;#一、Vue的动画&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>grunt</title>
+    <link href="http://fudaqiang.com/2019/04/09/grunt/"/>
+    <id>http://fudaqiang.com/2019/04/09/grunt/</id>
+    <published>2019-04-09T03:22:55.000Z</published>
+    <updated>2019-04-09T03:42:56.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+            &lt;!-- [TOC] --&gt;
+&lt;!-- &gt;大家好，这里是「 从零开始学 Web 系列教程 」，并在下列地址同步更新......
+&gt;
+&gt; - github：https://github.com/Daotin/Web
+&gt; -
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Webpack</title>
+    <link href="http://fudaqiang.com/2019/04/09/Webpack/"/>
+    <id>http://fudaqiang.com/2019/04/09/Webpack/</id>
+    <published>2019-04-09T02:01:13.000Z</published>
+    <updated>2019-04-09T03:42:26.895Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+            &lt;!-- [TOC] --&gt;
+&lt;p&gt;##一、Webpack介绍&lt;/p&gt;
+&lt;p&gt;Webpack 中文官网 &lt;a href=&quot;https://www.webpackjs.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp</title>
+    <link href="http://fudaqiang.com/2019/04/09/Gulp/"/>
+    <id>http://fudaqiang.com/2019/04/09/Gulp/</id>
+    <published>2019-04-09T01:24:39.000Z</published>
+    <updated>2019-04-09T03:42:57.469Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+            &lt;!-- [TOC] --&gt;
+&lt;!-- &gt;大家好，这里是「 从零开始学 Web 系列教程 」，并在下列地址同步更新......
+&gt;
+&gt; - github：https://github.com/Daotin/Web
+&gt; -
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue指令</title>
+    <link href="http://fudaqiang.com/2019/04/08/Vue%E6%8C%87%E4%BB%A4/"/>
+    <id>http://fudaqiang.com/2019/04/08/Vue指令/</id>
+    <published>2019-04-08T14:16:33.000Z</published>
+    <updated>2019-04-09T03:39:25.889Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+           &lt;!--[TOC]--&gt;
+&lt;h2 id=&quot;Vue-指令&quot;&gt;&lt;a href=&quot;#Vue-指令&quot; class=&quot;headerlink&quot; title=&quot;Vue 指令&quot;&gt;&lt;/a&gt;Vue 指令&lt;/h2&gt;&lt;h3 id=&quot;1、插值表达式&quot;&gt;&lt;a href=&quot;#1、插值表达式&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>严格模式</title>
+    <link href="http://fudaqiang.com/2019/04/08/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://fudaqiang.com/2019/04/08/严格模式/</id>
+    <published>2019-04-08T14:16:33.000Z</published>
+    <updated>2019-04-09T01:17:59.137Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h3 id=&quot;一、ECMAScript-5-严格模式&quot;&gt;&lt;a href=&quot;#一、ECMAScript-5-严格模式&quot; class=&quot;headerlink&quot; title=&quot;一、ECMAScript 5 严格模式&quot;&gt;&lt;/a&gt;一、ECMAScript
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CommonJS、AMD、CMD、ES6</title>
+    <link href="http://fudaqiang.com/2019/04/08/CommonJS%E3%80%81AMD%E3%80%81CMD%E3%80%81ES6/"/>
+    <id>http://fudaqiang.com/2019/04/08/CommonJS、AMD、CMD、ES6/</id>
+    <published>2019-04-08T11:47:28.000Z</published>
+    <updated>2019-04-09T03:42:55.272Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+           &lt;!--[TOC]--&gt;
+&lt;!-- ![](https://user-gold-cdn.xitu.io/2018/12/16/167b650e8d1fcc23?imageView2/0/w/1280/h/960/format/webp/ignore-error/1) 
+        
+      
+    
+    </summary>
+    
+      <category term="技术 模块化" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF-%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试Mathjax支持</title>
+    <link href="http://fudaqiang.com/2019/02/21/%E6%B5%8B%E8%AF%95Mathjax%E6%94%AF%E6%8C%81/"/>
+    <id>http://fudaqiang.com/2019/02/21/测试Mathjax支持/</id>
+    <published>2019-02-21T09:55:11.000Z</published>
+    <updated>2019-04-09T03:45:11.289Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h2&gt;&lt;p&gt;When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="http://fudaqiang.com/2018/12/12/Hexo-Theme-Sakura/"/>
+    <id>http://fudaqiang.com/2018/12/12/Hexo-Theme-Sakura/</id>
+    <published>2018-12-12T14:16:01.000Z</published>
+    <updated>2019-04-08T08:18:18.484Z</updated>
+    
+    <summary type="html">
+    
+      最近又一次接触到了web端全景，是在720yun上，发现有好多用户上传的全景照片。再也按捺不住那颗好奇的心，去探究了下720云是怎么实现web端全景展示的。
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="http://fudaqiang.com/tags/web/"/>
+    
+      <category term="悦读" scheme="http://fudaqiang.com/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修饰符</title>
+    <link href="http://fudaqiang.com/2018/10/08/%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
+    <id>http://fudaqiang.com/2018/10/08/修饰符/</id>
+    <published>2018-10-08T14:16:33.000Z</published>
+    <updated>2019-04-09T03:45:36.807Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- [TOC] --&gt;
+&lt;h2 id=&quot;一、事件修饰符&quot;&gt;&lt;a href=&quot;#一、事件修饰符&quot; class=&quot;headerlink&quot; title=&quot;一、事件修饰符&quot;&gt;&lt;/a&gt;一、事件修饰符&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;.stop&lt;/code&gt;  ： 
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>javascript数组去重</title>
+    <link href="http://fudaqiang.com/2018/10/08/javascript%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://fudaqiang.com/2018/10/08/javascript数组去重/</id>
+    <published>2018-10-08T12:03:06.000Z</published>
+    <updated>2019-04-08T14:22:22.442Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+           &lt;!--[TOC]--&gt;
+&lt;h5 id=&quot;set去重&quot;&gt;&lt;a href=&quot;#set去重&quot; class=&quot;headerlink&quot; title=&quot;set去重&quot;&gt;&lt;/a&gt;set去重&lt;/h5&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;var arr =
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://fudaqiang.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+</feed>
